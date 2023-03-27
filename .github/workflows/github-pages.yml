@@ -1,4 +1,4 @@
-... 
+name: jekyll-ghpages
   publish-current-version: 
     runs-on: ubuntu-latest
     steps:
