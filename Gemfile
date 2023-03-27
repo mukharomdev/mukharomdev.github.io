@@ -9,6 +9,7 @@ gem 'jekyll-readme-index'
 gem 'jemoji'
 gem 'webrick'
 gem 'coderay'
+gem 'sass', '~> 3.1', '>= 3.1.6'
 
 group :jekyll_plugins do
   gem 'jekyll-asciidoc'
