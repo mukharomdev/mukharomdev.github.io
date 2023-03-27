@@ -1,44 +1,21 @@
-name: jekyll-ghpages
+name: Build and deploy Jekyll site to GitHub Pages
 
+on:
+  push:
+    branches:
+      - main # or master before October 2020
 
-  publish-current-version: 
+jobs:
+  github-pages:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-      with:
-        ref: main
-    - name: Run with dest path
-      uses: helaili/jekyll-build@v2
-      with:
-        target_branch: gh-pages
-        target_path: /
-        keep_history: true
-        token: ${{ secrets.CODE_MDEV_TOKEN }}
-
-  publish-v2-version: 
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-      with:
-        ref: v2.0
-    - name: Run with dest path
-      uses: helaili/jekyll-build@v2
-      with:
-        target_branch: gh-pages
-        target_path: v2.0
-        keep_history: true
-        token: ${{ secrets.CODE_MDEV_TOKEN }}
-  
-  publish-v1-version: 
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-      with:
-        ref: v1.0
-    - name: Run with dest path
-      uses: helaili/jekyll-build@v2
-      with:
-        target_branch: gh-pages
-        target_path: v1.0        
-        keep_history: true
-        token: ${{ secrets.CODE_MDEV_TOKEN }}
+      - uses: actions/checkout@v2
+      - uses: actions/cache@v2
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
+      - uses: helaili/jekyll-action@2.0.5    # Choose any one of the Jekyll Actions
+        with:                                # Some relative inputs of your action
+          token: ${{ secrets.CODE_MDEV_TOKEN }
