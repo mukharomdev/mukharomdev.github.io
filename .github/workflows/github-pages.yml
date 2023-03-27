@@ -22,18 +22,18 @@ jobs:
           ${{ runner.os }}-gems-
 
     # Standard usage
-    - uses:  helaili/jekyll-action@v2.0.5
+    - uses: actions/jekyll-build-pages@v1.0.7
       with:
         token: ${{ secrets.CODE_MDEV_TOKEN }}
 
     # Specify the Jekyll source location as a parameter
-    - uses: helaili/jekyll-action@v2.0.5
+    - uses: actions/jekyll-build-pages@v1.0.7
       with:
         token: ${{ secrets.CODE_MDEV_TOKEN }}
         jekyll_src: ' . '
 
     # Specify the target branch (optional)
-    - uses: helaili/jekyll-action@v2.0.5
+    - uses: actions/jekyll-build-pages@v1.0.7
       with:
         token: ${{ secrets.CODE_MDEV_TOKEN }}
         target_branch: 'gh-pages'
