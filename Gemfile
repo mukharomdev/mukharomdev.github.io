@@ -8,5 +8,11 @@ gem 'jekyll-feed'
 gem 'jekyll-readme-index'
 gem 'jemoji'
 gem 'webrick'
+gem 'coderay'
+
+group :jekyll_plugins do
+  gem 'jekyll-asciidoc'
+end
+
 
 # gem "rails"
