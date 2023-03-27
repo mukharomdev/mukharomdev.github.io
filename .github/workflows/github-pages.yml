@@ -10,7 +10,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: Install dependencies
       run: |
-         gem update --system
+         apt update
+         apt upgrade
 
     # Use GitHub Actions' cache to shorten build times and decrease load on servers
     - uses: actions/cache@v2
