@@ -14,7 +14,7 @@ baseurl:          '/'
 rss:              RSS
 
 # bootstrap: use the remote theme for the site itself
-remote_theme: mukharomdev/jekyll-gitbook
+remote_theme: mukharomdev/mukharomdev.github.io
 
 toc:
   enabled: true
