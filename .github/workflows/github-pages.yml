@@ -30,7 +30,7 @@ jobs:
     - uses: actions/jekyll-build-pages@v1.0.7
       with:
         token: ${{ secrets.CODE_MDEV_TOKEN }}
-        source: GITHUB_WORKSPACE
+        source: {{ githuv.head_ref }}
 
     # Specify the target branch (optional)
     - uses: actions/jekyll-build-pages@v1.0.7
