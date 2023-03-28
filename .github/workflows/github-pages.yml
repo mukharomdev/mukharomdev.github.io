@@ -36,4 +36,4 @@ jobs:
     - uses: actions/jekyll-build-pages@v1.0.7
       with:
         token: ${{ secrets.CODE_MDEV_TOKEN }}
-        target_branch: 'gh-pages'
+        destination: './_site'
