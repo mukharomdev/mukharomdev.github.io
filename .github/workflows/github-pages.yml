@@ -23,20 +23,20 @@ jobs:
 
     
 
-    # Specify the Jekyll source location as a parameter
-    - uses: actions/jekyll-build-pages@v1.0.7
-      with:
-        token: ${{ secrets.CODE_MDEV_TOKEN }}
-        source: '.'
+    # # Specify the Jekyll source location as a parameter
+    # - uses: actions/jekyll-build-pages@v1.0.7
+    #   with:
+    #     token: ${{ secrets.CODE_MDEV_TOKEN }}
+    #     source: '.'
 
-    # use actions-gh-pages to deploy
-    # https://github.com/peaceiris/actions-gh-pages
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-          # GITHUB_TOKEN secret is set up automatically
-          github_token: ${{ secrets.CODE_MDEV_TOKEN }}
-          publish_dir: ./_site
+    # # use actions-gh-pages to deploy
+    # # https://github.com/peaceiris/actions-gh-pages
+    # - name: Deploy
+    #   uses: peaceiris/actions-gh-pages@v3
+    #   with:
+    #       # GITHUB_TOKEN secret is set up automatically
+    #       github_token: ${{ secrets.CODE_MDEV_TOKEN }}
+    #       publish_dir: ./_site
    # Use GitHub Deploy Action to build and deploy to Github
     - uses: jeffreytse/jekyll-deploy-action@v0.4.0
       with:
