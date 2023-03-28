@@ -21,10 +21,7 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-gems-
 
-    # Standard usage
-    - uses: actions/jekyll-build-pages@v1.0.7
-      with:
-        token: ${{ secrets.CODE_MDEV_TOKEN }}
+    
 
     # Specify the Jekyll source location as a parameter
     - uses: actions/jekyll-build-pages@v1.0.7
@@ -33,7 +30,7 @@ jobs:
         source: '.'
 
     # Specify the target branch (optional)
-    - uses: actions/jekyll-build-pages@v1.0.7
-      with:
-        token: ${{ secrets.CODE_MDEV_TOKEN }}
-        destination: './_site'
+    #- uses: actions/jekyll-build-pages@v1.0.7
+     # with:
+      #  token: ${{ secrets.CODE_MDEV_TOKEN }}
+        #destination: './_site'
