@@ -1,9 +1,18 @@
 ---
 title: Contact
-author: Tao He
-date: 2022-02-05
-category: Jekyll
+author: Mukharomdev
+date: 2023-03-27
+category: Bio
 layout: post
 ---
 
-This is an contact page.
+please email me to :
+
+mukharomdev@gmail.com
+
+
+- No Spamming
+- No Racism
+
+
+best regards
