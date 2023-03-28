@@ -67,4 +67,9 @@
         {%- include application-insights.html -%}
     {%- endif -%}
 
+    {%- if site.tracker.google_analitics -%}
+        <!-- application insights -->
+        {%- include google-analitics.html -%}
+    {%- endif -%}
+
 {%- endif -%}
