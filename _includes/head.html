@@ -68,8 +68,12 @@
     {%- endif -%}
 
     {%- if site.tracker.google_analytics -%}
-        <!-- application insights -->
+        <!-- google anaytics  -->
         {%- include google-analytics.html -%}
+    {%- endif -%}
+    {%- if site.tracker.google_tag_manager -%}
+        <!-- google tag manager -->
+        {%- include google-tag-manager-head.html -%}
     {%- endif -%}
 
 {%- endif -%}
