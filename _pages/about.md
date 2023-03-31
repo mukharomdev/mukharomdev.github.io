@@ -26,7 +26,13 @@ layout: post
 ---
 <figure>
     <img src="../../assets/images-fam/tinified/nining-ibu-yodharishang.jpg"
-         alt="Rishang dan Anin" width="800" height="600">
+         alt="Nining ibu yodharishang" width="800" height="600">
     <figcaption>Ibunya anak-anak lagi selfi...</figcaption>
+</figure>
+---
+<figure>
+    <img src="../../assets/images-fam/tinified/mukharomdev-fam1.jpg"
+         alt="mukharomdev " width="800" height="600">
+    <figcaption>...Selfi bareng teman</figcaption>
 </figure>
 ---
