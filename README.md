@@ -1,6 +1,3 @@
----
-layout: home
-title: home
-permalink: /
----
+# Project blog pribadi
 
+mukharomdev.github.io
