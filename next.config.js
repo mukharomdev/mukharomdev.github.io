@@ -2,7 +2,7 @@
 
 
 const nextConfig = {
-  basePath: "/blog",
+  basePath: "/mukharomdev.github.io",
   output: "export",
   reactStrictMode: true,
 };
