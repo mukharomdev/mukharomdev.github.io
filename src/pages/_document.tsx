@@ -7,8 +7,6 @@ export default function Document() {
         <ThemeModeScript />
       </head>
       <body>
-        <main />
-        <NextScript />
       </body>
     </html>
   );
