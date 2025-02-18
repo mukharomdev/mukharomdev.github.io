@@ -1,0 +1,15 @@
+import { ThemeModeScript } from "flowbite-react";
+
+export default function Document() {
+  return (
+    <Html suppressHydrationWarning>
+      <Head>
+        <ThemeModeScript />
+      </Head>
+      <body>
+        <Main />
+        <NextScript />
+      </body>
+    </Html>
+  );
+}

@@ -1,7 +1,9 @@
+import { Button } from "flowbite-react";
 
-
-
-
-export default function Page() {
-  return <h1>Hello, saya mukharomdev!!!</h1>
+export default function Index() {
+  return (
+    <div>
+      <Button>Click me</Button>
+    </div>
+  );
 }
