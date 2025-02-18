@@ -27,7 +27,7 @@ jobs:
           version: latest
           run_install: false
 
-      # Step 4: Cache PNPM store and Next.js build cache
+      # Step 4: Cache PNPM store and Next.js build cachee
       - name: Get PNPM store directory
         id: pnpm-cache
         run: echo "dir=$(pnpm store path)" >> $GITHUB_OUTPUT
