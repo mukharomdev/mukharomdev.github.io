@@ -1,3 +1,5 @@
+const path = require('path');
+
 const isProd = process.env.NODE_ENV === 'production';
 const nextConfig = {
   output: 'export',
@@ -8,6 +10,10 @@ const nextConfig = {
   },
   assetPrefix: isProd ? '/mukharomdev.github.io/' : '',
   basePath: isProd ? '/mukharomdev.github.io' : '',
+  webpack: (config) => {
+    config.resolve.alias['@'] = path.resolve(__dirname, 'src');
+    return config;
+  },
   };
 
 export default nextConfig;
