@@ -3,7 +3,9 @@
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
-		"lint": "next lint"
+		"lint": "next lint",
+		"predeploy": "pnpm build",
+    	"deploy": "gh-pages -d out"
 	},
 	"dependencies": {
 		"next": "^15.1.7",
@@ -13,6 +15,7 @@
 	"devDependencies": {
 		"@types/node": "22.13.4",
 		"@types/react": "19.0.10",
+		"gh-pages": "^6.3.0",
 		"typescript": "5.7.3"
 	}
 }
