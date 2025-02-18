@@ -2,7 +2,7 @@ import { ThemeModeScript } from "flowbite-react";
 
 export default function Document() {
   return (
-    <Html suppressHydrationWarning>
+    <html suppressHydrationWarning>
       <Head>
         <ThemeModeScript />
       </Head>
@@ -10,6 +10,6 @@ export default function Document() {
         <Main />
         <NextScript />
       </body>
-    </Html>
+    </html>
   );
 }
