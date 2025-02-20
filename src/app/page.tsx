@@ -3,7 +3,7 @@ import { Button } from "flowbite-react";
 export default function Index() {
   return (
     <div>
-      <Button>Click me</Button>
+     <h1>root app </h1>
     </div>
   );
 }
