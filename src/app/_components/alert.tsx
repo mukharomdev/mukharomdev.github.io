@@ -1,5 +1,5 @@
 import Container from "./container";
-import { EXAMPLE_PATH } from "@/lib/constants";
+import { EXAMPLE_PATH } from "./../lib/constants";
 import cn from "classnames";
 
 type Props = {
