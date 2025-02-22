@@ -10,7 +10,7 @@ const nextConfig = {
   },
   assetPrefix: isProd ? '/mukharomdev.github.io/' : '',
   basePath: isProd ? '/mukharomdev.github.io' : '',
-  webpack: (config) => {
+  webpack: (config:any) => {
     config.resolve.alias['@'] = path.resolve(__dirname, 'src');
     return config;
   },
