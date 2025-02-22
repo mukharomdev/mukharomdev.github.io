@@ -1,9 +1,9 @@
 import { Button } from "flowbite-react";
 
-export default function Index1() {
+export default function Home() {
   return (
     <div>
-      <Button>Click me</Button>
+      <h1>Ini home </h1>
     </div>
   );
 }

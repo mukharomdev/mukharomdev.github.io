@@ -1,6 +1,6 @@
 import { Button } from "flowbite-react";
 
-export default function Index2() {
+export default function Blog() {
   return (
     <div>
       <Button>Click me</Button>
