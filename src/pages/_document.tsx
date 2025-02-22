@@ -1,13 +1,13 @@
-import { ThemeModeScript } from "flowbite-react";
+// import { ThemeModeScript } from "flowbite-react";
 
-export default function Document() {
-  return (
-    <html suppressHydrationWarning>
-      <head>
-        <ThemeModeScript />
-      </head>
-      <body>
-      </body>
-    </html>
-  );
-}
+// export default function Document() {
+//   return (
+//     <html suppressHydrationWarning>
+//       <head>
+//         <ThemeModeScript />
+//       </head>
+//       <body>
+//       </body>
+//     </html>
+//   );
+// }
