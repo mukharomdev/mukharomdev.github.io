@@ -10,8 +10,8 @@ if (isWorkerd) {
 
 const nextConfig: NextConfig = {
   output:"export",
-  basePath: process.env.PAGES_BASE_PATH,
-  assetPrefix: process.env.PAGES_BASE_PATH + "/",
+  basePath: "/mukharomdev.github.io",
+  assetPrefix: "/mukharomdev.github.io/",
   cleanDistDir: true,
   reactStrictMode: true,
   poweredByHeader: false,
