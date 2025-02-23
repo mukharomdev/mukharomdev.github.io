@@ -1,3 +1,6 @@
+[![Deploy Next.js to GitHub Pages](https://github.com/mukharomdev/mukharomdev.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/mukharomdev/mukharomdev.github.io/actions/workflows/deploy.yml)
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
