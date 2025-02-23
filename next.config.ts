@@ -9,6 +9,9 @@ if (isWorkerd) {
 }
 
 const nextConfig: NextConfig = {
+  output:"export",
+  basePath:"/mukharomdev.github.io",
+  assetPrefix:"/mukharomdev.github.io/",
   cleanDistDir: true,
   reactStrictMode: true,
   poweredByHeader: false,
