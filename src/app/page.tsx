@@ -20,13 +20,13 @@ export default function Home() {
           priority
         />
         <ul>
-          <li className="text-4xl antialiased bg-rose-700">Blog</li>
-          <li className="text-4xl antialiased bg-rose-700">Portfolio</li>
+          <li className="text-4xl antialiased text-rose-700">Blog</li>
+          <li className="text-4xl antialiased text-rose-700">Portfolio</li>
         </ul>
 
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-      <h1 className="bg-rose-700">{dates}</h1>
+      <h1 className="text-rose-700">{dates}</h1>
       </footer>
     </div>
     </>
