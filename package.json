@@ -1,29 +1,76 @@
 {
-  "name": "n",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev ",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "next": "15.1.7",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
-  },
-  "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "@tailwindcss/postcss": "^4.0.8",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "autoprefixer": "^10.4.20",
-    "eslint": "^9",
-    "eslint-config-next": "15.1.7",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5"
-  }
+    "name": "next-start",
+    "version": "0.0.0",
+    "type": "module",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "preview": "wireit",
+        "typegen": "wireit",
+        "deploy": "wireit",
+        "build:workers": "wireit",
+        "cleanup": "pnpm dlx del-cli .{next,open-next,wrangler} out",
+        "update-deps": "npm-check-updates",
+        "check": "biome check . --write",
+        "format": "biome format . --write",
+        "lint": "biome lint . --write",
+        "typecheck": "tsc -b"
+    },
+    "dependencies": {
+        "clsx": "^2.1.1",
+        "consola": "^3.4.0",
+        "lucide-react": "^0.475.0",
+        "next": "15.1.7",
+        "react": "^19.0.0",
+        "react-dom": "^19.0.0",
+        "std-env": "^3.8.0",
+        "tailwind-merge": "^3.0.1",
+        "tailwind-variants": "^0.3.1"
+    },
+    "devDependencies": {
+        "@biomejs/biome": "^1.9.4",
+        "@cloudflare/workers-types": "^4.20250214.0",
+        "@eslint/eslintrc": "^3.2.0",
+        "@opennextjs/cloudflare": "0.5.x",
+        "@tailwindcss/postcss": "^4.0.7",
+        "@types/node": "22.13.4",
+        "@types/react": "^19.0.10",
+        "@types/react-dom": "^19.0.4",
+        "eslint": "^9.20.1",
+        "eslint-config-next": "15.1.7",
+        "npm-check-updates": "^17.1.14",
+        "postcss": "^8.5.3",
+        "tailwindcss": "^4.0.7",
+        "tailwindcss-motion": "^1.1.0",
+        "typescript": "5.7.3",
+        "wireit": "^0.14.11",
+        "wrangler": "^3.109.2"
+    },
+    "wireit": {
+        "build:workers": {
+            "command": "opennextjs-cloudflare",
+            "output": [".next/**", ".open-next/**"],
+            "dependencies": ["typegen"],
+            "clean": "if-file-deleted"
+        },
+        "deploy": {
+            "command": "wrangler deploy",
+            "dependencies": ["build:workers"]
+        },
+        "preview": {
+            "command": "wrangler dev",
+            "dependencies": ["build:workers"],
+            "service": true
+        },
+        "typegen": {
+            "command": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
+            "output": ["cloudflare-env.d.ts"]
+        }
+    },
+    "packageManager": "pnpm@10.4.1",
+    "pnpm": {
+        "onlyBuiltDependencies": ["@biomejs/biome", "esbuild", "sharp", "workerd"]
+    }
 }

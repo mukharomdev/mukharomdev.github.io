@@ -1,10 +1,20 @@
-import type { NextConfig } from "next";
+import { initOpenNextCloudflareForDev } from '@opennextjs/cloudflare'
+import consola from 'consola'
+import type { NextConfig } from 'next'
+import { isWorkerd } from 'std-env'
+
+if (isWorkerd) {
+  consola.withTag('nextConfig').log('Initializing OpenNext for Cloudflare Workers')
+  initOpenNextCloudflareForDev()
+}
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  output : "export",
-  assetPrefix : "/mukharomdev.github.io/",
-  basePath : "/mukharomdev.github.io",
-};
+  cleanDistDir: true,
+  reactStrictMode: true,
+  poweredByHeader: false,
+  eslint: {
+    ignoreDuringBuilds: true /* disable eslint on build */,
+  },
+}
 
-export default nextConfig;
+export default nextConfig
