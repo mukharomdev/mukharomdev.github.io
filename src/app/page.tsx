@@ -27,7 +27,7 @@ export default function Home() {
         />
         
         <h1 className="text-4xl antialiased text-rose-700 space-y-4 mt-4 mb-10">
-          Mukharomdev :
+        {U+1F917} Mukharomdev {U+1F917} 
         </h1>
         <List className="text-4xl antialiased text-rose-700 space-y-4">
           <List.Item icon={TiArrowRightOutline}>
