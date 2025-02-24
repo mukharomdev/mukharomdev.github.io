@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from 'next/link';
+import { List } from "flowbite-react";
+import { TiArrowRightOutline } from "react-icons/ti";
 
 import {
   DateLocal
@@ -14,9 +16,7 @@ export default function Home() {
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         {/* link blog dan portfolio */}
         <div id="linkblog" className="text-center">
-        <h1 className="text-4xl antialiased text-rose-700 space-y-4 mt-10 ">
-          Mukharomdev
-        </h1>
+       
         <Image
           className="dark:invert rounded-full border-4 border-blue-500 "
           src="/mukharomdev.png"
@@ -26,10 +26,18 @@ export default function Home() {
           priority
         />
         
-        <ul className="text-4xl antialiased text-rose-700 space-y-4">
-         <li><Link href="/blog">Blog</Link></li>
-         <li><Link href="/portfolio">portfolio</Link> </li>             
-        </ul>
+        <h1 className="text-4xl antialiased text-rose-700 space-y-4 mt-4 mb-10">
+          Mukharomdev :
+        </h1>
+        <List className="text-4xl antialiased text-rose-700 space-y-4">
+          <List.Item icon={TiArrowRightOutline}>
+            <Link href="/blog">Blog</Link>
+          </List.Item>
+          <List.Item icon={TiArrowRightOutline}>
+            <Link href="/portfolio">Portfolio</Link>
+          </List.Item>
+        </List>
+
         </div>
          {/* endline link blog dan portfolio */}
 
