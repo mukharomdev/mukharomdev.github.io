@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from 'next/link';
 import { List } from "flowbite-react";
 import { TiArrowRightOutline } from "react-icons/ti";
-
+import Emoji from "react-emoji-render";
 import {
   DateLocal
 } from '@/utils'
@@ -26,10 +26,10 @@ export default function Home() {
           priority
         />
         
-        <h1 className="text-4xl antialiased text-rose-700 space-y-4 mt-4 mb-10">
-        U+1F917 Mukharomdev U+1F917
+        <h1 className="text-4xl antialiased text-lime-700 space-y-4 mt-4 mb-10">
+        <Emoji> with ❤️ Mukharomdev 🚀🚀 </Emoji>
         </h1>
-        <List className="text-4xl antialiased text-rose-700 space-y-4">
+        <List className="text-4xl underline antialiased text-lime-700 space-y-4">
           <List.Item icon={TiArrowRightOutline}>
             <Link href="/blog">Blog</Link>
           </List.Item>
