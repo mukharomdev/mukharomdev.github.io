@@ -1,32 +1,41 @@
 import Image from "next/image";
+import Link from 'next/link';
 
-// import {
-//   DateLocal
-// } from '@/utils'
+import {
+  DateLocal
+} from '@/utils'
 
 export default function Home() {
-  const date = new Date()  
-  const dates = date.toString()
+  const date = DateLocal() 
+ 
   return (
     <>
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+        {/* link blog dan portfolio */}
+        <div id="linkblog" className="text-center">
+        <h1 className="text-4xl antialiased text-rose-700 space-y-4 mt-10 ">
+          Mukharomdev
+        </h1>
         <Image
-          className="dark:invert rounded"
+          className="dark:invert rounded-full border-4 border-blue-500 "
           src="/mukharomdev.png"
           alt="picture "
-          width={180}
-          height={120}
+          width={350}
+          height={350}
           priority
         />
-        <ul>
-          <li className="text-4xl antialiased text-rose-700">Blog</li>
-          <li className="text-4xl antialiased text-rose-700">Portfolio</li>
+        
+        <ul className="text-4xl antialiased text-rose-700 space-y-4">
+         <li><Link href="/blog">Blog</Link></li>
+         <li><Link href="/portfolio">portfolio</Link> </li>             
         </ul>
+        </div>
+         {/* endline link blog dan portfolio */}
 
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-      <h1 className="text-rose-700">{dates}</h1>
+      <h1 className="text-rose-700" >{date.toISOString()}</h1>
       </footer>
     </div>
     </>

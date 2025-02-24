@@ -1,9 +1,15 @@
-// import {dayjs,localizedFormat} from '@/lib'
+import {
+dayjs,
+// localizedFormat
+} from '@/lib'
 
 
 
-// export function DateLocal(){
-// 	// dayjs.extend(localizedFormat);
 
-// 	dayjs().format("L LT");
-// }
+
+export function DateLocal(){
+    let d = new Date()
+    let day = dayjs(d)
+
+	return day
+}
