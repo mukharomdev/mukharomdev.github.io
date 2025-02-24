@@ -1,4 +1,4 @@
-import * as dayjs from 'dayjs' // ES 2015
+import  dayjs from 'dayjs' // ES 2015
 
 
 

@@ -9,7 +9,11 @@ dayjs
 
 export function DateLocal(){
     const d = new Date()
-    const day = dayjs(d)
+    let day = null
+    if(typeof dayjs() == 'function'){
+         day = dayjs(d)
+    }
+   
 
 	return day
 }
