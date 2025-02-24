@@ -1,6 +1,6 @@
 import {
 dayjs,
-// localizedFormat
+
 } from '@/lib'
 
 
@@ -8,8 +8,8 @@ dayjs,
 
 
 export function DateLocal(){
-    let d = new Date()
-    let day = dayjs(d)
+    const d = new Date()
+    const day = dayjs(d)
 
 	return day
 }
