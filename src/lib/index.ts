@@ -1,1 +1,8 @@
-export = * as dayjs from 'dayjs'
+import * as dayjs from 'dayjs' // ES 2015
+
+
+
+
+
+
+export { dayjs}
