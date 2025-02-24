@@ -1,1 +1,1 @@
-export * as dayjs from 'dayjs'
+export = * as dayjs from 'dayjs'
