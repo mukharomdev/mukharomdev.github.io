@@ -5,8 +5,9 @@ import { memo, useEffect, useState } from "react";
 
 
 declare global {
-  let updateDOM: () => void;
-  let window:any 
+  interface Window {
+    updateDOM: () => void; // Add custom property to `window`
+  }
 }
 
 type ColorSchemePreference = "system" | "dark" | "light";
