@@ -17,7 +17,7 @@ const posts = [
 type Params = Promise<{ slug: string }>
 
 // Fungsi untuk menghasilkan static paths
-export async function generateStaticParams():Promise<{slug:string}>[]{
+export async function generateStaticParams():Params[]{
   // const response = await fetch(posts);
   // const posts: Post[] = await response.json(); // Ganti `any` dengan tipe `Post[]`
   // const data:Post[] = posts
