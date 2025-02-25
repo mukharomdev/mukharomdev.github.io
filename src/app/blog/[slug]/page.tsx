@@ -10,7 +10,7 @@ const posts = [
 // Tipe untuk params
 type PageProps = {
   params: { slug: string };
-};
+} | any;
 
 // Fungsi untuk menghasilkan static paths
 export async function generateStaticParams() {
