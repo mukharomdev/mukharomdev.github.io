@@ -3,8 +3,9 @@
 import styles from "./switch.module.css";
 import { memo, useEffect, useState } from "react";
 
+
 declare global {
-  var updateDOM: () => void;
+  let updateDOM: () => void;
 }
 
 type ColorSchemePreference = "system" | "dark" | "light";
