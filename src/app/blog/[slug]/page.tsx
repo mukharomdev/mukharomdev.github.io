@@ -1,10 +1,10 @@
 import { notFound } from 'next/navigation';
-type Post = {
-  id: number;
-  title: string;
-  slug: string;
-  content: string;
-};
+// type Post = {
+//   id: number;
+//   title: string;
+//   slug: string;
+//   content: string;
+// };
 
 
 const posts = [
