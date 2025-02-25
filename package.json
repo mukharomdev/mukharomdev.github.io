@@ -6,10 +6,12 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "local":"pnpm build && serve out ",
+    "local": "pnpm build && serve out ",
     "lint": "next lint"
   },
   "dependencies": {
+    "classnames": "^2.5.1",
+    "date-fns": "^4.1.0",
     "dayjs": "^1.11.13",
     "flowbite-react": "^0.10.2",
     "gray-matter": "^4.0.3",

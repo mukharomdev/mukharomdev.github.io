@@ -19,7 +19,7 @@ export default function Home() {
        
         <Image
           className="dark:invert rounded-full border-4 border-blue-500 "
-          src="/mukharomdev.png"
+          src="/authors/mukharomdev.png"
           alt="picture "
           width={350}
           height={350}
