@@ -1,4 +1,10 @@
 import { notFound } from 'next/navigation';
+type Post = {
+  id: number;
+  title: string;
+  slug: string;
+  content: string;
+};
 
 
 const posts = [
@@ -14,7 +20,10 @@ type PageProps = {
 
 // Fungsi untuk menghasilkan static paths
 export async function generateStaticParams():Promise<{ slug: string }[]>{
-  return posts.map((post) => ({
+  // const response = await fetch(posts);
+  // const posts: Post[] = await response.json(); // Ganti `any` dengan tipe `Post[]`
+   const data:Post[] = posts
+  return data.map((post) => ({
     slug: post.slug,
   }));
 }
