@@ -14,9 +14,7 @@ const posts = [
 ];
 
 // Tipe untuk params
-type PageProps = {
-  params: { slug: string };
-};
+type Params = Promise<{ slug: string }>
 
 // Fungsi untuk menghasilkan static paths
 export async function generateStaticParams():Promise<Post[]>{
@@ -28,7 +26,7 @@ export async function generateStaticParams():Promise<Post[]>{
   }));
 }
 
-export default async function BlogPost({ params }: PageProps) {
+export default async function BlogPost({ params }: { params: Params }) {
   const { slug } = await params;
    
   const post = posts.find((p) => p.slug === slug);
