@@ -16,10 +16,10 @@ const posts = [
 // Tipe untuk params
 type PageProps = {
   params: { slug: string };
-} | any;
+};
 
 // Fungsi untuk menghasilkan static paths
-export async function generateStaticParams():Promise<{ slug: string }[]>{
+export async function generateStaticParams():Promise<Post[]>{
   // const response = await fetch(posts);
   // const posts: Post[] = await response.json(); // Ganti `any` dengan tipe `Post[]`
    const data:Post[] = posts
