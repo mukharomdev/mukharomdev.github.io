@@ -6,7 +6,7 @@ import { memo, useEffect, useState } from "react";
 
 declare global {
   let updateDOM: () => void;
-  let window:any = {}
+  let window:any 
 }
 
 type ColorSchemePreference = "system" | "dark" | "light";
