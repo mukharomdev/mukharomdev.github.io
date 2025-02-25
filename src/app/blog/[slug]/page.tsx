@@ -12,9 +12,15 @@ type PageProps = {
   params: { slug: string };
 };
 
+// Fungsi untuk menghasilkan static paths
+export async function generateStaticParams() {
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
+}
 
-export default  function BlogPost({ params }: PageProps) {
-  const { slug } = params;
+export default async function BlogPost({ params }: PageProps) {
+  const { slug } = await params;
    
   const post = posts.find((p) => p.slug === slug);
 

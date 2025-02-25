@@ -6,7 +6,7 @@ const posts = [
   { id: 3, title: 'Post 3', slug: 'post-3' },
 ];
 
-export default function Blog() {
+export default async function Blog() {
   return (
     <div>
       <h1>Blog Posts</h1>
