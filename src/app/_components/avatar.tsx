@@ -1,6 +1,6 @@
 type Props = {
-  name: string;
-  picture: string;
+  name?: string;
+  picture?: string;
 };
 
 const Avatar = ({ name, picture }: Props) => {

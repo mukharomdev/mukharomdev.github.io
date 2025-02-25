@@ -21,13 +21,16 @@ export function PostPreview({
   author,
   slug,
 }: Props) {
+ if(!author){
+  return
+ }
   return (
     <div>
       <div className="mb-5">
         <CoverImage slug={slug} title={title} src={coverImage} />
       </div>
       <h3 className="text-3xl mb-3 leading-snug">
-        <Link href={`/posts/${slug}`} className="hover:underline">
+        <Link href={`/blog/${slug}`} className="hover:underline">
           {title}
         </Link>
       </h3>
@@ -35,7 +38,7 @@ export function PostPreview({
         <DateFormatter dateString={date} />
       </div>
       <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
-      <Avatar name={author? author.name : null} picture={author? author.picture : null} />
+      <Avatar name={author.name} picture={author.picture} />
     </div>
   );
 }
