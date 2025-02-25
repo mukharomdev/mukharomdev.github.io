@@ -13,7 +13,7 @@ type PageProps = {
 } | any;
 
 // Fungsi untuk menghasilkan static paths
-export async function generateStaticParams() {
+export async function generateStaticParams():Promise<{ slug: string }[]>{
   return posts.map((post) => ({
     slug: post.slug,
   }));
