@@ -24,11 +24,11 @@
 .markdown table{
 @apply min-w-full bg-white border border-gray-300
 }
-
-.markdown td{
-@apply px-4 py-2 border border-gray-300
-}
-
+.markdown td,
 .markdown th{
 @apply px-4 py-2 border border-gray-300
 }
+
+.markdown body{
+  @apply container
+  }
