@@ -26,7 +26,7 @@ const tiers = [
   },
 ]
 
-function classNames(...classes) {
+function classNames(...classes:any[]):string {
   return classes.filter(Boolean).join(' ')
 }
 
