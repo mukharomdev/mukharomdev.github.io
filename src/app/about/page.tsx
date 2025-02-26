@@ -6,7 +6,7 @@ export default function Blog() {
       <div className="mx-auto max-w-2xl lg:max-w-4xl">
         <img
           alt=""
-          src="/author/mukharomdev.png"
+          src="/authors/mukharomdev.png"
           className="mx-auto h-12"
         />
         <figure className="mt-10">
@@ -18,7 +18,7 @@ export default function Blog() {
           <figcaption className="mt-10">
             <img
               alt=""
-              src="/author/mukharomdev.png"
+              src="/authors/mukharomdev.png"
               className="mx-auto size-10 rounded-full"
             />
             <div className="mt-4 flex items-center justify-center space-x-3 text-base">
