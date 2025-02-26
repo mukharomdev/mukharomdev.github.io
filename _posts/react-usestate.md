@@ -144,6 +144,7 @@ function TodoList() {
 ---
 
 ### **4. Perbedaan `useState` vs `useRef`**
+
 | **Kriteria**         | `useState`                          | `useRef`                          |
 |----------------------|-------------------------------------|-----------------------------------|
 | **Re-render**        | Memicu re-render komponen           | Tidak memicu re-render            |
