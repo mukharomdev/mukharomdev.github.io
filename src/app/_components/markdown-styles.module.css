@@ -20,3 +20,15 @@
 .markdown pre{
 @apply bg-gray-800 text-white p-4 rounded-lg overflow-x-auto
 }
+
+.markdown table{
+@apply min-w-full bg-white border border-gray-300
+}
+
+.markdown td{
+@apply px-4 py-2 border border-gray-300
+}
+
+.markdown th{
+@apply px-4 py-2 border border-gray-300
+}
