@@ -65,7 +65,7 @@ export default async function Post(props: Params) {
   const content = await markdownToHtml(post.content || "");
 
   return (
-    <main>
+    <main className="container">
       <Alert preview={post.preview} />
       <Container>
         <Header />
