@@ -29,9 +29,9 @@ const Alert = ({ preview }: Props) => {
             </>
           ) : (
             <>
-              The source code for this blog is{" "}
+              source code blog ini bisa ditemukan di link ini{" "}
               <a
-                href={`https://github.com/vercel/next.js/tree/canary/examples/${EXAMPLE_PATH}`}
+                href={`https://github.com/mukharomdev/mukharomdev.github.io`}
                 className="underline hover:text-blue-600 duration-200 transition-colors"
               >
                 available on GitHub
