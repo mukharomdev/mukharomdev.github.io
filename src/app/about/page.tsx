@@ -37,7 +37,7 @@ export default function Abput() {
               <ul role="list" className="divide-y divide-gray-100 rounded-md border border-gray-200">
                 <li className="flex items-center justify-between py-4 pr-5 pl-4 text-sm/6">
                   <div className="flex w-0 flex-1 items-center">
-                    <PaperClipIcon aria-hidden="true" className="size-5 shrink-0 text-gray-400" />
+                    
                     <div className="ml-4 flex min-w-0 flex-1 gap-2">
                       <span className="truncate font-medium">resume_back_end_developer.pdf</span>
                       <span className="shrink-0 text-gray-400">2.4mb</span>
@@ -51,7 +51,7 @@ export default function Abput() {
                 </li>
                 <li className="flex items-center justify-between py-4 pr-5 pl-4 text-sm/6">
                   <div className="flex w-0 flex-1 items-center">
-                    <PaperClipIcon aria-hidden="true" className="size-5 shrink-0 text-gray-400" />
+                    
                     <div className="ml-4 flex min-w-0 flex-1 gap-2">
                       <span className="truncate font-medium">coverletter_back_end_developer.pdf</span>
                       <span className="shrink-0 text-gray-400">4.5mb</span>
