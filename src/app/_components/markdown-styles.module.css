@@ -16,7 +16,7 @@
 .markdown h3 {
   @apply text-2xl mt-8 mb-4 leading-snug;
 }
-.markdown body,
+
 .markdown pre{
-@apply container
+@apply bg-gray-800 text-white p-4 rounded-lg overflow-x-auto
 }
