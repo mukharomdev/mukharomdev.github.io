@@ -95,10 +95,7 @@ export default function PortFolio() {
             >
               {tier.features.map((feature) => (
                 <li key={feature} className="flex gap-x-3">
-                  <CheckIcon
-                    aria-hidden="true"
-                    className={classNames(tier.featured ? 'text-indigo-400' : 'text-indigo-600', 'h-6 w-5 flex-none')}
-                  />
+                  <h1>@@</h1>
                   {feature}
                 </li>
               ))}
