@@ -1,13 +1,13 @@
 ---
 title: "Tutorial Singkat Penggunaan React Hooks."
 excerpt: "Berikut daftar hook React.js beserta penjelasan dan contoh penggunaannya:"
-coverImage: "/assets/blog/git-diverged/mukharomdev.png"
+coverImage: "/assets/blog/react-hooks/react-hooks.png"
 date: "2025-02-26T05:35:07.322Z"
 author:
   name: mukharomdev
   picture: "/assets/blog/authors/mukharomdev.png"
 ogImage:
-  url: "/assets/blog/git-diverged/mukharomdev.png"
+  url: "/assets/blog/react-hooks/react-hooks.png"
 
 ---
 Berikut daftar hook React.js beserta penjelasan dan contoh penggunaannya:

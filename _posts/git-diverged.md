@@ -2,12 +2,12 @@
 title: "How to resolve the git message your: branch and origin main have diverged"
 excerpt: "When working with Git, you might encounter the error message **your branch and 'origin/main' have diverged.** This issue arises when there are commits on your local branch that are not on the origin/main branch, and vice versa."
 coverImage: "/assets/blog/git-diverged/mukharomdev.png"
-date: "2020-03-16T05:35:07.322Z"
+date: "2025-02-26T05:35:07.322Z"
 author:
   name: mukharomdev
   picture: "/assets/blog/authors/mukharomdev.png"
 ogImage:
-  url: "/assets/blog/git-diverged/mukharomdev.png"
+  url: "/assets/blog/git-diverged/git-diverged.png"
 ---
 # How to resolve the git message "your branch and origin main have diverged"
 
