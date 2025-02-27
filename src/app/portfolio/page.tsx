@@ -28,11 +28,13 @@ export default function PortFolio() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {projects.map((project) => (
           <div key={project.id} className="border p-4 rounded-lg shadow-lg">
+<div className="overflow-x-auto">
             <img
               src={project.image}
               alt={project.title}
-              className="w-full h-48 object-cover rounded-t-lg overflow-x-auto"
+              className="w-full h-48 object-cover rounded-t-lg "
             />
+</div>
             <h3 className="text-xl font-bold mt-4">{project.title}</h3>
             <p className="text-gray-700">{project.description}</p>
           </div>
