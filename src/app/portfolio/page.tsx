@@ -9,8 +9,8 @@ const projects:Portfolio[]=[
   {
     id : 1,
     title:"aplikasi hibrid android",
-    image:"/assets/projects/react.png",
-    description:"reactjs dan cordova"
+    image:"/projects/react-cordova.png",
+    description:"teknologi yang digunakan reactjs dan cordova"
   },
   {
   id : 2,
