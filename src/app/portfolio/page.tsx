@@ -28,7 +28,7 @@ export default function PortFolio() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {projects.map((project) => (
           <div key={project.id} className="border p-4 rounded-lg shadow-lg">
-<div className="max-w-[500px] max-h-[300px] overflow-x-auto">
+<div className=" overflow-x-auto">
             <img
               src={project.image}
               alt={project.title}
