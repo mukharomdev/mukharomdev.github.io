@@ -18,5 +18,6 @@ export default {
   },
   plugins: [
     //flowbite.plugin(),
+    require("@tailwindcss/typography"),
   ],
 } satisfies Config;
