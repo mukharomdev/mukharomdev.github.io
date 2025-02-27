@@ -45,7 +45,8 @@ export default function Home() {
          {/* endline link blog dan portfolio */}
 
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
+      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center text-lime-700">
+      <p>&copy; 2025 Mukharomdev. All rights reserved.</p>
       <h1 className="text-rose-700" >{date?.toISOString()}</h1>
       </footer>
     </div>
