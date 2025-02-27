@@ -24,15 +24,15 @@ const projects:Portfolio[]=[
 export default function PortFolio() {
   return (
     <section className="container mx-auto px-4 py-8">
-      <h2 className="text-3xl font-bold mb-4">Proyek Saya</h2>
+      <h1 className="text-3xl font-bold mb-4 text-center">Proyek Saya</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {projects.map((project) => (
           <div key={project.id} className="border p-4 rounded-lg shadow-lg">
-<div className=" overflow-x-auto">
+<div className=" w-64 h-64 overflow-y-auto">
             <img
               src={project.image}
               alt={project.title}
-              className="w-full h-48 object-cover rounded-t-lg "
+              className="w-full h-auto object-cover rounded-t-lg "
             />
 </div>
             <h3 className="text-xl font-bold mt-4">{project.title}</h3>
