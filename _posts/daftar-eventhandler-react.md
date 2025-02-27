@@ -1,3 +1,16 @@
+---
+title: " Daftar eventHandler di React."
+excerpt: "Berikut daftar event Handler React.js beserta penjelasan dan contoh penggunaannya:"
+coverImage: "/assets/blog/react-usestate/react-usestate.png"
+date: "2025-02-28T05:35:07.322Z"
+author:
+  name: mukharomdev
+  picture: "/assets/blog/authors/mukharomdev.png"
+ogImage:
+  url: "/assets/blog/react-usestate/react-usestate.png"
+
+---
+
 Berikut adalah daftar **event handler** umum yang digunakan di React, dikelompokkan berdasarkan kategori:
 
 ---
