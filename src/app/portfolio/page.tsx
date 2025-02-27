@@ -14,9 +14,9 @@ const projects:Portfolio[]=[
   },
   {
   id : 2,
-  title:"aplikasi hibrid android",
-  image:"/assets/projects/react.png",
-  description:"reactjs dan cordova"
+  title:"aplikasi web statis ",
+  image:"/projects/nextjs-markdown.png",
+  description:"teknologi yang digunakan adalah nextjs dan markdown"
   }
 ]
 
