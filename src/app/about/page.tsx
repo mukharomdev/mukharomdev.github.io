@@ -1,36 +1,19 @@
-export default function Blog() {
+const About = () => {
   return (
-    <section className="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:px-8">
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,var(--color-indigo-100),white)] opacity-20" />
-      <div className="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-white ring-1 shadow-xl shadow-indigo-600/10 ring-indigo-50 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center" />
-      <div className="mx-auto max-w-2xl lg:max-w-4xl">
-        <img
-          alt=""
-          src="/authors/mukharomdev.png"
-          className="mx-auto h-12"
-        />
-        <figure className="mt-10">
-          <blockquote className="text-center text-xl/8 font-semibold text-gray-900 sm:text-2xl/9">
-            <p>
-              “aku percaya,aku berjuang”
-            </p>
-          </blockquote>
-          <figcaption className="mt-10">
-            <img
-              alt=""
-              src="/authors/mukharomdev.png"
-              className="mx-auto size-10 rounded-full"
-            />
-            <div className="mt-4 flex items-center justify-center space-x-3 text-base">
-              <div className="font-semibold text-gray-900">Mukharom</div>
-              <svg width={3} height={3} viewBox="0 0 2 2" aria-hidden="true" className="fill-gray-900">
-                <circle r={1} cx={1} cy={1} />
-              </svg>
-              <div className="text-gray-600">Owner Mukharomdev Blog</div>
-            </div>
-          </figcaption>
-        </figure>
-      </div>
+    <section className="container mx-auto px-4 py-8 text-center">
+      <h2 className="text-3xl font-bold mb-4">Tentang Saya</h2>
+      <p className="text-lg ">
+        Saya adalah seorang web developer dengan pengalaman lebih dari 3 tahun.Bidang ini saya geluti secara otodidak.
+        Saya sangat menyukai web development.Teknologi web yang sering saya gunakan antara lain: React, Node.js, dan Tailwind CSS. Saya suka membuat
+        aplikasi web yang indah dan fungsional.Disamping bidang yang sudah saya sebutkan saya juga sering mencoba hal-hal baru dalam dunia pemrograman.
+        Selain dunia pemrograman,saya juga sangat menyukai membaca dan bermain musik.
+      </p>
+      <p className="text-lg">
+        silahkan hubungi saya di:
+        mukharomdev@gmail.com
+      </p>
     </section>
-  )
-}
+  );
+};
+
+export default About;
