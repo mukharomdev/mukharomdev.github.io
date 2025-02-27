@@ -31,7 +31,7 @@ export default function PortFolio() {
             <img
               src={project.image}
               alt={project.title}
-              className="w-full h-48 object-cover rounded-t-lg"
+              className="w-full h-48 object-cover rounded-t-lg overflow-x-auto"
             />
             <h3 className="text-xl font-bold mt-4">{project.title}</h3>
             <p className="text-gray-700">{project.description}</p>
