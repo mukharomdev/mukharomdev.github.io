@@ -1,13 +1,13 @@
 ---
 title: " Penggunaan React useContext."
 excerpt: "Berikut penjelasan dan contoh penggunaannya:"
-coverImage: "/assets/blog/react-usestate/react-usestate.png"
+coverImage: "/assets/blog/reacts/react1.png"
 date: "2025-02-27T16:48:55.696Z"
 author:
   name: mukharomdev
   picture: "/assets/blog/authors/mukharomdev.png"
 ogImage:
-  url: "/assets/blog/react-usestate/react-usestate.png"
+  url: "/assets/blog/reacts/react1.png"
 
 ---
 
