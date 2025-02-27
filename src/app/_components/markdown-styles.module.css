@@ -32,6 +32,3 @@ border-separate border-spacing-2 border border-gray-400;
 @apply p-3 border bg-lime-500 text-black border-gray-500;
 }
 
-.markdown body{
-  @apply container;
-  }
