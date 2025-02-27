@@ -17,7 +17,10 @@ export default async function Post(props: Params) {
     return notFound();
   }
 
-  const content = await markdownToHtml(post.content || "");
+  const content = await markdownToHtml(post.content || "")
+  const contentedit = content
+                    .replace(/<table>/g, '<div class="overflow-x-auto"><table>')
+                    .replace(/<\/table>/g, "</table></div>");              
 
   return (
     <main className="container">
@@ -31,7 +34,7 @@ export default async function Post(props: Params) {
             date={post.date}
             author={post.author}
           />
-          <PostBody content={content} />
+          <PostBody content={contentedit} />
         </article>
       </Container>
     </main>
@@ -52,7 +55,7 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
     return notFound();
   }
 
-  const title = `${post.title} | mukharomdec blog build with ${CMS_NAME}`;
+  const title = `${post.title} | mukharomdev blog build with ${CMS_NAME}`;
 
   return {
     title,
