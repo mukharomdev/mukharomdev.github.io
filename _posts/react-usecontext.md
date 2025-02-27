@@ -11,7 +11,7 @@ ogImage:
 
 ---
 
-`useContext` adalah hook di React yang memungkinkan Anda **mengakses nilai context** secara langsung di dalam komponen tanpa harus melewati props secara manual (prop drilling). Berikut penjelasan lengkap beserta contoh penggunaannya:
+**useContext** adalah hook di React yang memungkinkan Anda **mengakses nilai context** secara langsung di dalam komponen tanpa harus melewati props secara manual (prop drilling). Berikut penjelasan lengkap beserta contoh penggunaannya:
 
 ---
 
@@ -138,7 +138,7 @@ function Header() {
 ---
 
 ### **5. Perbandingan `useContext` vs. Props Drilling**
-| **Kriteria**      | **`useContext`**                  | **Props Drilling**                |
+| **Kriteria**      | **useContext**                  | **Props Drilling**                |
 |--------------------|-----------------------------------|------------------------------------|
 | **Kompleksitas**   | Minimal (akses langsung)         | Tinggi (kirim props ke banyak level)|
 | **Keterbacaan**    | Lebih mudah                      | Rentan "spaghetti code"           |
