@@ -19,7 +19,7 @@ export default async function Post(props: Params) {
 
   const content = await markdownToHtml(post.content || "")
   const contentedit = content
-                    .replace(/<table>/g, '<div class="overflow-x-auto"><table>')
+                    .replace(/<table>/g, '<div class="overflow-x-auto bg-lime-100"><table>')
                     .replace(/<\/table>/g, "</table></div>");              
 
   return (
