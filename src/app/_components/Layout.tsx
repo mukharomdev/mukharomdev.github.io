@@ -3,5 +3,5 @@ export default function Layout({
   }: {
     children: React.ReactNode
   }) {
-    return <section className="container">{children}</section>
+    return <section className="container prose">{children}</section>
   }
