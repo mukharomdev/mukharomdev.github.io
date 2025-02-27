@@ -24,7 +24,7 @@ const projects:Portfolio[]=[
 export default function PortFolio() {
   return (
     <section className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-4 text-center">Proyek Saya</h1>
+      <h1 className="text-3xl font-bold mb-4 text-center">Proyek Saya :</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {projects.map((project) => (
           <div key={project.id} className="border p-4 rounded-lg shadow-lg">
