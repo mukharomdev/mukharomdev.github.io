@@ -1,3 +1,15 @@
+---
+title: " Penggunaan React useMemo."
+excerpt: "Berikut penjelasan dan contoh penggunaannya:"
+coverImage: "/assets/blog/reacts/react1.png"
+date: "2025-02-28T15:17:34.135Z"
+author:
+  name: mukharomdev
+  picture: "/assets/blog/authors/mukharomdev.png"
+ogImage:
+  url: "/assets/blog/reacts/react1.png"
+
+---
 `useMemo` adalah hook di React yang digunakan untuk **memoize (menyimpan cache) nilai hasil komputasi**, sehingga komputasi tersebut tidak dijalankan ulang setiap kali komponen dirender, kecuali jika *dependency*-nya berubah. Ini berguna untuk mengoptimalkan performa, terutama ketika:
 
 1. **Komputasi berat** (seperti filter array, kalkulasi matematika kompleks).
