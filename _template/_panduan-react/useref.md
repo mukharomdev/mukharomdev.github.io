@@ -1,3 +1,15 @@
+---
+title: " Penggunaan React useRef ."
+excerpt: "Berikut penjelasan dan contoh penggunaannya:"
+coverImage: "/assets/blog/reacts/react1.png"
+date: "2025-02-28T15:28:31.153Z"
+author:
+  name: mukharomdev
+  picture: "/assets/blog/authors/mukharomdev.png"
+ogImage:
+  url: "/assets/blog/reacts/react1.png"
+
+---
 `useRef` adalah hook di React yang digunakan untuk membuat referensi yang dapat dimutasi (mutable) dan bertahan sepanjang siklus hidup komponen. Berikut penjelasan lengkap beserta contoh penggunaannya:
 
 ### 1. **Mengakses DOM Element Langsung**
