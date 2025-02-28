@@ -1,3 +1,15 @@
+---
+title: " Penggunaan React useImperativeHandle"
+excerpt: "Berikut penjelasan dan contoh penggunaannya:"
+coverImage: "/assets/blog/reacts/react1.png"
+date: "2025-02-28T15:49:51.037Z"
+author:
+  name: mukharomdev
+  picture: "/assets/blog/authors/mukharomdev.png"
+ogImage:
+  url: "/assets/blog/reacts/react1.png"
+
+---
 `useImperativeHandle` adalah hook di React yang digunakan untuk **menyesuaikan nilai instance (metode atau properti) yang diekspos ke komponen parent** ketika menggunakan `ref` pada komponen anak. Hook ini umumnya dipakai bersama `forwardRef` untuk mengontrol perilaku komponen anak secara imperatif (seperti memanggil fungsi atau mengakses nilai langsung).
 
 ---
