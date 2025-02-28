@@ -29,7 +29,7 @@ export function PostPreview({
       <div className="mb-5">
         <CoverImage slug={slug} title={title} src={coverImage} />
       </div>
-      <h3 className="text-2xl mb-3 leading-snug text-center">
+      <h3 className="text-xl mb-3 leading-snug text-center">
         <Link href={`/blog/${slug}`} className="hover:underline">
           {title}
         </Link>
