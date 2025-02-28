@@ -1,6 +1,6 @@
 ---
 title: " Penggunaan React useReducer."
-excerpt: "Berikut daftar hook React.js beserta penjelasan dan contoh penggunaannya:"
+excerpt: "Berikut penjelasan dan contoh penggunaannya:"
 coverImage: "/assets/blog/reacts/react1.png"
 date: "2025-02-28T11:17:44.507Z"
 author:
