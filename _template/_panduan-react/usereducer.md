@@ -1,3 +1,15 @@
+---
+title: " Penggunaan React useReducer."
+excerpt: "Berikut daftar hook React.js beserta penjelasan dan contoh penggunaannya:"
+coverImage: "/assets/blog/reacts/react1.png"
+date: "2025-02-28T11:17:44.507Z"
+author:
+  name: mukharomdev
+  picture: "/assets/blog/authors/mukharomdev.png"
+ogImage:
+  url: "/assets/blog/reacts/react1.png"
+
+---
 `useReducer` adalah hook di React untuk mengelola state yang kompleks dengan pola **reducer** (seperti Redux). Hook ini cocok digunakan ketika:
 
 1. **State memiliki logika yang rumit** dengan banyak sub-nilai.
