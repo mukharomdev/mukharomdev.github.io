@@ -5,7 +5,7 @@ import { TiArrowRightOutline } from "react-icons/ti";
 import Emoji from "react-emoji-render";
 import {
   DateLocal
-} from '@/utils'
+} from '@/lib'
 
 export default function Home() {
   const date = DateLocal() 
@@ -16,7 +16,7 @@ export default function Home() {
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start  ">
         {/* link blog dan portfolio */}
         <div id="linkblog" className="text-center">
-       
+        <h1 className="text-lime-700" >{date.toString()}</h1>
         <Image
           className="dark:invert rounded-full border-4 border-blue-500 "
           src="/authors/mukharomdev.png"
@@ -47,7 +47,6 @@ export default function Home() {
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center text-lime-700">
       <p>&copy; 2025 Mukharomdev. All rights reserved.</p>
-      <h1 className="text-rose-700" >{date?.toISOString()}</h1>
       </footer>
     </div>
     </>
