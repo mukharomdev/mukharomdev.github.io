@@ -16,11 +16,12 @@ export default async function Post(props: Params) {
   if (!post) {
     return notFound();
   }
-
-  const content = await markdownToHtml(post.content || "")
+  const formatContent = post.content.replace(/(^|\W)`([^`\n]+)`(\W|$)/g, '$1<code>$2</code>$3') 
+  const content = await markdownToHtml(formatContent || "")
   const contentedit = content
                     .replace(/<table>/g, '<div class="overflow-x-auto bg-lime-100"><table>')
-                    .replace(/<\/table>/g, "</table></div>");
+                    .replace(/<\/table>/g, "</table></div>")
+                    
 
   return (
     <main className="container">
