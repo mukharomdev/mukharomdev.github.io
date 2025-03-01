@@ -82,7 +82,11 @@ const MatterSimulation = () => {
     };
   }, []);
 
-  return <canvas ref={canvasRef} />;
+  return(
+    <div>
+    <canvas ref={canvasRef} />
+    </div>
+    );
 };
 
 export default MatterSimulation;
