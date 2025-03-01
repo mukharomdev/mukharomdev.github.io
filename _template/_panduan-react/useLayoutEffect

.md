@@ -1,3 +1,15 @@
+---
+title: " Penggunaan React useLayoutEffect."
+excerpt: "Berikut penjelasan dan contoh penggunaannya:"
+coverImage: "/assets/blog/reacts/react1.png"
+date: "2025-03-01T08:14:47.924Z"
+author:
+  name: mukharomdev
+  picture: "/assets/blog/authors/mukharomdev.png"
+ogImage:
+  url: "/assets/blog/reacts/react1.png"
+
+---
 `useLayoutEffect` adalah hook di React yang mirip dengan `useEffect`, tetapi dijalankan **secara sinkron setelah React melakukan mutasi DOM dan sebelum browser melakukan painting**. Ini berguna ketika Anda perlu membaca atau memodifikasi layout DOM secara sinkron sebelum browser menampilkan perubahan ke layar. Berikut penjelasan lengkapnya:
 
 ---
