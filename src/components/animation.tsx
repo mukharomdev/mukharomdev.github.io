@@ -15,7 +15,8 @@ declare global {
 }
 
 export default function MatterSimulation(){
-  const canvasRef = useRef(null);
+  const canvasRef = useRef<HTMLCanvasElement | null>(null); // Tentukan tipe ref
+
 
   useEffect(() => {
     
