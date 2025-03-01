@@ -1,7 +1,11 @@
-import { useEffect, useRef } from 'react';
+"use client"
+
+import React, { useEffect, useRef } from 'react';
 import Matter from 'matter-js';
 
-const MatterSimulation = () => {
+
+
+export function MatterSimulation({ref}){
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -83,11 +87,9 @@ const MatterSimulation = () => {
   }, []);
 
   return(
-    <div>
-    <canvas ref={canvasRef}>
-    </canvas>
+    <div> 
+    <canvas ref={canvasRef} /> 
     </div>
     );
 };
 
-export default MatterSimulation;

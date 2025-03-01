@@ -2,6 +2,8 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
+  reactStrictMode: true,
+  //swcMinify: true, // Ensure SWC is enabled for faster builds
 
   output:"export",
   images: { unoptimized: true },

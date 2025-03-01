@@ -1,9 +1,11 @@
-import MatterSimulation from '@/components/matter'
+"use client"
+
+import {MatterSimulation} from '@/components/matter'
 
 export default function Apps(){
 	return(
-		<section>
+		<div>
 		<MatterSimulation />
-		</section>
+		</div>
 	)
 }

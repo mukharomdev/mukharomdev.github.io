@@ -17,7 +17,7 @@
     "flowbite-react": "^0.10.2",
     "gray-matter": "^4.0.3",
     "matter-js": "^0.20.0",
-    "next": "15.1.7",
+    "next": "15.2.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-emoji-render": "^2.0.1",
@@ -30,6 +30,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@types/matter-js": "^0.19.8",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
