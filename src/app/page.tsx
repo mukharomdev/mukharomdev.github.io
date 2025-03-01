@@ -39,6 +39,9 @@ export default function Home() {
           <List.Item icon={TiArrowRightOutline}>
             <Link href="/about">About</Link>
           </List.Item>
+          <List.Item icon={TiArrowRightOutline}>
+            <Link href="/apps">Apps</Link>
+          </List.Item>
         </List>
 
         </div>
