@@ -14,7 +14,7 @@ declare global {
   }
 }
 
-export default function MatterSimulation({ref}:React.Ref<null>){
+export default function MatterSimulation(){
   const canvasRef = useRef(null);
 
   useEffect(() => {
