@@ -2,7 +2,7 @@
 title: " Penggunaan React useSyncExternalStore "
 excerpt: "Berikut penjelasan dan contoh penggunaannya:"
 coverImage: "/assets/blog/reacts/react1.png"
-date: "2025-03-01T14:48:21.522Z"
+date: "2025-03-01T14:52:27.967Z"
 author:
   name: mukharomdev
   picture: "/assets/blog/authors/mukharomdev.png"
