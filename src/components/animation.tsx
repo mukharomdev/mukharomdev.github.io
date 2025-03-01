@@ -19,7 +19,7 @@ export default function MatterSimulation(){
 
 
   useEffect(() => {
-    
+    if (!canvasRef.current) return; // Pastikan canvasRef.current ada
 
     const engine = Engine.create();
     const { world } = engine;
