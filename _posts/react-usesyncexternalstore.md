@@ -1,3 +1,15 @@
+---
+title: " Penggunaan React useSyncExternalStore "
+excerpt: "Berikut penjelasan dan contoh penggunaannya:"
+coverImage: "/assets/blog/reacts/react1.png"
+date: "2025-03-01T14:24:07.944Z"
+author:
+  name: mukharomdev
+  picture: "/assets/blog/authors/mukharomdev.png"
+ogImage:
+  url: "/assets/blog/reacts/react1.png"
+
+---
 `useSyncExternalStore` adalah hook di React yang memungkinkan komponen untuk **berlangganan (subscribe) ke sumber data eksternal** di luar React (seperti store Redux, Zustand, atau browser APIs) dan tetap sinkron dengan perubahan yang terjadi. Hook ini sangat berguna untuk integrasi dengan sistem manajemen state eksternal atau data yang berubah di luar siklus hidup React.
 
 ---

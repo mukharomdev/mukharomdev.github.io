@@ -1,3 +1,16 @@
+---
+title: " Penggunaan React useId"
+excerpt: "Berikut penjelasan dan contoh penggunaannya:"
+coverImage: "/assets/blog/reacts/react1.png"
+date: "025-03-01T14:21:39.937Z"
+author:
+  name: mukharomdev
+  picture: "/assets/blog/authors/mukharomdev.png"
+ogImage:
+  url: "/assets/blog/reacts/react1.png"
+
+---
+
 `useId` adalah hook di React yang digunakan untuk **menghasilkan ID unik yang stabil** baik di sisi klien (client-side) maupun server (server-side). Hook ini terutama berguna untuk menghindari masalah *hydration mismatch* saat menggunakan Server-Side Rendering (SSR) dan untuk keperluan aksesibilitas seperti menghubungkan label dengan input menggunakan atribut `htmlFor` dan `id`.
 
 ---

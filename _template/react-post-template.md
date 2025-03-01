@@ -1,5 +1,5 @@
 ---
-title: " Penggunaan React ."
+title: " Penggunaan React "
 excerpt: "Berikut penjelasan dan contoh penggunaannya:"
 coverImage: "/assets/blog/reacts/react1.png"
 date: ""

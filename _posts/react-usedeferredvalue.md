@@ -1,3 +1,16 @@
+---
+title: " Penggunaan React useDeferredValue"
+excerpt: "Berikut penjelasan dan contoh penggunaannya:"
+coverImage: "/assets/blog/reacts/react1.png"
+date: "2025-03-01T14:18:43.797Z"
+author:
+  name: mukharomdev
+  picture: "/assets/blog/authors/mukharomdev.png"
+ogImage:
+  url: "/assets/blog/reacts/react1.png"
+
+---
+
 `useDeferredValue` adalah hook di React yang digunakan untuk **menunda pembaruan nilai** yang tidak prioritas/urgent, sehingga memungkinkan komponen untuk tetap responsif saat menangani operasi berat atau pembaruan yang lambat. Hook ini sering digunakan bersama dengan `Suspense` dan fitur Concurrent Mode untuk mengoptimalkan performa UI.
 
 ---

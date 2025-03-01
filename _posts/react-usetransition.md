@@ -1,3 +1,15 @@
+---
+title: " Penggunaan React useTransition"
+excerpt: "Berikut penjelasan dan contoh penggunaannya:"
+coverImage: "/assets/blog/reacts/react1.png"
+date: "2025-03-01T14:20:12.933Z"
+author:
+  name: mukharomdev
+  picture: "/assets/blog/authors/mukharomdev.png"
+ogImage:
+  url: "/assets/blog/reacts/react1.png"
+
+---
 `useTransition` adalah hook di React yang digunakan untuk **mengontrol prioritas pembaruan state** sehingga pembaruan yang tidak urgent (seperti render data besar atau navigasi halaman) tidak memblokir interaksi pengguna. Hook ini memungkinkan Anda menandai pembaruan state sebagai "transisi" yang bisa ditunda, sehingga UI tetap responsif.  
 
 ---
