@@ -5,7 +5,7 @@ import Matter from 'matter-js';
 
 
 // Create an engine
-const { Engine, Render, Runner, World, Bodies } = Matter;
+const { Engine, Render, Runner, World, Bodies,Mouse, MouseConstraint } = Matter;
 
 declare global {
   interface Window {
@@ -80,7 +80,31 @@ export default function MatterSimulation(){
         { x: 0, y: window.innerHeight },
       ]);
     };
+    // Add a stack of boxes
+for (let i = 0; i < 5; i++) {
+  const box = Bodies.rectangle(300 + i * 60, 100, 50, 50, {
+    render: {
+      fillStyle: '#00ff00',
+    },
+  });
+  World.add(world, box);
+}
 
+
+
+const mouse = Mouse.create(render.canvas);
+const mouseConstraint = MouseConstraint.create(engine, {
+  mouse,
+  constraint: {
+    stiffness: 0.2,
+    render: {
+      visible: false,
+    },
+  },
+});
+
+World.add(world, mouseConstraint);
+render.mouse = mouse;
     window.addEventListener('resize', handleResize);
 
     // Cleanup
