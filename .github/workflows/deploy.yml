@@ -1,0 +1,65 @@
+name: Deploy Next.js to GitHub Pages
+
+on:
+  push:
+    branches: [main] # Trigger on push to main branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Step 2: Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+
+      # Step 3: Install PNPM (latest version)
+      - name: Install PNPM
+        uses: pnpm/action-setup@v4
+        with:
+          version: latest
+
+
+      # Step 4: Cache PNPM store and Next.js build cachee
+      - name: Get PNPM store directory
+        id: pnpm-cache
+        run: echo "dir=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - name: Cache dependencies and build artifacts
+        uses: actions/cache@v4
+        with:
+          path: |
+            ${{ steps.pnpm-cache.outputs.dir }}
+            .next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-
+
+      # Step 5: Install dependencies
+      - name: Install dependencies
+        run: pnpm install 
+
+      # Step 6: Build the Next.js app
+      - name: Build Next.js app
+        run: pnpm build
+
+      # Step 7: Export the Next.js app to static files
+      # - name: Export Next.js app
+      #   run: pnpm export
+      #   env:
+      #     NEXT_PUBLIC_BASE_PATH: '/mukharomdev.github.io' # Replace with your repo name
+
+      # Step 8: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out # Next.js export outputs to `out` directory
+          force_orphan: true # Ensures only the latest commit is deployed
