@@ -15,7 +15,7 @@ export default function Home() {
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)] mt-4">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start  ">
         {/* link blog dan portfolio */}
-        <div id="linkblog" className="text-center md:text-center text-xl">
+        <div id="linkblog" className="text-center md:text-center">
         <h1 className="text-lime-700" >{date.toString()}</h1>
         <Image
           className="dark:invert rounded-full border-4 border-blue-500 "
