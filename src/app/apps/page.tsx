@@ -1,6 +1,6 @@
 import MatterSimulation from '@/components/matter'
 
-export default Apps(){
+export default function Apps(){
 	return(
 		<section>
 		<MatterSimulation />
