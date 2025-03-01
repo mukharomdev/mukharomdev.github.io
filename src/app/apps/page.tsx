@@ -1,6 +1,5 @@
-"use client"
 
-import {MatterSimulation} from '@/components/matter'
+import MatterSimulation from '@/components/animation'
 
 export default function Apps(){
 	return(

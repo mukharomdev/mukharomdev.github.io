@@ -1,16 +1,24 @@
-"use client"
+'use client'
 
 import React, { useEffect, useRef } from 'react';
 import Matter from 'matter-js';
 
 
+// Create an engine
+const { Engine, Render, Runner, World, Bodies } = Matter;
 
-export function MatterSimulation({ref}){
+declare global {
+  interface Window {
+    engine: Matter.Engine
+    runner: Matter.Runner
+  }
+}
+
+export default function MatterSimulation({ref}:React.Ref<null>){
   const canvasRef = useRef(null);
 
   useEffect(() => {
-    // Create an engine
-    const { Engine, Render, Runner, World, Bodies } = Matter;
+    
 
     const engine = Engine.create();
     const { world } = engine;
