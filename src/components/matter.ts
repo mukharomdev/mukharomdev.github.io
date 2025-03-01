@@ -84,7 +84,8 @@ const MatterSimulation = () => {
 
   return(
     <div>
-    <canvas ref={canvasRef} />
+    <canvas ref={canvasRef}>
+    </canvas>
     </div>
     );
 };
