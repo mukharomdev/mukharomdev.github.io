@@ -1,5 +1,5 @@
 ---
-title: " Penggunaan React useMemo."
+title: " Penggunaan React useMemo"
 excerpt: "Berikut penjelasan dan contoh penggunaannya:"
 coverImage: "/assets/blog/reacts/react1.png"
 date: "2025-02-28T15:17:34.135Z"

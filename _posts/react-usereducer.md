@@ -1,5 +1,5 @@
 ---
-title: " Penggunaan React useReducer."
+title: " Penggunaan React useReducer"
 excerpt: "Berikut penjelasan dan contoh penggunaannya:"
 coverImage: "/assets/blog/reacts/react1.png"
 date: "2025-02-28T11:17:44.507Z"

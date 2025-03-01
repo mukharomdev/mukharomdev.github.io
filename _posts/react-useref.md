@@ -1,5 +1,5 @@
 ---
-title: " Penggunaan React useRef ."
+title: " Penggunaan React useRef"
 excerpt: "Berikut penjelasan dan contoh penggunaannya:"
 coverImage: "/assets/blog/reacts/react1.png"
 date: "2025-02-28T15:28:31.153Z"

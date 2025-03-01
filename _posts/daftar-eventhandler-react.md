@@ -1,5 +1,5 @@
 ---
-title: " Daftar eventHandler di React."
+title: " Daftar eventHandler di React"
 excerpt: "Berikut daftar event Handler React.js beserta penjelasan dan contoh penggunaannya:"
 coverImage: "/assets/blog/reacts/react.jpg"
 date: "2025-02-28T05:35:07.322Z"

@@ -1,5 +1,5 @@
 ---
-title: " Penggunaan React useEffect."
+title: " Penggunaan React useEffect"
 excerpt: "Berikut penjelasan dan contoh penggunaannya:"
 coverImage: "/assets/blog/reacts/react1.png"
 date: "2025-02-27T05:35:07.322Z"

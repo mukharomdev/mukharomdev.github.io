@@ -1,5 +1,5 @@
 ---
-title: " Penggunaan React useContext."
+title: " Penggunaan React useContext"
 excerpt: "Berikut penjelasan dan contoh penggunaannya:"
 coverImage: "/assets/blog/reacts/react1.png"
 date: "2025-02-27T16:48:55.696Z"
