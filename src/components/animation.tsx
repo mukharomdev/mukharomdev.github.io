@@ -3,7 +3,7 @@
 import React, { useEffect, useRef,useState } from "react";
 import Matter from "matter-js";
 
-const MatterSimulation = () => {
+const MatterGame = () => {
   const sceneRef = useRef<HTMLCanvasElement | null>(null); // Ref untuk container canvas
   const [score, setScore] = useState(0); // State untuk skor
   if(score > 12) window.location.reload();
@@ -82,14 +82,16 @@ const MatterSimulation = () => {
     };
   }, []);
   return (
+    <div className="min-h-screen w-full bg-blue-500 flex items-center justify-center">
     <div className="text-4xl font-bold text-gray-800 text-center text-shadow-lg shadow-gray-500">
       <h1>Pukul bola </h1>
       <p>Score : {score}</p>
-      <p>{winOrlose}</p>    
+      <p>{winOrlose}</p>
+    </div>    
       <canvas ref={sceneRef}/>
     </div>
   );
 
 };
 
-export default MatterSimulation
+export default MatterGame

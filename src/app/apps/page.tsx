@@ -1,10 +1,10 @@
 
-import MatterSimulation from '@/components/animation'
+import MatterGame from '@/components/animation'
 
 export default function Apps(){
 	return(
 		<div>
-		<MatterSimulation />
+		<MatterGame/>
 		</div>
 	)
 }
