@@ -4,11 +4,14 @@ import React, { useEffect, useRef,useState } from "react";
 import Matter from "matter-js";
 
 const MatterSimulation = () => {
-  const sceneRef = useRef<HTMLElement>(null); // Ref untuk container canvas
+  const sceneRef = useRef<HTMLCanvasElement | null>(null); // Ref untuk container canvas
   const [score, setScore] = useState(0); // State untuk skor
+  if(score > 12) window.location.reload();
+  const winOrlose = score > 12 ? "kamu kalah": "ayo semangat!!!";
 
   useEffect(() => {
-    if(!sceneRef){return}
+    if (!sceneRef.current) return; // Pastikan canvasRef.current ada
+    
     // Modul yang diperlukan dari Matter.js
     const { Engine, Render, Runner, World, Bodies, Mouse, MouseConstraint, Events } = Matter;
 
@@ -18,9 +21,8 @@ const MatterSimulation = () => {
 
     // Buat renderer
     const render = Render.create({
-      element: sceneRef.current,
+      canvas: sceneRef.current,
       engine: engine,
-      canvas: document.createElement("canvas"),
       options: {
         width: 800,
         height: 600,
@@ -29,8 +31,7 @@ const MatterSimulation = () => {
       },
     });
 
-    // Tambahkan canvas ke DOM
-    sceneRef.current.appendChild(render.canvas);
+    
 
     // Buat objek fisika
     const ground = Bodies.rectangle(400, 590, 810, 60, { isStatic: true });
@@ -61,8 +62,9 @@ const MatterSimulation = () => {
     Events.on(engine, "collisionStart", (event) => {
       const pairs = event.pairs;
       pairs.forEach((pair) => {
-        if (pair.bodyA === ball || pair.bodyB === ball) {
-          setScore((prevScore) => prevScore + 1); // Tambahkan skor
+        if (pair.bodyA === ball || pair.bodyB === ball ) {
+          
+          setScore((prevScore:number) => prevScore + 1); // Tambahkan skor
         }
       });
     });
@@ -74,24 +76,20 @@ const MatterSimulation = () => {
     // Cleanup saat komponen di-unmount
     return () => {
       Render.stop(render);
-      World.clear(world);
+      World.clear(world,false);
       Engine.clear(engine);
-      sceneRef.current.removeChild(render.canvas);
+      setScore(0)
     };
   }, []);
   return (
     <div className="text-4xl font-bold text-gray-800 text-center text-shadow-lg shadow-gray-500">
-      <h1>Pukul bola jangan sampai menyentuh dinding hitam</h1>
+      <h1>Pukul bola </h1>
       <p>Score : {score}</p>
-      <p>{score > 12? "kamu kalah": "ayo semangat!!"}</p>
-      {score > 12 ?  window.location.reload(true): " " }
-      <div ref={sceneRef}></div>
+      <p>{winOrlose}</p>    
+      <canvas ref={sceneRef}/>
     </div>
   );
 
 };
 
 export default MatterSimulation
-
-
-
