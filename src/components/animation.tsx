@@ -1,128 +1,96 @@
-'use client'
+"use client"
 
-import React, { useEffect, useRef } from 'react';
-import Matter from 'matter-js';
+import React, { useEffect, useRef,useState } from "react";
+import Matter from "matter-js";
 
-
-// Create an engine
-const { Engine, Render, Runner, World, Bodies,Mouse, MouseConstraint } = Matter;
-
-declare global {
-  interface Window {
-    engine: Matter.Engine
-    runner: Matter.Runner
-  }
-}
-
-export default function MatterSimulation(){
-  const canvasRef = useRef<HTMLCanvasElement | null>(null); // Tentukan tipe ref
-
+const MatterSimulation = () => {
+  const sceneRef = useRef(null); // Ref untuk container canvas
+  const [score, setScore] = useState(0); // State untuk skor
 
   useEffect(() => {
-    if (!canvasRef.current) return; // Pastikan canvasRef.current ada
+    // Modul yang diperlukan dari Matter.js
+    const { Engine, Render, Runner, World, Bodies, Mouse, MouseConstraint, Events } = Matter;
 
+    // Buat engine
     const engine = Engine.create();
     const { world } = engine;
 
-    // Create a renderer
+    // Buat renderer
     const render = Render.create({
-      canvas: canvasRef.current,
-      engine,
+      element: sceneRef.current,
+      engine: engine,
+      canvas: document.createElement("canvas"),
       options: {
-        width: window.innerWidth,
-        height: window.innerHeight,
-        wireframes: false, // Set to true for wireframe mode
-        background: '#f4f4f4',
+        width: 800,
+        height: 600,
+        wireframes: false,
+        background: "#f4f4f4",
       },
     });
 
-    // Add a ground
-    const ground = Bodies.rectangle(window.innerWidth / 2, window.innerHeight - 50, window.innerWidth, 100, {
-      isStatic: true,
-      render: {
-        fillStyle: '#555',
+    // Tambahkan canvas ke DOM
+    sceneRef.current.appendChild(render.canvas);
+
+    // Buat objek fisika
+    const ground = Bodies.rectangle(400, 590, 810, 60, { isStatic: true });
+    const leftWall = Bodies.rectangle(0, 300, 60, 600, { isStatic: true });
+    const rightWall = Bodies.rectangle(800, 300, 60, 600, { isStatic: true });
+
+    const ball = Bodies.circle(400, 100, 40, { restitution: 0.9 });
+
+    // Tambahkan objek ke dunia
+    World.add(world, [ground, leftWall, rightWall, ball]);
+
+    // Setup mouse interaction
+    const mouse = Mouse.create(render.canvas);
+    const mouseConstraint = MouseConstraint.create(engine, {
+      mouse: mouse,
+      constraint: {
+        stiffness: 0.2,
+        render: {
+          visible: false, // Sembunyikan garis constraint
+        },
       },
     });
 
-    // Add a ball
-    const ball = Bodies.circle(window.innerWidth / 2, 200, 50, {
-      restitution: 0.8,
-      render: {
-        fillStyle: '#ff0000',
-      },
-    });
+    // Tambahkan mouse constraint ke dunia
+    World.add(world, mouseConstraint);
 
-    // Add bodies to the world
-    World.add(world, [ground, ball]);
-
-    // Run the engine and renderer
-    Engine.run(engine);
-    Render.run(render);
-
-    // Add a runner to keep the simulation running
-    const runner = Runner.create();
-    Runner.run(runner, engine);
-
-    // Handle window resizing
-    const handleResize = () => {
-      render.canvas.width = window.innerWidth;
-      render.canvas.height = window.innerHeight;
-
-      // Update the ground's position and size
-      Matter.Body.setPosition(ground, {
-        x: window.innerWidth / 2,
-        y: window.innerHeight - 50,
+    // Event listener untuk tumbukan
+    Events.on(engine, "collisionStart", (event) => {
+      const pairs = event.pairs;
+      pairs.forEach((pair) => {
+        if (pair.bodyA === ball || pair.bodyB === ball) {
+          setScore((prevScore) => prevScore + 1); // Tambahkan skor
+        }
       });
-      Matter.Body.setVertices(ground, [
-        { x: 0, y: window.innerHeight - 50 },
-        { x: window.innerWidth, y: window.innerHeight - 50 },
-        { x: window.innerWidth, y: window.innerHeight },
-        { x: 0, y: window.innerHeight },
-      ]);
-    };
-    // Add a stack of boxes
-for (let i = 0; i < 5; i++) {
-  const box = Bodies.rectangle(300 + i * 60, 100, 50, 50, {
-    render: {
-      fillStyle: '#00ff00',
-    },
-  });
-  World.add(world, box);
-}
+    });
 
+    // Jalankan renderer dan engine
+    Render.run(render);
+    Runner.run(Runner.create(), engine);
 
-
-const mouse = Mouse.create(render.canvas);
-const mouseConstraint = MouseConstraint.create(engine, {
-  mouse,
-  constraint: {
-    stiffness: 0.2,
-    render: {
-      visible: false,
-    },
-  },
-});
-
-World.add(world, mouseConstraint);
-render.mouse = mouse;
-    window.addEventListener('resize', handleResize);
-
-    // Cleanup
+    // Cleanup saat komponen di-unmount
     return () => {
-      window.removeEventListener('resize', handleResize);
       Render.stop(render);
-      Runner.stop(runner);
-      World.clear(world, false);
+      World.clear(world);
       Engine.clear(engine);
-      render.canvas.remove();
-      render.textures = {};
+      sceneRef.current.removeChild(render.canvas);
     };
   }, []);
-
-  return(
-    <div className="container mx-auto"> 
-    <canvas ref={canvasRef} /> 
+  return (
+    <div className="text-4xl font-bold text-gray-800 text-center text-shadow-lg shadow-gray-500">
+      <h1>Pukul bola jangan sampai menyentuh dinding hitam</h1>
+      <p>Score : {score}</p>
+      <p>{score > 12? "kamu kalah": "ayo semangat!!"}</p>
+      {score > 12 ?  window.location.reload(true): " " }
+      <div ref={sceneRef}></div>
     </div>
-    );
+  );
+
 };
+
+export default MatterSimulation
+
+
 
