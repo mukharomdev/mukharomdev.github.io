@@ -4,10 +4,11 @@ import React, { useEffect, useRef,useState } from "react";
 import Matter from "matter-js";
 
 const MatterSimulation = () => {
-  const sceneRef = useRef(null); // Ref untuk container canvas
+  const sceneRef = useRef<HTMLElement>(null); // Ref untuk container canvas
   const [score, setScore] = useState(0); // State untuk skor
 
   useEffect(() => {
+    if(!sceneRef){return}
     // Modul yang diperlukan dari Matter.js
     const { Engine, Render, Runner, World, Bodies, Mouse, MouseConstraint, Events } = Matter;
 
