@@ -87,7 +87,7 @@ const MatterGame = () => {
       <h1>Pukul bola </h1>
       <p>Score : {score}</p>
       <p>{winOrlose}</p>
-      <canvas ref={sceneRef}/>
+      <canvas className="w-64 h-64" ref={sceneRef}/>
     </div>    
     </div>
   );
