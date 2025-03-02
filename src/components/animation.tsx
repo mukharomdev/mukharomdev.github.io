@@ -82,13 +82,13 @@ const MatterGame = () => {
     };
   }, []);
   return (
-    <div className="min-h-screen w-full bg-blue-500 flex items-center justify-center">
-    <div className="text-4xl font-bold text-gray-800 text-center text-shadow-lg shadow-gray-500">
+    <div className="min-h-screen w-full  flex items-center justify-center">
+    <div className=" font-bold text-gray-800 text-center text-shadow-lg shadow-gray-500">
       <h1>Pukul bola </h1>
       <p>Score : {score}</p>
       <p>{winOrlose}</p>
-    </div>    
       <canvas ref={sceneRef}/>
+    </div>    
     </div>
   );
 
