@@ -120,7 +120,7 @@ render.mouse = mouse;
   }, []);
 
   return(
-    <div> 
+    <div className="container mx-auto"> 
     <canvas ref={canvasRef} /> 
     </div>
     );
