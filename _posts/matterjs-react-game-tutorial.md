@@ -1,12 +1,11 @@
 ---
 title: "Membuat Game 2D MatterJs dan React"
-excerpt: "Untuk membuat game menggunakan **Matter.js** dan **React**, Anda dapat membagi aplikasi menjadi beberapa komponen React untuk memisahkan tanggung jawab dan menjaga kode tetap terorganisir. Berikut adalah contoh struktur komponen yang dapat digunakan:
-"
+excerpt: "Untuk membuat game menggunakan **Matter.js** dan **React**, Anda dapat membagi aplikasi menjadi beberapa komponen React untuk memisahkan tanggung jawab dan menjaga kode tetap terorganisir. Berikut adalah contoh struktur komponen yang dapat digunakan:"
 coverImage: "https://brm.io/matter-js/img/matter-js.svg"
 date: "2025-03-03T17:24:17.910Z"
 author:
   name: Mukharomdev
-  picture:"/assets/blog/authors/mukharomdev.png"
+  picture: "/assets/blog/authors/mukharomdev.png"
 ogImage:
   url: "https://brm.io/matter-js/img/matter-js.svg"
 
