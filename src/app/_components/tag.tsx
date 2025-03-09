@@ -6,10 +6,9 @@ import React from 'react';
 type Props = {
   label: string;
   color:string;
-  slug: string;
   Close?: any;
 };
-export function handleClose(label:string) {
+export function handleClose(label?:string) {
   console.log(`Tag "${label}" closed!`);
   // Lakukan operasi server di sini, seperti memanggil API atau mengakses database.
 }
@@ -19,6 +18,7 @@ export const Tag = ({ label, color = 'bg-blue-500', Close }:Props) => {
         if (Close) {
           Close(label);
         }
+       
       };
     
     

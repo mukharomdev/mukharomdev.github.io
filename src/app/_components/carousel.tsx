@@ -8,7 +8,7 @@ import 'slick-carousel/slick/slick-theme.css';
 const Carousel = ({children}:React.PropsWithChildren) => {
     const settings = {
         infinite: true,
-        slidesToShow: 2,
+        slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 2000,
