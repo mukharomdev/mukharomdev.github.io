@@ -1,3 +1,16 @@
+---
+title: "Relasi dalam Perancangan Database"
+excerpt: "Relasi dalam database adalah cara tabel-tabel dalam database saling terhubung. Ada beberapa jenis relasi yang umum digunakan, yaitu:"
+coverImage: "/assets/blog/database/database.png"
+date: "2025-03-14T21:51:17.140Z"
+author:
+  name: mukharomdev
+  picture: "/assets/blog/authors/mukharomdev.png"
+ogImage:
+  url: "/assets/blog/database/database.png"
+
+---
+
 Relasi dalam database adalah cara tabel-tabel dalam database saling terhubung. Ada beberapa jenis relasi yang umum digunakan, yaitu:
 
 1. **One-to-One (1:1)**
