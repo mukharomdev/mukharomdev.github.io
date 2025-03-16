@@ -1,0 +1,177 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" href="/_next/static/media/569ce4b8f30dc480-s.p.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" href="/_next/static/media/93f479601ee12b01-s.p.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" as="image" href="/assets/blog/authors/mukharomdev.png"/><link rel="stylesheet" href="/_next/static/css/cc1b38a888361ae0.css" data-precedence="next"/><link rel="stylesheet" href="/_next/static/css/a218dfb468eefcdf.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/_next/static/chunks/webpack-d1f044851490e377.js"/><script src="/_next/static/chunks/748859cf-d1727182a584e899.js" async=""></script><script src="/_next/static/chunks/702-3097f4c2de53f6aa.js" async=""></script><script src="/_next/static/chunks/main-app-f6a0c1bda6624e2a.js" async=""></script><script src="/_next/static/chunks/161-e1f62ef38275032d.js" async=""></script><script src="/_next/static/chunks/app/blog/%5Bslug%5D/page-df444d222e09a7de.js" async=""></script><meta name="next-size-adjust" content=""/><title> Penggunaan React useLayoutEffect. | mukharomdev blog build with Markdown</title><meta name="description" content="Mini blog seputar pengalaman pribadi dunia pemrograman komputer"/><meta property="og:title" content=" Penggunaan React useLayoutEffect. | mukharomdev blog build with Markdown"/><meta property="og:description" content="Mini blog seputar pengalaman pribadi dunia pemrograman komputer"/><meta property="og:image" content="http://localhost:3000/assets/blog/reacts/react1.png"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content=" Penggunaan React useLayoutEffect. | mukharomdev blog build with Markdown"/><meta name="twitter:description" content="Mini blog seputar pengalaman pribadi dunia pemrograman komputer"/><meta name="twitter:image" content="http://localhost:3000/assets/blog/reacts/react1.png"/><link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="16x16"/><script src="/_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script></head><body class="__variable_4d318d __variable_ea5f4b antialiased "><div class="min-h-screen flex items-center justify-center bg-gray-100"><div class="container mx-auto p-4 bg-white rounded-lg shadow-lg"><section class=" prose lg:prose-3xl prose-img:rounded-xl prose-headings:underline prose-a:text-lime-600 prose-code:text-lime-500 mx-auto  "><main class="container"><div class="border-b dark:bg-slate-800 bg-neutral-50 border-neutral-200"><div class=" mx-auto px-5"><div class="py-2 text-center text-sm">source code blog ini bisa ditemukan di link ini<!-- --> <a href="https://github.com/mukharomdev/mukharomdev.github.io" class="underline hover:text-blue-600 duration-200 transition-colors">available on GitHub</a>.</div></div></div><div class=" mx-auto px-5"><h2 class="text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight mb-20 mt-8 flex items-center"><a class="hover:underline" href="/">Blog</a>.</h2><article class="mb-32"><h1 class="text-3xl text-center md:text-5xl lg:text-6xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left"> Penggunaan React useLayoutEffect.</h1><div class="hidden md:block md:mb-12"><div class="flex items-center"><img src="/assets/blog/authors/mukharomdev.png" class="w-12 h-12 rounded-full mr-4" alt="mukharomdev"/><div class="text-xl font-bold">mukharomdev</div></div></div><div class="mb-8 md:mb-16 sm:mx-0"><div class="sm:mx-0"><img alt="Cover Image for  Penggunaan React useLayoutEffect." loading="lazy" width="120" height="80" decoding="async" data-nimg="1" class="shadow-sm w-full sm:w-[400px] md:w-[600px] lg:w-[800px] max-h-[500px] mx-auto block" style="color:transparent" src="/assets/blog/reacts/react1.png"/></div></div><div class="max-w-2xl mx-auto"><div class="block md:hidden mb-6"><div class="flex items-center"><img src="/assets/blog/authors/mukharomdev.png" class="w-12 h-12 rounded-full mr-4" alt="mukharomdev"/><div class="text-xl font-bold">mukharomdev</div></div></div><div class="mb-6 text-lg"><time dateTime="2025-03-01T08:14:47.924Z">March	1, 2025</time></div></div><div class="max-w-2xl mx-auto"><div class="markdown-styles_markdown__ORfR8 prose prose-code "><p>useLayoutEffect adalah hook di React yang mirip dengan useEffect, tetapi dijalankan <strong>secara sinkron setelah React melakukan mutasi DOM dan sebelum browser melakukan painting</strong>. Ini berguna ketika Anda perlu membaca atau memodifikasi layout DOM secara sinkron sebelum browser menampilkan perubahan ke layar. Berikut penjelasan lengkapnya:</p>
+<hr>
+<h3><strong>1. Sintaks Dasar</strong></h3>
+<pre><code class="language-javascript">useLayoutEffect(() => {
+  // Kode efek samping di sini
+  return () => {
+    // Cleanup (opsional)
+  };
+}, [dependencies]); // Dependency array
+</code></pre>
+<hr>
+<h3><strong>2. Perbedaan useLayoutEffect vs useEffect</strong></h3>
+<div class="overflow-x-auto bg-lime-100"><table>
+<thead>
+<tr>
+<th><strong>Kriteria</strong></th>
+<th>useLayoutEffect</th>
+<th>useEffect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Waktu Eksekusi</strong></td>
+<td>Setelah mutasi DOM, <strong>sebelum browser paint</strong></td>
+<td>Setelah mutasi DOM, <strong>setelah browser paint</strong></td>
+</tr>
+<tr>
+<td><strong>Penggunaan</strong></td>
+<td>Untuk operasi yang memengaruhi tampilan (misal: ukuran/posisi DOM)</td>
+<td>Untuk efek samping umum (fetch data, subscriptions)</td>
+</tr>
+<tr>
+<td><strong>Blokir Paint</strong></td>
+<td>Ya (jika kode berat)</td>
+<td>Tidak</td>
+</tr>
+<tr>
+<td><strong>SSR</strong></td>
+<td>Tidak direkomendasikan (menyebabkan peringatan)</td>
+<td>Aman di SSR</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h3><strong>3. Kapan Menggunakan useLayoutEffect?</strong></h3>
+<ul>
+<li><strong>Membaca/mengukur DOM</strong> (misal: ukuran elemen, posisi scroll).</li>
+<li><strong>Memodifikasi DOM secara sinkron</strong> untuk menghindari "flicker" atau perubahan visual yang terlihat pengguna.</li>
+<li><strong>Animasi atau transisi</strong> yang memerlukan pembaruan DOM sebelum paint.</li>
+</ul>
+<hr>
+<h3><strong>4. Contoh Penggunaan</strong></h3>
+<h4>a. <strong>Mengukur Ukuran Elemen</strong></h4>
+<pre><code class="language-jsx">import { useLayoutEffect, useRef, useState } from 'react';
+
+function MeasureElement() {
+  const ref = useRef();
+  const [size, setSize] = useState({ width: 0, height: 0 });
+
+  useLayoutEffect(() => {
+    // Ukur elemen setelah DOM diupdate
+    const { width, height } = ref.current.getBoundingClientRect();
+    setSize({ width, height });
+  }, []); // Jalankan sekali saat mount
+
+  return (
+    &#x3C;div>
+      &#x3C;div ref={ref} style={{ border: '1px solid red' }}>
+        Ukuran: {size.width}x{size.height}
+      &#x3C;/div>
+    &#x3C;/div>
+  );
+}
+</code></pre>
+<h4>b. <strong>Menyesuaikan Posisi Tooltip</strong></h4>
+<pre><code class="language-jsx">function Tooltip({ text }) {
+  const tooltipRef = useRef();
+  const [position, setPosition] = useState({ top: 0, left: 0 });
+
+  useLayoutEffect(() => {
+    // Hitung posisi tooltip relatif terhadap parent
+    const parentRect = tooltipRef.current.parentElement.getBoundingClientRect();
+    const newPosition = {
+      top: parentRect.top - 30,
+      left: parentRect.left + parentRect.width / 2,
+    };
+    setPosition(newPosition);
+  }, [text]); // Jalankan ulang saat &#x3C;code>text&#x3C;/code> berubah
+
+  return (
+    &#x3C;div
+      ref={tooltipRef}
+      style={{
+        position: 'fixed',
+        top: position.top,
+        left: position.left,
+      }}
+    >
+      {text}
+    &#x3C;/div>
+  );
+}
+</code></pre>
+<h4>c. <strong>Auto-Scroll ke Bawah List</strong></h4>
+<pre><code class="language-jsx">function ChatList({ messages }) {
+  const listRef = useRef();
+
+  useLayoutEffect(() => {
+    // Auto-scroll ke bawah saat pesan baru ditambahkan
+    listRef.current.scrollTop = listRef.current.scrollHeight;
+  }, [messages]);
+
+  return (
+    &#x3C;div ref={listRef} style={{ height: '300px', overflowY: 'auto' }}>
+      {messages.map((msg) => (
+        &#x3C;div key={msg.id}>{msg.text}&#x3C;/div>
+      ))}
+    &#x3C;/div>
+  );
+}
+</code></pre>
+<hr>
+<h3><strong>5. Peringatan Penting</strong></h3>
+<ol>
+<li>
+<p><strong>Hindari Kode Berat di useLayoutEffect</strong><br>
+Karena dijalankan sebelum browser paint, kode yang lambat akan memblokir tampilan visual hingga selesai.<br>
+Contoh buruk:</p>
+<pre><code class="language-javascript">useLayoutEffect(() => {
+  // Kode berat (misal: loop ribuan iterasi)
+  for (let i = 0; i &#x3C; 100000; i++) { /* ... */ }
+}, []);
+</code></pre>
+</li>
+<li>
+<p><strong>Masalah dengan Server-Side Rendering (SSR)</strong><br>
+useLayoutEffect tidak bekerja di server. Jika digunakan di SSR, React akan memberi peringatan.<br>
+Solusi:</p>
+<ul>
+<li>Gunakan useEffect untuk SSR.</li>
+<li>Atau, jalankan kode hanya di client dengan:
+<pre><code class="language-javascript">useLayoutEffect(() => {
+  if (typeof window !== 'undefined') {
+    // Kode khusus client
+  }
+}, []);
+</code></pre>
+</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3><strong>6. Best Practices</strong></h3>
+<ul>
+<li>
+<p><strong>Gunakan useEffect Sebagai Default</strong><br>
+Beralih ke useLayoutEffect hanya jika ada masalah visual yang perlu diatasi secara sinkron.</p>
+</li>
+<li>
+<p><strong>Optimasi Operasi DOM</strong><br>
+Pastikan operasi di useLayoutEffect cepat dan tidak menghambat paint.</p>
+</li>
+<li>
+<p><strong>Hindari State Update di useLayoutEffect</strong><br>
+Jika memungkinkan, gunakan untuk operasi DOM langsung, bukan update state yang memicu re-render.</p>
+</li>
+</ul>
+<hr>
+<h3><strong>Kapan Memilih useLayoutEffect?</strong></h3>
+<ul>
+<li>Saat Anda perlu <strong>membaca atau menulis DOM secara sinkron</strong> sebelum browser paint (misal: menghitung posisi tooltip).</li>
+<li>Untuk <strong>menghindari flicker</strong> saat perubahan DOM harus langsung terlihat (misal: animasi transisi).</li>
+</ul>
+<hr>
+<h3><strong>Kesimpulan</strong></h3>
+<p>useLayoutEffect adalah alat yang powerful untuk kasus khusus di mana pembaruan DOM harus terjadi <strong>sebelum browser paint</strong>. Gunakan dengan bijak untuk menghindari masalah performa dan kompatibilitas! 🚨</p>
+</div></div></article></div></main></section></div></div><script src="/_next/static/chunks/webpack-d1f044851490e377.js" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"1:\"$Sreact.fragment\"\n2:I[7397,[],\"\"]\n3:I[8513,[],\"\"]\n5:I[3514,[],\"OutletBoundary\"]\n8:I[3514,[],\"ViewportBoundary\"]\na:I[3514,[],\"MetadataBoundary\"]\nc:I[1612,[],\"\"]\n:HL[\"/_next/static/media/569ce4b8f30dc480-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/_next/static/media/93f479601ee12b01-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/_next/static/css/cc1b38a888361ae0.css\",\"style\"]\n:HL[\"/_next/static/css/a218dfb468eefcdf.css\",\"style\"]\n"])</script><script>self.__next_f.push([1,"0:{\"P\":null,\"b\":\"zB4SN0XwAB_SWMRVvwFhG\",\"p\":\"\",\"c\":[\"\",\"blog\",\"react-uselayouteffect\"],\"i\":false,\"f\":[[[\"\",{\"children\":[\"blog\",{\"children\":[[\"slug\",\"react-uselayouteffect\",\"d\"],{\"children\":[\"__PAGE__\",{}]}]}]},\"$undefined\",\"$undefined\",true],[\"\",[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/cc1b38a888361ae0.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"en\",\"children\":[\"$\",\"body\",null,{\"className\":\"__variable_4d318d __variable_ea5f4b antialiased \",\"children\":[\"$\",\"div\",null,{\"className\":\"min-h-screen flex items-center justify-center bg-gray-100\",\"children\":[\"$\",\"div\",null,{\"className\":\"container mx-auto p-4 bg-white rounded-lg shadow-lg\",\"children\":[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L3\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":404}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],\"$undefined\",[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}]}]}]}]]}],{\"children\":[\"blog\",[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"section\",null,{\"className\":\" prose lg:prose-3xl prose-img:rounded-xl prose-headings:underline prose-a:text-lime-600 prose-code:text-lime-500 mx-auto  \",\"children\":[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L3\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}]]}],{\"children\":[[\"slug\",\"react-uselayouteffect\",\"d\"],[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L3\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[\"__PAGE__\",[\"$\",\"$1\",\"c\",{\"children\":[\"$L4\",\"$undefined\",[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/a218dfb468eefcdf.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]],[\"$\",\"$L5\",null,{\"children\":[\"$L6\",\"$L7\",null]}]]}],{},null,false]},null,false]},null,false]},null,false],[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$1\",\"yTxepyGysNAkQhikFnTAA\",{\"children\":[[\"$\",\"$L8\",null,{\"children\":\"$L9\"}],[\"$\",\"meta\",null,{\"name\":\"next-size-adjust\",\"content\":\"\"}]]}],[\"$\",\"$La\",null,{\"children\":\"$Lb\"}]]}],false]],\"m\":\"$undefined\",\"G\":[\"$c\",\"$undefined\"],\"s\":false,\"S\":true}\n"])</script><script>self.__next_f.push([1,"d:I[4184,[\"161\",\"static/chunks/161-e1f62ef38275032d.js\",\"953\",\"static/chunks/app/blog/%5Bslug%5D/page-df444d222e09a7de.js\"],\"\"]\ne:I[8161,[\"161\",\"static/chunks/161-e1f62ef38275032d.js\",\"953\",\"static/chunks/app/blog/%5Bslug%5D/page-df444d222e09a7de.js\"],\"Image\"]\nf:T1716,"])</script><script>self.__next_f.push([1,"\u003cp\u003euseLayoutEffect adalah hook di React yang mirip dengan useEffect, tetapi dijalankan \u003cstrong\u003esecara sinkron setelah React melakukan mutasi DOM dan sebelum browser melakukan painting\u003c/strong\u003e. Ini berguna ketika Anda perlu membaca atau memodifikasi layout DOM secara sinkron sebelum browser menampilkan perubahan ke layar. Berikut penjelasan lengkapnya:\u003c/p\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e1. Sintaks Dasar\u003c/strong\u003e\u003c/h3\u003e\n\u003cpre\u003e\u003ccode class=\"language-javascript\"\u003euseLayoutEffect(() =\u003e {\n  // Kode efek samping di sini\n  return () =\u003e {\n    // Cleanup (opsional)\n  };\n}, [dependencies]); // Dependency array\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e2. Perbedaan useLayoutEffect vs useEffect\u003c/strong\u003e\u003c/h3\u003e\n\u003cdiv class=\"overflow-x-auto bg-lime-100\"\u003e\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003e\u003cstrong\u003eKriteria\u003c/strong\u003e\u003c/th\u003e\n\u003cth\u003euseLayoutEffect\u003c/th\u003e\n\u003cth\u003euseEffect\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003cstrong\u003eWaktu Eksekusi\u003c/strong\u003e\u003c/td\u003e\n\u003ctd\u003eSetelah mutasi DOM, \u003cstrong\u003esebelum browser paint\u003c/strong\u003e\u003c/td\u003e\n\u003ctd\u003eSetelah mutasi DOM, \u003cstrong\u003esetelah browser paint\u003c/strong\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003cstrong\u003ePenggunaan\u003c/strong\u003e\u003c/td\u003e\n\u003ctd\u003eUntuk operasi yang memengaruhi tampilan (misal: ukuran/posisi DOM)\u003c/td\u003e\n\u003ctd\u003eUntuk efek samping umum (fetch data, subscriptions)\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003cstrong\u003eBlokir Paint\u003c/strong\u003e\u003c/td\u003e\n\u003ctd\u003eYa (jika kode berat)\u003c/td\u003e\n\u003ctd\u003eTidak\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003cstrong\u003eSSR\u003c/strong\u003e\u003c/td\u003e\n\u003ctd\u003eTidak direkomendasikan (menyebabkan peringatan)\u003c/td\u003e\n\u003ctd\u003eAman di SSR\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\u003c/div\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e3. Kapan Menggunakan useLayoutEffect?\u003c/strong\u003e\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eMembaca/mengukur DOM\u003c/strong\u003e (misal: ukuran elemen, posisi scroll).\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eMemodifikasi DOM secara sinkron\u003c/strong\u003e untuk menghindari \"flicker\" atau perubahan visual yang terlihat pengguna.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eAnimasi atau transisi\u003c/strong\u003e yang memerlukan pembaruan DOM sebelum paint.\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e4. Contoh Penggunaan\u003c/strong\u003e\u003c/h3\u003e\n\u003ch4\u003ea. \u003cstrong\u003eMengukur Ukuran Elemen\u003c/strong\u003e\u003c/h4\u003e\n\u003cpre\u003e\u003ccode class=\"language-jsx\"\u003eimport { useLayoutEffect, useRef, useState } from 'react';\n\nfunction MeasureElement() {\n  const ref = useRef();\n  const [size, setSize] = useState({ width: 0, height: 0 });\n\n  useLayoutEffect(() =\u003e {\n    // Ukur elemen setelah DOM diupdate\n    const { width, height } = ref.current.getBoundingClientRect();\n    setSize({ width, height });\n  }, []); // Jalankan sekali saat mount\n\n  return (\n    \u0026#x3C;div\u003e\n      \u0026#x3C;div ref={ref} style={{ border: '1px solid red' }}\u003e\n        Ukuran: {size.width}x{size.height}\n      \u0026#x3C;/div\u003e\n    \u0026#x3C;/div\u003e\n  );\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003eb. \u003cstrong\u003eMenyesuaikan Posisi Tooltip\u003c/strong\u003e\u003c/h4\u003e\n\u003cpre\u003e\u003ccode class=\"language-jsx\"\u003efunction Tooltip({ text }) {\n  const tooltipRef = useRef();\n  const [position, setPosition] = useState({ top: 0, left: 0 });\n\n  useLayoutEffect(() =\u003e {\n    // Hitung posisi tooltip relatif terhadap parent\n    const parentRect = tooltipRef.current.parentElement.getBoundingClientRect();\n    const newPosition = {\n      top: parentRect.top - 30,\n      left: parentRect.left + parentRect.width / 2,\n    };\n    setPosition(newPosition);\n  }, [text]); // Jalankan ulang saat \u0026#x3C;code\u003etext\u0026#x3C;/code\u003e berubah\n\n  return (\n    \u0026#x3C;div\n      ref={tooltipRef}\n      style={{\n        position: 'fixed',\n        top: position.top,\n        left: position.left,\n      }}\n    \u003e\n      {text}\n    \u0026#x3C;/div\u003e\n  );\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003ec. \u003cstrong\u003eAuto-Scroll ke Bawah List\u003c/strong\u003e\u003c/h4\u003e\n\u003cpre\u003e\u003ccode class=\"language-jsx\"\u003efunction ChatList({ messages }) {\n  const listRef = useRef();\n\n  useLayoutEffect(() =\u003e {\n    // Auto-scroll ke bawah saat pesan baru ditambahkan\n    listRef.current.scrollTop = listRef.current.scrollHeight;\n  }, [messages]);\n\n  return (\n    \u0026#x3C;div ref={listRef} style={{ height: '300px', overflowY: 'auto' }}\u003e\n      {messages.map((msg) =\u003e (\n        \u0026#x3C;div key={msg.id}\u003e{msg.text}\u0026#x3C;/div\u003e\n      ))}\n    \u0026#x3C;/div\u003e\n  );\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e5. Peringatan Penting\u003c/strong\u003e\u003c/h3\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eHindari Kode Berat di useLayoutEffect\u003c/strong\u003e\u003cbr\u003e\nKarena dijalankan sebelum browser paint, kode yang lambat akan memblokir tampilan visual hingga selesai.\u003cbr\u003e\nContoh buruk:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-javascript\"\u003euseLayoutEffect(() =\u003e {\n  // Kode berat (misal: loop ribuan iterasi)\n  for (let i = 0; i \u0026#x3C; 100000; i++) { /* ... */ }\n}, []);\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eMasalah dengan Server-Side Rendering (SSR)\u003c/strong\u003e\u003cbr\u003e\nuseLayoutEffect tidak bekerja di server. Jika digunakan di SSR, React akan memberi peringatan.\u003cbr\u003e\nSolusi:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eGunakan useEffect untuk SSR.\u003c/li\u003e\n\u003cli\u003eAtau, jalankan kode hanya di client dengan:\n\u003cpre\u003e\u003ccode class=\"language-javascript\"\u003euseLayoutEffect(() =\u003e {\n  if (typeof window !== 'undefined') {\n    // Kode khusus client\n  }\n}, []);\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e6. Best Practices\u003c/strong\u003e\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eGunakan useEffect Sebagai Default\u003c/strong\u003e\u003cbr\u003e\nBeralih ke useLayoutEffect hanya jika ada masalah visual yang perlu diatasi secara sinkron.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eOptimasi Operasi DOM\u003c/strong\u003e\u003cbr\u003e\nPastikan operasi di useLayoutEffect cepat dan tidak menghambat paint.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eHindari State Update di useLayoutEffect\u003c/strong\u003e\u003cbr\u003e\nJika memungkinkan, gunakan untuk operasi DOM langsung, bukan update state yang memicu re-render.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003eKapan Memilih useLayoutEffect?\u003c/strong\u003e\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003eSaat Anda perlu \u003cstrong\u003emembaca atau menulis DOM secara sinkron\u003c/strong\u003e sebelum browser paint (misal: menghitung posisi tooltip).\u003c/li\u003e\n\u003cli\u003eUntuk \u003cstrong\u003emenghindari flicker\u003c/strong\u003e saat perubahan DOM harus langsung terlihat (misal: animasi transisi).\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003eKesimpulan\u003c/strong\u003e\u003c/h3\u003e\n\u003cp\u003euseLayoutEffect adalah alat yang powerful untuk kasus khusus di mana pembaruan DOM harus terjadi \u003cstrong\u003esebelum browser paint\u003c/strong\u003e. Gunakan dengan bijak untuk menghindari masalah performa dan kompatibilitas! 🚨\u003c/p\u003e\n"])</script><script>self.__next_f.push([1,"4:[\"$\",\"main\",null,{\"className\":\"container\",\"children\":[[\"$\",\"div\",null,{\"className\":\"border-b dark:bg-slate-800 bg-neutral-50 border-neutral-200\",\"children\":[\"$\",\"div\",null,{\"className\":\" mx-auto px-5\",\"children\":[\"$\",\"div\",null,{\"className\":\"py-2 text-center text-sm\",\"children\":[\"source code blog ini bisa ditemukan di link ini\",\" \",[\"$\",\"a\",null,{\"href\":\"https://github.com/mukharomdev/mukharomdev.github.io\",\"className\":\"underline hover:text-blue-600 duration-200 transition-colors\",\"children\":\"available on GitHub\"}],\".\"]}]}]}],[\"$\",\"div\",null,{\"className\":\" mx-auto px-5\",\"children\":[[\"$\",\"h2\",null,{\"className\":\"text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight mb-20 mt-8 flex items-center\",\"children\":[[\"$\",\"$Ld\",null,{\"href\":\"/\",\"className\":\"hover:underline\",\"children\":\"Blog\"}],\".\"]}],[\"$\",\"article\",null,{\"className\":\"mb-32\",\"children\":[[[\"$\",\"h1\",null,{\"className\":\"text-3xl text-center md:text-5xl lg:text-6xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left\",\"children\":\" Penggunaan React useLayoutEffect.\"}],[\"$\",\"div\",null,{\"className\":\"hidden md:block md:mb-12\",\"children\":[\"$\",\"div\",null,{\"className\":\"flex items-center\",\"children\":[[\"$\",\"img\",null,{\"src\":\"/assets/blog/authors/mukharomdev.png\",\"className\":\"w-12 h-12 rounded-full mr-4\",\"alt\":\"mukharomdev\"}],[\"$\",\"div\",null,{\"className\":\"text-xl font-bold\",\"children\":\"mukharomdev\"}]]}]}],[\"$\",\"div\",null,{\"className\":\"mb-8 md:mb-16 sm:mx-0\",\"children\":[\"$\",\"div\",null,{\"className\":\"sm:mx-0\",\"children\":[\"$\",\"$Le\",null,{\"src\":\"/assets/blog/reacts/react1.png\",\"alt\":\"Cover Image for  Penggunaan React useLayoutEffect.\",\"className\":\"shadow-sm w-full sm:w-[400px] md:w-[600px] lg:w-[800px] max-h-[500px] mx-auto block\",\"width\":120,\"height\":80}]}]}],[\"$\",\"div\",null,{\"className\":\"max-w-2xl mx-auto\",\"children\":[[\"$\",\"div\",null,{\"className\":\"block md:hidden mb-6\",\"children\":[\"$\",\"div\",null,{\"className\":\"flex items-center\",\"children\":[[\"$\",\"img\",null,{\"src\":\"/assets/blog/authors/mukharomdev.png\",\"className\":\"w-12 h-12 rounded-full mr-4\",\"alt\":\"mukharomdev\"}],[\"$\",\"div\",null,{\"className\":\"text-xl font-bold\",\"children\":\"mukharomdev\"}]]}]}],[\"$\",\"div\",null,{\"className\":\"mb-6 text-lg\",\"children\":[\"$\",\"time\",null,{\"dateTime\":\"2025-03-01T08:14:47.924Z\",\"children\":\"March\\t1, 2025\"}]}]]}]],[\"$\",\"div\",null,{\"className\":\"max-w-2xl mx-auto\",\"children\":[\"$\",\"div\",null,{\"className\":\"markdown-styles_markdown__ORfR8 prose prose-code \",\"dangerouslySetInnerHTML\":{\"__html\":\"$f\"}}]}]]}]]}]]}]\n"])</script><script>self.__next_f.push([1,"9:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]\n6:null\n"])</script><script>self.__next_f.push([1,"7:null\nb:[[\"$\",\"title\",\"0\",{\"children\":\" Penggunaan React useLayoutEffect. | mukharomdev blog build with Markdown\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"Mini blog seputar pengalaman pribadi dunia pemrograman komputer\"}],[\"$\",\"meta\",\"2\",{\"property\":\"og:title\",\"content\":\" Penggunaan React useLayoutEffect. | mukharomdev blog build with Markdown\"}],[\"$\",\"meta\",\"3\",{\"property\":\"og:description\",\"content\":\"Mini blog seputar pengalaman pribadi dunia pemrograman komputer\"}],[\"$\",\"meta\",\"4\",{\"property\":\"og:image\",\"content\":\"http://localhost:3000/assets/blog/reacts/react1.png\"}],[\"$\",\"meta\",\"5\",{\"name\":\"twitter:card\",\"content\":\"summary_large_image\"}],[\"$\",\"meta\",\"6\",{\"name\":\"twitter:title\",\"content\":\" Penggunaan React useLayoutEffect. | mukharomdev blog build with Markdown\"}],[\"$\",\"meta\",\"7\",{\"name\":\"twitter:description\",\"content\":\"Mini blog seputar pengalaman pribadi dunia pemrograman komputer\"}],[\"$\",\"meta\",\"8\",{\"name\":\"twitter:image\",\"content\":\"http://localhost:3000/assets/blog/reacts/react1.png\"}],[\"$\",\"link\",\"9\",{\"rel\":\"icon\",\"href\":\"/favicon.ico\",\"type\":\"image/x-icon\",\"sizes\":\"16x16\"}]]\n"])</script></body></html>

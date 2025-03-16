@@ -1,0 +1,181 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" href="/_next/static/media/569ce4b8f30dc480-s.p.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" href="/_next/static/media/93f479601ee12b01-s.p.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" as="image" href="/assets/blog/authors/mukharomdev.png"/><link rel="stylesheet" href="/_next/static/css/cc1b38a888361ae0.css" data-precedence="next"/><link rel="stylesheet" href="/_next/static/css/a218dfb468eefcdf.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/_next/static/chunks/webpack-d1f044851490e377.js"/><script src="/_next/static/chunks/748859cf-d1727182a584e899.js" async=""></script><script src="/_next/static/chunks/702-3097f4c2de53f6aa.js" async=""></script><script src="/_next/static/chunks/main-app-f6a0c1bda6624e2a.js" async=""></script><script src="/_next/static/chunks/161-e1f62ef38275032d.js" async=""></script><script src="/_next/static/chunks/app/blog/%5Bslug%5D/page-df444d222e09a7de.js" async=""></script><meta name="next-size-adjust" content=""/><title>Relasi dalam Perancangan Database | mukharomdev blog build with Markdown</title><meta name="description" content="Mini blog seputar pengalaman pribadi dunia pemrograman komputer"/><meta property="og:title" content="Relasi dalam Perancangan Database | mukharomdev blog build with Markdown"/><meta property="og:description" content="Mini blog seputar pengalaman pribadi dunia pemrograman komputer"/><meta property="og:image" content="http://localhost:3000/assets/blog/database/database.png"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="Relasi dalam Perancangan Database | mukharomdev blog build with Markdown"/><meta name="twitter:description" content="Mini blog seputar pengalaman pribadi dunia pemrograman komputer"/><meta name="twitter:image" content="http://localhost:3000/assets/blog/database/database.png"/><link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="16x16"/><script src="/_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script></head><body class="__variable_4d318d __variable_ea5f4b antialiased "><div class="min-h-screen flex items-center justify-center bg-gray-100"><div class="container mx-auto p-4 bg-white rounded-lg shadow-lg"><section class=" prose lg:prose-3xl prose-img:rounded-xl prose-headings:underline prose-a:text-lime-600 prose-code:text-lime-500 mx-auto  "><main class="container"><div class="border-b dark:bg-slate-800 bg-neutral-50 border-neutral-200"><div class=" mx-auto px-5"><div class="py-2 text-center text-sm">source code blog ini bisa ditemukan di link ini<!-- --> <a href="https://github.com/mukharomdev/mukharomdev.github.io" class="underline hover:text-blue-600 duration-200 transition-colors">available on GitHub</a>.</div></div></div><div class=" mx-auto px-5"><h2 class="text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight mb-20 mt-8 flex items-center"><a class="hover:underline" href="/">Blog</a>.</h2><article class="mb-32"><h1 class="text-3xl text-center md:text-5xl lg:text-6xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left">Relasi dalam Perancangan Database</h1><div class="hidden md:block md:mb-12"><div class="flex items-center"><img src="/assets/blog/authors/mukharomdev.png" class="w-12 h-12 rounded-full mr-4" alt="mukharomdev"/><div class="text-xl font-bold">mukharomdev</div></div></div><div class="mb-8 md:mb-16 sm:mx-0"><div class="sm:mx-0"><img alt="Cover Image for Relasi dalam Perancangan Database" loading="lazy" width="120" height="80" decoding="async" data-nimg="1" class="shadow-sm w-full sm:w-[400px] md:w-[600px] lg:w-[800px] max-h-[500px] mx-auto block" style="color:transparent" src="/assets/blog/database/database.png"/></div></div><div class="max-w-2xl mx-auto"><div class="block md:hidden mb-6"><div class="flex items-center"><img src="/assets/blog/authors/mukharomdev.png" class="w-12 h-12 rounded-full mr-4" alt="mukharomdev"/><div class="text-xl font-bold">mukharomdev</div></div></div><div class="mb-6 text-lg"><time dateTime="2025-03-14T21:51:17.140Z">March	14, 2025</time></div></div><div class="max-w-2xl mx-auto"><div class="markdown-styles_markdown__ORfR8 prose prose-code "><p>Relasi dalam database adalah cara tabel-tabel dalam database saling terhubung. Ada beberapa jenis relasi yang umum digunakan, yaitu:</p>
+<ol>
+<li><strong>One-to-One (1:1)</strong></li>
+<li><strong>One-to-Many (1:N)</strong></li>
+<li><strong>Many-to-Many (N:M)</strong></li>
+</ol>
+<p>Berikut penjelasan lengkap untuk masing-masing relasi:</p>
+<hr>
+<h3>1. <strong>One-to-One (1:1)</strong></h3>
+<p>Relasi one-to-one terjadi ketika satu record di tabel A hanya terkait dengan satu record di tabel B, dan sebaliknya.</p>
+<h4>Contoh:</h4>
+<ul>
+<li><strong>Tabel User</strong> dan <strong>Tabel Profile</strong>:
+<ul>
+<li>Setiap user hanya memiliki satu profile.</li>
+<li>Setiap profile hanya dimiliki oleh satu user.</li>
+</ul>
+</li>
+</ul>
+<h4>Implementasi di Database:</h4>
+<ul>
+<li>Tambahkan foreign key di salah satu tabel (biasanya di tabel yang lebih "lemah" atau opsional).</li>
+<li>Contoh:
+<pre><code class="language-sql">CREATE TABLE Users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(50)
+);
+
+CREATE TABLE Profiles (
+    id SERIAL PRIMARY KEY,
+    userId INT UNIQUE, -- Foreign key dengan constraint UNIQUE
+    address TEXT,
+    FOREIGN KEY (userId) REFERENCES Users(id)
+);
+</code></pre>
+</li>
+</ul>
+<h4>Implementasi di Sequelize:</h4>
+<pre><code class="language-javascript">const User = sequelize.define('User', {
+  username: DataTypes.STRING,
+});
+
+const Profile = sequelize.define('Profile', {
+  address: DataTypes.TEXT,
+});
+
+// Relasi One-to-One
+User.hasOne(Profile); // User memiliki satu Profile
+Profile.belongsTo(User); // Profile dimiliki oleh satu User
+</code></pre>
+<hr>
+<h3>2. <strong>One-to-Many (1:N)</strong></h3>
+<p>Relasi one-to-many terjadi ketika satu record di tabel A dapat terkait dengan banyak record di tabel B, tetapi satu record di tabel B hanya terkait dengan satu record di tabel A.</p>
+<h4>Contoh:</h4>
+<ul>
+<li><strong>Tabel User</strong> dan <strong>Tabel Post</strong>:
+<ul>
+<li>Satu user dapat memiliki banyak post.</li>
+<li>Setiap post hanya dimiliki oleh satu user.</li>
+</ul>
+</li>
+</ul>
+<h4>Implementasi di Database:</h4>
+<ul>
+<li>Tambahkan foreign key di tabel yang memiliki banyak record (biasanya tabel "banyak").</li>
+<li>Contoh:
+<pre><code class="language-sql">CREATE TABLE Users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(50)
+);
+
+CREATE TABLE Posts (
+    id SERIAL PRIMARY KEY,
+    userId INT, -- Foreign key
+    content TEXT,
+    FOREIGN KEY (userId) REFERENCES Users(id)
+);
+</code></pre>
+</li>
+</ul>
+<h4>Implementasi di Sequelize:</h4>
+<pre><code class="language-javascript">const User = sequelize.define('User', {
+  username: DataTypes.STRING,
+});
+
+const Post = sequelize.define('Post', {
+  content: DataTypes.TEXT,
+});
+
+// Relasi One-to-Many
+User.hasMany(Post); // User memiliki banyak Post
+Post.belongsTo(User); // Post dimiliki oleh satu User
+</code></pre>
+<hr>
+<h3>3. <strong>Many-to-Many (N:M)</strong></h3>
+<p>Relasi many-to-many terjadi ketika satu record di tabel A dapat terkait dengan banyak record di tabel B, dan sebaliknya.</p>
+<h4>Contoh:</h4>
+<ul>
+<li><strong>Tabel Student</strong> dan <strong>Tabel Course</strong>:
+<ul>
+<li>Satu student dapat mengambil banyak course.</li>
+<li>Satu course dapat diambil oleh banyak student.</li>
+</ul>
+</li>
+</ul>
+<h4>Implementasi di Database:</h4>
+<ul>
+<li>Gunakan <strong>tabel perantara (junction table)</strong> untuk menghubungkan kedua tabel.</li>
+<li>Contoh:
+<pre><code class="language-sql">CREATE TABLE Students (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50)
+);
+
+CREATE TABLE Courses (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(100)
+);
+
+-- Tabel perantara
+CREATE TABLE StudentCourses (
+    studentId INT,
+    courseId INT,
+    PRIMARY KEY (studentId, courseId),
+    FOREIGN KEY (studentId) REFERENCES Students(id),
+    FOREIGN KEY (courseId) REFERENCES Courses(id)
+);
+</code></pre>
+</li>
+</ul>
+<h4>Implementasi di Sequelize:</h4>
+<pre><code class="language-javascript">const Student = sequelize.define('Student', {
+  name: DataTypes.STRING,
+});
+
+const Course = sequelize.define('Course', {
+  title: DataTypes.STRING,
+});
+
+// Relasi Many-to-Many
+Student.belongsToMany(Course, { through: 'StudentCourses' }); // Student dapat mengambil banyak Course
+Course.belongsToMany(Student, { through: 'StudentCourses' }); // Course dapat diambil oleh banyak Student
+</code></pre>
+<hr>
+<h3>4. <strong>Perbedaan Utama Antar Relasi</strong></h3>
+<div class="overflow-x-auto bg-lime-100"><table>
+<thead>
+<tr>
+<th><strong>Relasi</strong></th>
+<th><strong>Deskripsi</strong></th>
+<th><strong>Contoh</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>One-to-One</strong></td>
+<td>Satu record di tabel A terkait dengan satu record di tabel B, dan sebaliknya.</td>
+<td>User dan Profile</td>
+</tr>
+<tr>
+<td><strong>One-to-Many</strong></td>
+<td>Satu record di tabel A terkait dengan banyak record di tabel B.</td>
+<td>User dan Post</td>
+</tr>
+<tr>
+<td><strong>Many-to-Many</strong></td>
+<td>Banyak record di tabel A terkait dengan banyak record di tabel B.</td>
+<td>Student dan Course</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h3>5. <strong>Kapan Menggunakan Relasi Tersebut?</strong></h3>
+<ul>
+<li><strong>One-to-One</strong>: Ketika data dapat dipisah menjadi dua tabel, tetapi setiap record hanya memiliki satu hubungan.</li>
+<li><strong>One-to-Many</strong>: Ketika satu entitas memiliki banyak entitas terkait (misalnya, satu user memiliki banyak post).</li>
+<li><strong>Many-to-Many</strong>: Ketika banyak entitas dari satu tabel terkait dengan banyak entitas dari tabel lain (misalnya, banyak student mengambil banyak course).</li>
+</ul>
+<hr>
+<p>Jika Anda membutuhkan contoh lebih detail atau implementasi spesifik, silakan beri tahu! 😊</p>
+</div></div></article></div></main></section></div></div><script src="/_next/static/chunks/webpack-d1f044851490e377.js" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"1:\"$Sreact.fragment\"\n2:I[7397,[],\"\"]\n3:I[8513,[],\"\"]\n5:I[3514,[],\"OutletBoundary\"]\n8:I[3514,[],\"ViewportBoundary\"]\na:I[3514,[],\"MetadataBoundary\"]\nc:I[1612,[],\"\"]\n:HL[\"/_next/static/media/569ce4b8f30dc480-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/_next/static/media/93f479601ee12b01-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/_next/static/css/cc1b38a888361ae0.css\",\"style\"]\n:HL[\"/_next/static/css/a218dfb468eefcdf.css\",\"style\"]\n"])</script><script>self.__next_f.push([1,"0:{\"P\":null,\"b\":\"zB4SN0XwAB_SWMRVvwFhG\",\"p\":\"\",\"c\":[\"\",\"blog\",\"database-relasi\"],\"i\":false,\"f\":[[[\"\",{\"children\":[\"blog\",{\"children\":[[\"slug\",\"database-relasi\",\"d\"],{\"children\":[\"__PAGE__\",{}]}]}]},\"$undefined\",\"$undefined\",true],[\"\",[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/cc1b38a888361ae0.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"en\",\"children\":[\"$\",\"body\",null,{\"className\":\"__variable_4d318d __variable_ea5f4b antialiased \",\"children\":[\"$\",\"div\",null,{\"className\":\"min-h-screen flex items-center justify-center bg-gray-100\",\"children\":[\"$\",\"div\",null,{\"className\":\"container mx-auto p-4 bg-white rounded-lg shadow-lg\",\"children\":[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L3\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":404}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],\"$undefined\",[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}]}]}]}]]}],{\"children\":[\"blog\",[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"section\",null,{\"className\":\" prose lg:prose-3xl prose-img:rounded-xl prose-headings:underline prose-a:text-lime-600 prose-code:text-lime-500 mx-auto  \",\"children\":[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L3\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}]]}],{\"children\":[[\"slug\",\"database-relasi\",\"d\"],[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L3\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[\"__PAGE__\",[\"$\",\"$1\",\"c\",{\"children\":[\"$L4\",\"$undefined\",[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/a218dfb468eefcdf.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]],[\"$\",\"$L5\",null,{\"children\":[\"$L6\",\"$L7\",null]}]]}],{},null,false]},null,false]},null,false]},null,false],[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$1\",\"YHBVN9OSB1gugwq4KYkpe\",{\"children\":[[\"$\",\"$L8\",null,{\"children\":\"$L9\"}],[\"$\",\"meta\",null,{\"name\":\"next-size-adjust\",\"content\":\"\"}]]}],[\"$\",\"$La\",null,{\"children\":\"$Lb\"}]]}],false]],\"m\":\"$undefined\",\"G\":[\"$c\",\"$undefined\"],\"s\":false,\"S\":true}\n"])</script><script>self.__next_f.push([1,"d:I[4184,[\"161\",\"static/chunks/161-e1f62ef38275032d.js\",\"953\",\"static/chunks/app/blog/%5Bslug%5D/page-df444d222e09a7de.js\"],\"\"]\ne:I[8161,[\"161\",\"static/chunks/161-e1f62ef38275032d.js\",\"953\",\"static/chunks/app/blog/%5Bslug%5D/page-df444d222e09a7de.js\"],\"Image\"]\nf:T161b,"])</script><script>self.__next_f.push([1,"\u003cp\u003eRelasi dalam database adalah cara tabel-tabel dalam database saling terhubung. Ada beberapa jenis relasi yang umum digunakan, yaitu:\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e\u003cstrong\u003eOne-to-One (1:1)\u003c/strong\u003e\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eOne-to-Many (1:N)\u003c/strong\u003e\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eMany-to-Many (N:M)\u003c/strong\u003e\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003eBerikut penjelasan lengkap untuk masing-masing relasi:\u003c/p\u003e\n\u003chr\u003e\n\u003ch3\u003e1. \u003cstrong\u003eOne-to-One (1:1)\u003c/strong\u003e\u003c/h3\u003e\n\u003cp\u003eRelasi one-to-one terjadi ketika satu record di tabel A hanya terkait dengan satu record di tabel B, dan sebaliknya.\u003c/p\u003e\n\u003ch4\u003eContoh:\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eTabel User\u003c/strong\u003e dan \u003cstrong\u003eTabel Profile\u003c/strong\u003e:\n\u003cul\u003e\n\u003cli\u003eSetiap user hanya memiliki satu profile.\u003c/li\u003e\n\u003cli\u003eSetiap profile hanya dimiliki oleh satu user.\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003eImplementasi di Database:\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003eTambahkan foreign key di salah satu tabel (biasanya di tabel yang lebih \"lemah\" atau opsional).\u003c/li\u003e\n\u003cli\u003eContoh:\n\u003cpre\u003e\u003ccode class=\"language-sql\"\u003eCREATE TABLE Users (\n    id SERIAL PRIMARY KEY,\n    username VARCHAR(50)\n);\n\nCREATE TABLE Profiles (\n    id SERIAL PRIMARY KEY,\n    userId INT UNIQUE, -- Foreign key dengan constraint UNIQUE\n    address TEXT,\n    FOREIGN KEY (userId) REFERENCES Users(id)\n);\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003eImplementasi di Sequelize:\u003c/h4\u003e\n\u003cpre\u003e\u003ccode class=\"language-javascript\"\u003econst User = sequelize.define('User', {\n  username: DataTypes.STRING,\n});\n\nconst Profile = sequelize.define('Profile', {\n  address: DataTypes.TEXT,\n});\n\n// Relasi One-to-One\nUser.hasOne(Profile); // User memiliki satu Profile\nProfile.belongsTo(User); // Profile dimiliki oleh satu User\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch3\u003e2. \u003cstrong\u003eOne-to-Many (1:N)\u003c/strong\u003e\u003c/h3\u003e\n\u003cp\u003eRelasi one-to-many terjadi ketika satu record di tabel A dapat terkait dengan banyak record di tabel B, tetapi satu record di tabel B hanya terkait dengan satu record di tabel A.\u003c/p\u003e\n\u003ch4\u003eContoh:\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eTabel User\u003c/strong\u003e dan \u003cstrong\u003eTabel Post\u003c/strong\u003e:\n\u003cul\u003e\n\u003cli\u003eSatu user dapat memiliki banyak post.\u003c/li\u003e\n\u003cli\u003eSetiap post hanya dimiliki oleh satu user.\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003eImplementasi di Database:\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003eTambahkan foreign key di tabel yang memiliki banyak record (biasanya tabel \"banyak\").\u003c/li\u003e\n\u003cli\u003eContoh:\n\u003cpre\u003e\u003ccode class=\"language-sql\"\u003eCREATE TABLE Users (\n    id SERIAL PRIMARY KEY,\n    username VARCHAR(50)\n);\n\nCREATE TABLE Posts (\n    id SERIAL PRIMARY KEY,\n    userId INT, -- Foreign key\n    content TEXT,\n    FOREIGN KEY (userId) REFERENCES Users(id)\n);\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003eImplementasi di Sequelize:\u003c/h4\u003e\n\u003cpre\u003e\u003ccode class=\"language-javascript\"\u003econst User = sequelize.define('User', {\n  username: DataTypes.STRING,\n});\n\nconst Post = sequelize.define('Post', {\n  content: DataTypes.TEXT,\n});\n\n// Relasi One-to-Many\nUser.hasMany(Post); // User memiliki banyak Post\nPost.belongsTo(User); // Post dimiliki oleh satu User\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch3\u003e3. \u003cstrong\u003eMany-to-Many (N:M)\u003c/strong\u003e\u003c/h3\u003e\n\u003cp\u003eRelasi many-to-many terjadi ketika satu record di tabel A dapat terkait dengan banyak record di tabel B, dan sebaliknya.\u003c/p\u003e\n\u003ch4\u003eContoh:\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eTabel Student\u003c/strong\u003e dan \u003cstrong\u003eTabel Course\u003c/strong\u003e:\n\u003cul\u003e\n\u003cli\u003eSatu student dapat mengambil banyak course.\u003c/li\u003e\n\u003cli\u003eSatu course dapat diambil oleh banyak student.\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003eImplementasi di Database:\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003eGunakan \u003cstrong\u003etabel perantara (junction table)\u003c/strong\u003e untuk menghubungkan kedua tabel.\u003c/li\u003e\n\u003cli\u003eContoh:\n\u003cpre\u003e\u003ccode class=\"language-sql\"\u003eCREATE TABLE Students (\n    id SERIAL PRIMARY KEY,\n    name VARCHAR(50)\n);\n\nCREATE TABLE Courses (\n    id SERIAL PRIMARY KEY,\n    title VARCHAR(100)\n);\n\n-- Tabel perantara\nCREATE TABLE StudentCourses (\n    studentId INT,\n    courseId INT,\n    PRIMARY KEY (studentId, courseId),\n    FOREIGN KEY (studentId) REFERENCES Students(id),\n    FOREIGN KEY (courseId) REFERENCES Courses(id)\n);\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003eImplementasi di Sequelize:\u003c/h4\u003e\n\u003cpre\u003e\u003ccode class=\"language-javascript\"\u003econst Student = sequelize.define('Student', {\n  name: DataTypes.STRING,\n});\n\nconst Course = sequelize.define('Course', {\n  title: DataTypes.STRING,\n});\n\n// Relasi Many-to-Many\nStudent.belongsToMany(Course, { through: 'StudentCourses' }); // Student dapat mengambil banyak Course\nCourse.belongsToMany(Student, { through: 'StudentCourses' }); // Course dapat diambil oleh banyak Student\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch3\u003e4. \u003cstrong\u003ePerbedaan Utama Antar Relasi\u003c/strong\u003e\u003c/h3\u003e\n\u003cdiv class=\"overflow-x-auto bg-lime-100\"\u003e\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003e\u003cstrong\u003eRelasi\u003c/strong\u003e\u003c/th\u003e\n\u003cth\u003e\u003cstrong\u003eDeskripsi\u003c/strong\u003e\u003c/th\u003e\n\u003cth\u003e\u003cstrong\u003eContoh\u003c/strong\u003e\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003cstrong\u003eOne-to-One\u003c/strong\u003e\u003c/td\u003e\n\u003ctd\u003eSatu record di tabel A terkait dengan satu record di tabel B, dan sebaliknya.\u003c/td\u003e\n\u003ctd\u003eUser dan Profile\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003cstrong\u003eOne-to-Many\u003c/strong\u003e\u003c/td\u003e\n\u003ctd\u003eSatu record di tabel A terkait dengan banyak record di tabel B.\u003c/td\u003e\n\u003ctd\u003eUser dan Post\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003cstrong\u003eMany-to-Many\u003c/strong\u003e\u003c/td\u003e\n\u003ctd\u003eBanyak record di tabel A terkait dengan banyak record di tabel B.\u003c/td\u003e\n\u003ctd\u003eStudent dan Course\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\u003c/div\u003e\n\u003chr\u003e\n\u003ch3\u003e5. \u003cstrong\u003eKapan Menggunakan Relasi Tersebut?\u003c/strong\u003e\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eOne-to-One\u003c/strong\u003e: Ketika data dapat dipisah menjadi dua tabel, tetapi setiap record hanya memiliki satu hubungan.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eOne-to-Many\u003c/strong\u003e: Ketika satu entitas memiliki banyak entitas terkait (misalnya, satu user memiliki banyak post).\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eMany-to-Many\u003c/strong\u003e: Ketika banyak entitas dari satu tabel terkait dengan banyak entitas dari tabel lain (misalnya, banyak student mengambil banyak course).\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003cp\u003eJika Anda membutuhkan contoh lebih detail atau implementasi spesifik, silakan beri tahu! 😊\u003c/p\u003e\n"])</script><script>self.__next_f.push([1,"4:[\"$\",\"main\",null,{\"className\":\"container\",\"children\":[[\"$\",\"div\",null,{\"className\":\"border-b dark:bg-slate-800 bg-neutral-50 border-neutral-200\",\"children\":[\"$\",\"div\",null,{\"className\":\" mx-auto px-5\",\"children\":[\"$\",\"div\",null,{\"className\":\"py-2 text-center text-sm\",\"children\":[\"source code blog ini bisa ditemukan di link ini\",\" \",[\"$\",\"a\",null,{\"href\":\"https://github.com/mukharomdev/mukharomdev.github.io\",\"className\":\"underline hover:text-blue-600 duration-200 transition-colors\",\"children\":\"available on GitHub\"}],\".\"]}]}]}],[\"$\",\"div\",null,{\"className\":\" mx-auto px-5\",\"children\":[[\"$\",\"h2\",null,{\"className\":\"text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight mb-20 mt-8 flex items-center\",\"children\":[[\"$\",\"$Ld\",null,{\"href\":\"/\",\"className\":\"hover:underline\",\"children\":\"Blog\"}],\".\"]}],[\"$\",\"article\",null,{\"className\":\"mb-32\",\"children\":[[[\"$\",\"h1\",null,{\"className\":\"text-3xl text-center md:text-5xl lg:text-6xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left\",\"children\":\"Relasi dalam Perancangan Database\"}],[\"$\",\"div\",null,{\"className\":\"hidden md:block md:mb-12\",\"children\":[\"$\",\"div\",null,{\"className\":\"flex items-center\",\"children\":[[\"$\",\"img\",null,{\"src\":\"/assets/blog/authors/mukharomdev.png\",\"className\":\"w-12 h-12 rounded-full mr-4\",\"alt\":\"mukharomdev\"}],[\"$\",\"div\",null,{\"className\":\"text-xl font-bold\",\"children\":\"mukharomdev\"}]]}]}],[\"$\",\"div\",null,{\"className\":\"mb-8 md:mb-16 sm:mx-0\",\"children\":[\"$\",\"div\",null,{\"className\":\"sm:mx-0\",\"children\":[\"$\",\"$Le\",null,{\"src\":\"/assets/blog/database/database.png\",\"alt\":\"Cover Image for Relasi dalam Perancangan Database\",\"className\":\"shadow-sm w-full sm:w-[400px] md:w-[600px] lg:w-[800px] max-h-[500px] mx-auto block\",\"width\":120,\"height\":80}]}]}],[\"$\",\"div\",null,{\"className\":\"max-w-2xl mx-auto\",\"children\":[[\"$\",\"div\",null,{\"className\":\"block md:hidden mb-6\",\"children\":[\"$\",\"div\",null,{\"className\":\"flex items-center\",\"children\":[[\"$\",\"img\",null,{\"src\":\"/assets/blog/authors/mukharomdev.png\",\"className\":\"w-12 h-12 rounded-full mr-4\",\"alt\":\"mukharomdev\"}],[\"$\",\"div\",null,{\"className\":\"text-xl font-bold\",\"children\":\"mukharomdev\"}]]}]}],[\"$\",\"div\",null,{\"className\":\"mb-6 text-lg\",\"children\":[\"$\",\"time\",null,{\"dateTime\":\"2025-03-14T21:51:17.140Z\",\"children\":\"March\\t14, 2025\"}]}]]}]],[\"$\",\"div\",null,{\"className\":\"max-w-2xl mx-auto\",\"children\":[\"$\",\"div\",null,{\"className\":\"markdown-styles_markdown__ORfR8 prose prose-code \",\"dangerouslySetInnerHTML\":{\"__html\":\"$f\"}}]}]]}]]}]]}]\n"])</script><script>self.__next_f.push([1,"9:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]\n6:null\n"])</script><script>self.__next_f.push([1,"7:null\nb:[[\"$\",\"title\",\"0\",{\"children\":\"Relasi dalam Perancangan Database | mukharomdev blog build with Markdown\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"Mini blog seputar pengalaman pribadi dunia pemrograman komputer\"}],[\"$\",\"meta\",\"2\",{\"property\":\"og:title\",\"content\":\"Relasi dalam Perancangan Database | mukharomdev blog build with Markdown\"}],[\"$\",\"meta\",\"3\",{\"property\":\"og:description\",\"content\":\"Mini blog seputar pengalaman pribadi dunia pemrograman komputer\"}],[\"$\",\"meta\",\"4\",{\"property\":\"og:image\",\"content\":\"http://localhost:3000/assets/blog/database/database.png\"}],[\"$\",\"meta\",\"5\",{\"name\":\"twitter:card\",\"content\":\"summary_large_image\"}],[\"$\",\"meta\",\"6\",{\"name\":\"twitter:title\",\"content\":\"Relasi dalam Perancangan Database | mukharomdev blog build with Markdown\"}],[\"$\",\"meta\",\"7\",{\"name\":\"twitter:description\",\"content\":\"Mini blog seputar pengalaman pribadi dunia pemrograman komputer\"}],[\"$\",\"meta\",\"8\",{\"name\":\"twitter:image\",\"content\":\"http://localhost:3000/assets/blog/database/database.png\"}],[\"$\",\"link\",\"9\",{\"rel\":\"icon\",\"href\":\"/favicon.ico\",\"type\":\"image/x-icon\",\"sizes\":\"16x16\"}]]\n"])</script></body></html>

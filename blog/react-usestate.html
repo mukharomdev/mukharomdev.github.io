@@ -1,0 +1,193 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" href="/_next/static/media/569ce4b8f30dc480-s.p.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" href="/_next/static/media/93f479601ee12b01-s.p.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" as="image" href="/assets/blog/authors/mukharomdev.png"/><link rel="stylesheet" href="/_next/static/css/cc1b38a888361ae0.css" data-precedence="next"/><link rel="stylesheet" href="/_next/static/css/a218dfb468eefcdf.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/_next/static/chunks/webpack-d1f044851490e377.js"/><script src="/_next/static/chunks/748859cf-d1727182a584e899.js" async=""></script><script src="/_next/static/chunks/702-3097f4c2de53f6aa.js" async=""></script><script src="/_next/static/chunks/main-app-f6a0c1bda6624e2a.js" async=""></script><script src="/_next/static/chunks/161-e1f62ef38275032d.js" async=""></script><script src="/_next/static/chunks/app/blog/%5Bslug%5D/page-df444d222e09a7de.js" async=""></script><meta name="next-size-adjust" content=""/><title> Penggunaan React useState | mukharomdev blog build with Markdown</title><meta name="description" content="Mini blog seputar pengalaman pribadi dunia pemrograman komputer"/><meta property="og:title" content=" Penggunaan React useState | mukharomdev blog build with Markdown"/><meta property="og:description" content="Mini blog seputar pengalaman pribadi dunia pemrograman komputer"/><meta property="og:image" content="http://localhost:3000/assets/blog/reacts/react1.png"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content=" Penggunaan React useState | mukharomdev blog build with Markdown"/><meta name="twitter:description" content="Mini blog seputar pengalaman pribadi dunia pemrograman komputer"/><meta name="twitter:image" content="http://localhost:3000/assets/blog/reacts/react1.png"/><link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="16x16"/><script src="/_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script></head><body class="__variable_4d318d __variable_ea5f4b antialiased "><div class="min-h-screen flex items-center justify-center bg-gray-100"><div class="container mx-auto p-4 bg-white rounded-lg shadow-lg"><section class=" prose lg:prose-3xl prose-img:rounded-xl prose-headings:underline prose-a:text-lime-600 prose-code:text-lime-500 mx-auto  "><main class="container"><div class="border-b dark:bg-slate-800 bg-neutral-50 border-neutral-200"><div class=" mx-auto px-5"><div class="py-2 text-center text-sm">source code blog ini bisa ditemukan di link ini<!-- --> <a href="https://github.com/mukharomdev/mukharomdev.github.io" class="underline hover:text-blue-600 duration-200 transition-colors">available on GitHub</a>.</div></div></div><div class=" mx-auto px-5"><h2 class="text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight mb-20 mt-8 flex items-center"><a class="hover:underline" href="/">Blog</a>.</h2><article class="mb-32"><h1 class="text-3xl text-center md:text-5xl lg:text-6xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left"> Penggunaan React useState</h1><div class="hidden md:block md:mb-12"><div class="flex items-center"><img src="/assets/blog/authors/mukharomdev.png" class="w-12 h-12 rounded-full mr-4" alt="mukharomdev"/><div class="text-xl font-bold">mukharomdev</div></div></div><div class="mb-8 md:mb-16 sm:mx-0"><div class="sm:mx-0"><img alt="Cover Image for  Penggunaan React useState" loading="lazy" width="120" height="80" decoding="async" data-nimg="1" class="shadow-sm w-full sm:w-[400px] md:w-[600px] lg:w-[800px] max-h-[500px] mx-auto block" style="color:transparent" src="/assets/blog/reacts/react1.png"/></div></div><div class="max-w-2xl mx-auto"><div class="block md:hidden mb-6"><div class="flex items-center"><img src="/assets/blog/authors/mukharomdev.png" class="w-12 h-12 rounded-full mr-4" alt="mukharomdev"/><div class="text-xl font-bold">mukharomdev</div></div></div><div class="mb-6 text-lg"><time dateTime="2025-02-26T05:35:07.322Z">February	26, 2025</time></div></div><div class="max-w-2xl mx-auto"><div class="markdown-styles_markdown__ORfR8 prose prose-code "><p>useState adalah salah satu <strong>React Hook</strong> yang digunakan untuk menambahkan dan mengelola <em>state</em> (data yang dapat berubah) di dalam komponen fungsi React. Berikut penjelasan lengkap dan contoh penggunaannya:</p>
+<hr>
+<h3><strong>1. Dasar Penggunaan useState</strong></h3>
+<h4>Sintaks:</h4>
+<pre><code class="language-javascript">const [state, setState] = useState(initialValue);
+</code></pre>
+<ul>
+<li><strong>state</strong>: Nilai state saat ini.</li>
+<li><strong>setState</strong>: Fungsi untuk memperbarui state.</li>
+<li><strong>initialValue</strong>: Nilai awal state (bisa berupa string, number, array, object, dll).</li>
+</ul>
+<h4>Contoh Sederhana (Counter):</h4>
+<pre><code class="language-jsx">import { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0); // Inisialisasi state dengan nilai 0
+
+  return (
+    &#x3C;div>
+      &#x3C;p>Hitungan: {count}&#x3C;/p>
+      &#x3C;button onClick={() => setCount(count + 1)}>Tambah&#x3C;/button>
+      &#x3C;button onClick={() => setCount(count - 1)}>Kurang&#x3C;/button>
+    &#x3C;/div>
+  );
+}
+</code></pre>
+<hr>
+<h3><strong>2. Contoh Penggunaan Lain</strong></h3>
+<h4>a. Form Input (Controlled Component):</h4>
+<pre><code class="language-jsx">function Form() {
+  const [name, setName] = useState('');
+
+  return (
+    &#x3C;div>
+      &#x3C;input
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)} // Update state saat input berubah
+        placeholder="Masukkan nama"
+      />
+      &#x3C;p>Nama Anda: {name}&#x3C;/p>
+    &#x3C;/div>
+  );
+}
+</code></pre>
+<h4>b. State dengan Objek:</h4>
+<pre><code class="language-jsx">function UserProfile() {
+  const [user, setUser] = useState({
+    name: 'John',
+    age: 25,
+    email: 'john@example.com'
+  });
+
+  const updateName = () => {
+    // Salin nilai sebelumnya (...user) lalu update properti yang diinginkan
+    setUser({ ...user, name: 'Jane' });
+  };
+
+  return (
+    &#x3C;div>
+      &#x3C;p>Nama: {user.name}&#x3C;/p>
+      &#x3C;p>Umur: {user.age}&#x3C;/p>
+      &#x3C;button onClick={updateName}>Ubah Nama ke Jane&#x3C;/button>
+    &#x3C;/div>
+  );
+}
+</code></pre>
+<h4>c. State dengan Array:</h4>
+<pre><code class="language-jsx">function TodoList() {
+  const [todos, setTodos] = useState(['Belajar React', 'Makan Siang']);
+  const [input, setInput] = useState('');
+
+  const addTodo = () => {
+    setTodos([...todos, input]); // Salin array lama dan tambah item baru
+    setInput('');
+  };
+
+  return (
+    &#x3C;div>
+      &#x3C;input
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        placeholder="Tambahkan todo"
+      />
+      &#x3C;button onClick={addTodo}>Tambah&#x3C;/button>
+      &#x3C;ul>
+        {todos.map((todo, index) => (
+          &#x3C;li key={index}>{todo}&#x3C;/li>
+        ))}
+      &#x3C;/ul>
+    &#x3C;/div>
+  );
+}
+</code></pre>
+<hr>
+<h3><strong>3. Aturan Penting</strong></h3>
+<ol>
+<li>
+<p><strong>Jangan Mutasi State Langsung</strong>:</p>
+<pre><code class="language-javascript">// ❌ Salah
+user.name = 'Jane';
+setUser(user);
+
+// ✅ Benar
+setUser({ ...user, name: 'Jane' });
+</code></pre>
+</li>
+<li>
+<p><strong>Gunakan Functional Update untuk State yang Bergantung pada Nilai Sebelumnya</strong>:</p>
+<pre><code class="language-javascript">// ✅ Benar (untuk operasi seperti increment)
+setCount((prevCount) => prevCount + 1);
+</code></pre>
+</li>
+<li>
+<p><strong>State di Inisialisasi Hanya Sekali</strong>:</p>
+<pre><code class="language-javascript">// ✅ Jika inisialisasi memerlukan komputasi berat, gunakan fungsi:
+const [data] = useState(() => heavyComputation());
+</code></pre>
+</li>
+</ol>
+<hr>
+<h3><strong>4. Perbedaan useState vs useRef</strong></h3>
+<div class="overflow-x-auto bg-lime-100"><table>
+<thead>
+<tr>
+<th><strong>Kriteria</strong></th>
+<th>useState</th>
+<th>useRef</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Re-render</strong></td>
+<td>Memicu re-render komponen</td>
+<td>Tidak memicu re-render</td>
+</tr>
+<tr>
+<td><strong>Penggunaan</strong></td>
+<td>Untuk data yang memengaruhi UI</td>
+<td>Untuk nilai yang tidak memengaruhi UI (seperti DOM, variabel persist)</td>
+</tr>
+<tr>
+<td><strong>Nilai</strong></td>
+<td>Immutable (diubah via setState)</td>
+<td>Mutable (diubah via ref.current)</td>
+</tr>
+<tr>
+<td><strong>Contoh Kasus</strong></td>
+<td>Form input, toggle UI, data dinamis</td>
+<td>Fokus input, simpan interval timer</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h3><strong>5. Best Practices</strong></h3>
+<ul>
+<li>
+<p><strong>Pecah State Kompleks</strong>: Jika state berupa objek/array, pertimbangkan untuk memisahkannya ke beberapa state.</p>
+<pre><code class="language-javascript">// ❌ Kurang disarankan
+const [user, setUser] = useState({ name: '', age: 0 });
+
+// ✅ Lebih baik
+const [name, setName] = useState('');
+const [age, setAge] = useState(0);
+</code></pre>
+</li>
+<li>
+<p><strong>Hindari Penggunaan State untuk Data yang Tidak Di-render</strong> (gunakan useRef).</p>
+</li>
+</ul>
+<hr>
+<h3><strong>Kapan Menggunakan useState?</strong></h3>
+<ul>
+<li>Ketika data perlu <strong>di-render di UI</strong> (misal: form input, daftar data).</li>
+<li>Ketika perubahan data harus <strong>memicu pembaruan tampilan</strong>.</li>
+<li>Untuk logika yang memerlukan <strong>reaktivitas</strong> (perubahan data → perubahan UI).</li>
+</ul>
+<hr>
+<h3>Contoh Lengkap: Toggle Komponen</h3>
+<pre><code class="language-jsx">function Toggle() {
+  const [isOn, setIsOn] = useState(false);
+
+  return (
+    &#x3C;div>
+      &#x3C;button onClick={() => setIsOn(!isOn)}>
+        {isOn ? 'Matikan' : 'Nyalakan'}
+      &#x3C;/button>
+      &#x3C;p>Status: {isOn ? 'Aktif' : 'Nonaktif'}&#x3C;/p>
+    &#x3C;/div>
+  );
+}
+</code></pre>
+</div></div></article></div></main></section></div></div><script src="/_next/static/chunks/webpack-d1f044851490e377.js" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"1:\"$Sreact.fragment\"\n2:I[7397,[],\"\"]\n3:I[8513,[],\"\"]\n5:I[3514,[],\"OutletBoundary\"]\n8:I[3514,[],\"ViewportBoundary\"]\na:I[3514,[],\"MetadataBoundary\"]\nc:I[1612,[],\"\"]\n:HL[\"/_next/static/media/569ce4b8f30dc480-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/_next/static/media/93f479601ee12b01-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/_next/static/css/cc1b38a888361ae0.css\",\"style\"]\n:HL[\"/_next/static/css/a218dfb468eefcdf.css\",\"style\"]\n"])</script><script>self.__next_f.push([1,"0:{\"P\":null,\"b\":\"zB4SN0XwAB_SWMRVvwFhG\",\"p\":\"\",\"c\":[\"\",\"blog\",\"react-usestate\"],\"i\":false,\"f\":[[[\"\",{\"children\":[\"blog\",{\"children\":[[\"slug\",\"react-usestate\",\"d\"],{\"children\":[\"__PAGE__\",{}]}]}]},\"$undefined\",\"$undefined\",true],[\"\",[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/cc1b38a888361ae0.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"en\",\"children\":[\"$\",\"body\",null,{\"className\":\"__variable_4d318d __variable_ea5f4b antialiased \",\"children\":[\"$\",\"div\",null,{\"className\":\"min-h-screen flex items-center justify-center bg-gray-100\",\"children\":[\"$\",\"div\",null,{\"className\":\"container mx-auto p-4 bg-white rounded-lg shadow-lg\",\"children\":[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L3\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":404}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],\"$undefined\",[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}]}]}]}]]}],{\"children\":[\"blog\",[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"section\",null,{\"className\":\" prose lg:prose-3xl prose-img:rounded-xl prose-headings:underline prose-a:text-lime-600 prose-code:text-lime-500 mx-auto  \",\"children\":[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L3\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}]]}],{\"children\":[[\"slug\",\"react-usestate\",\"d\"],[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L3\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[\"__PAGE__\",[\"$\",\"$1\",\"c\",{\"children\":[\"$L4\",\"$undefined\",[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/a218dfb468eefcdf.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]],[\"$\",\"$L5\",null,{\"children\":[\"$L6\",\"$L7\",null]}]]}],{},null,false]},null,false]},null,false]},null,false],[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$1\",\"iV35eWwHQaXaO34gOSDfU\",{\"children\":[[\"$\",\"$L8\",null,{\"children\":\"$L9\"}],[\"$\",\"meta\",null,{\"name\":\"next-size-adjust\",\"content\":\"\"}]]}],[\"$\",\"$La\",null,{\"children\":\"$Lb\"}]]}],false]],\"m\":\"$undefined\",\"G\":[\"$c\",\"$undefined\"],\"s\":false,\"S\":true}\n"])</script><script>self.__next_f.push([1,"d:I[4184,[\"161\",\"static/chunks/161-e1f62ef38275032d.js\",\"953\",\"static/chunks/app/blog/%5Bslug%5D/page-df444d222e09a7de.js\"],\"\"]\ne:I[8161,[\"161\",\"static/chunks/161-e1f62ef38275032d.js\",\"953\",\"static/chunks/app/blog/%5Bslug%5D/page-df444d222e09a7de.js\"],\"Image\"]\nf:T1646,"])</script><script>self.__next_f.push([1,"\u003cp\u003euseState adalah salah satu \u003cstrong\u003eReact Hook\u003c/strong\u003e yang digunakan untuk menambahkan dan mengelola \u003cem\u003estate\u003c/em\u003e (data yang dapat berubah) di dalam komponen fungsi React. Berikut penjelasan lengkap dan contoh penggunaannya:\u003c/p\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e1. Dasar Penggunaan useState\u003c/strong\u003e\u003c/h3\u003e\n\u003ch4\u003eSintaks:\u003c/h4\u003e\n\u003cpre\u003e\u003ccode class=\"language-javascript\"\u003econst [state, setState] = useState(initialValue);\n\u003c/code\u003e\u003c/pre\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003estate\u003c/strong\u003e: Nilai state saat ini.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003esetState\u003c/strong\u003e: Fungsi untuk memperbarui state.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003einitialValue\u003c/strong\u003e: Nilai awal state (bisa berupa string, number, array, object, dll).\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003eContoh Sederhana (Counter):\u003c/h4\u003e\n\u003cpre\u003e\u003ccode class=\"language-jsx\"\u003eimport { useState } from 'react';\n\nfunction Counter() {\n  const [count, setCount] = useState(0); // Inisialisasi state dengan nilai 0\n\n  return (\n    \u0026#x3C;div\u003e\n      \u0026#x3C;p\u003eHitungan: {count}\u0026#x3C;/p\u003e\n      \u0026#x3C;button onClick={() =\u003e setCount(count + 1)}\u003eTambah\u0026#x3C;/button\u003e\n      \u0026#x3C;button onClick={() =\u003e setCount(count - 1)}\u003eKurang\u0026#x3C;/button\u003e\n    \u0026#x3C;/div\u003e\n  );\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e2. Contoh Penggunaan Lain\u003c/strong\u003e\u003c/h3\u003e\n\u003ch4\u003ea. Form Input (Controlled Component):\u003c/h4\u003e\n\u003cpre\u003e\u003ccode class=\"language-jsx\"\u003efunction Form() {\n  const [name, setName] = useState('');\n\n  return (\n    \u0026#x3C;div\u003e\n      \u0026#x3C;input\n        type=\"text\"\n        value={name}\n        onChange={(e) =\u003e setName(e.target.value)} // Update state saat input berubah\n        placeholder=\"Masukkan nama\"\n      /\u003e\n      \u0026#x3C;p\u003eNama Anda: {name}\u0026#x3C;/p\u003e\n    \u0026#x3C;/div\u003e\n  );\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003eb. State dengan Objek:\u003c/h4\u003e\n\u003cpre\u003e\u003ccode class=\"language-jsx\"\u003efunction UserProfile() {\n  const [user, setUser] = useState({\n    name: 'John',\n    age: 25,\n    email: 'john@example.com'\n  });\n\n  const updateName = () =\u003e {\n    // Salin nilai sebelumnya (...user) lalu update properti yang diinginkan\n    setUser({ ...user, name: 'Jane' });\n  };\n\n  return (\n    \u0026#x3C;div\u003e\n      \u0026#x3C;p\u003eNama: {user.name}\u0026#x3C;/p\u003e\n      \u0026#x3C;p\u003eUmur: {user.age}\u0026#x3C;/p\u003e\n      \u0026#x3C;button onClick={updateName}\u003eUbah Nama ke Jane\u0026#x3C;/button\u003e\n    \u0026#x3C;/div\u003e\n  );\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003ec. State dengan Array:\u003c/h4\u003e\n\u003cpre\u003e\u003ccode class=\"language-jsx\"\u003efunction TodoList() {\n  const [todos, setTodos] = useState(['Belajar React', 'Makan Siang']);\n  const [input, setInput] = useState('');\n\n  const addTodo = () =\u003e {\n    setTodos([...todos, input]); // Salin array lama dan tambah item baru\n    setInput('');\n  };\n\n  return (\n    \u0026#x3C;div\u003e\n      \u0026#x3C;input\n        value={input}\n        onChange={(e) =\u003e setInput(e.target.value)}\n        placeholder=\"Tambahkan todo\"\n      /\u003e\n      \u0026#x3C;button onClick={addTodo}\u003eTambah\u0026#x3C;/button\u003e\n      \u0026#x3C;ul\u003e\n        {todos.map((todo, index) =\u003e (\n          \u0026#x3C;li key={index}\u003e{todo}\u0026#x3C;/li\u003e\n        ))}\n      \u0026#x3C;/ul\u003e\n    \u0026#x3C;/div\u003e\n  );\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e3. Aturan Penting\u003c/strong\u003e\u003c/h3\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eJangan Mutasi State Langsung\u003c/strong\u003e:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-javascript\"\u003e// ❌ Salah\nuser.name = 'Jane';\nsetUser(user);\n\n// ✅ Benar\nsetUser({ ...user, name: 'Jane' });\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eGunakan Functional Update untuk State yang Bergantung pada Nilai Sebelumnya\u003c/strong\u003e:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-javascript\"\u003e// ✅ Benar (untuk operasi seperti increment)\nsetCount((prevCount) =\u003e prevCount + 1);\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eState di Inisialisasi Hanya Sekali\u003c/strong\u003e:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-javascript\"\u003e// ✅ Jika inisialisasi memerlukan komputasi berat, gunakan fungsi:\nconst [data] = useState(() =\u003e heavyComputation());\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e4. Perbedaan useState vs useRef\u003c/strong\u003e\u003c/h3\u003e\n\u003cdiv class=\"overflow-x-auto bg-lime-100\"\u003e\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003e\u003cstrong\u003eKriteria\u003c/strong\u003e\u003c/th\u003e\n\u003cth\u003euseState\u003c/th\u003e\n\u003cth\u003euseRef\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003cstrong\u003eRe-render\u003c/strong\u003e\u003c/td\u003e\n\u003ctd\u003eMemicu re-render komponen\u003c/td\u003e\n\u003ctd\u003eTidak memicu re-render\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003cstrong\u003ePenggunaan\u003c/strong\u003e\u003c/td\u003e\n\u003ctd\u003eUntuk data yang memengaruhi UI\u003c/td\u003e\n\u003ctd\u003eUntuk nilai yang tidak memengaruhi UI (seperti DOM, variabel persist)\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003cstrong\u003eNilai\u003c/strong\u003e\u003c/td\u003e\n\u003ctd\u003eImmutable (diubah via setState)\u003c/td\u003e\n\u003ctd\u003eMutable (diubah via ref.current)\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003cstrong\u003eContoh Kasus\u003c/strong\u003e\u003c/td\u003e\n\u003ctd\u003eForm input, toggle UI, data dinamis\u003c/td\u003e\n\u003ctd\u003eFokus input, simpan interval timer\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\u003c/div\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e5. Best Practices\u003c/strong\u003e\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003ePecah State Kompleks\u003c/strong\u003e: Jika state berupa objek/array, pertimbangkan untuk memisahkannya ke beberapa state.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-javascript\"\u003e// ❌ Kurang disarankan\nconst [user, setUser] = useState({ name: '', age: 0 });\n\n// ✅ Lebih baik\nconst [name, setName] = useState('');\nconst [age, setAge] = useState(0);\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eHindari Penggunaan State untuk Data yang Tidak Di-render\u003c/strong\u003e (gunakan useRef).\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003eKapan Menggunakan useState?\u003c/strong\u003e\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003eKetika data perlu \u003cstrong\u003edi-render di UI\u003c/strong\u003e (misal: form input, daftar data).\u003c/li\u003e\n\u003cli\u003eKetika perubahan data harus \u003cstrong\u003ememicu pembaruan tampilan\u003c/strong\u003e.\u003c/li\u003e\n\u003cli\u003eUntuk logika yang memerlukan \u003cstrong\u003ereaktivitas\u003c/strong\u003e (perubahan data → perubahan UI).\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003ch3\u003eContoh Lengkap: Toggle Komponen\u003c/h3\u003e\n\u003cpre\u003e\u003ccode class=\"language-jsx\"\u003efunction Toggle() {\n  const [isOn, setIsOn] = useState(false);\n\n  return (\n    \u0026#x3C;div\u003e\n      \u0026#x3C;button onClick={() =\u003e setIsOn(!isOn)}\u003e\n        {isOn ? 'Matikan' : 'Nyalakan'}\n      \u0026#x3C;/button\u003e\n      \u0026#x3C;p\u003eStatus: {isOn ? 'Aktif' : 'Nonaktif'}\u0026#x3C;/p\u003e\n    \u0026#x3C;/div\u003e\n  );\n}\n\u003c/code\u003e\u003c/pre\u003e\n"])</script><script>self.__next_f.push([1,"4:[\"$\",\"main\",null,{\"className\":\"container\",\"children\":[[\"$\",\"div\",null,{\"className\":\"border-b dark:bg-slate-800 bg-neutral-50 border-neutral-200\",\"children\":[\"$\",\"div\",null,{\"className\":\" mx-auto px-5\",\"children\":[\"$\",\"div\",null,{\"className\":\"py-2 text-center text-sm\",\"children\":[\"source code blog ini bisa ditemukan di link ini\",\" \",[\"$\",\"a\",null,{\"href\":\"https://github.com/mukharomdev/mukharomdev.github.io\",\"className\":\"underline hover:text-blue-600 duration-200 transition-colors\",\"children\":\"available on GitHub\"}],\".\"]}]}]}],[\"$\",\"div\",null,{\"className\":\" mx-auto px-5\",\"children\":[[\"$\",\"h2\",null,{\"className\":\"text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight mb-20 mt-8 flex items-center\",\"children\":[[\"$\",\"$Ld\",null,{\"href\":\"/\",\"className\":\"hover:underline\",\"children\":\"Blog\"}],\".\"]}],[\"$\",\"article\",null,{\"className\":\"mb-32\",\"children\":[[[\"$\",\"h1\",null,{\"className\":\"text-3xl text-center md:text-5xl lg:text-6xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left\",\"children\":\" Penggunaan React useState\"}],[\"$\",\"div\",null,{\"className\":\"hidden md:block md:mb-12\",\"children\":[\"$\",\"div\",null,{\"className\":\"flex items-center\",\"children\":[[\"$\",\"img\",null,{\"src\":\"/assets/blog/authors/mukharomdev.png\",\"className\":\"w-12 h-12 rounded-full mr-4\",\"alt\":\"mukharomdev\"}],[\"$\",\"div\",null,{\"className\":\"text-xl font-bold\",\"children\":\"mukharomdev\"}]]}]}],[\"$\",\"div\",null,{\"className\":\"mb-8 md:mb-16 sm:mx-0\",\"children\":[\"$\",\"div\",null,{\"className\":\"sm:mx-0\",\"children\":[\"$\",\"$Le\",null,{\"src\":\"/assets/blog/reacts/react1.png\",\"alt\":\"Cover Image for  Penggunaan React useState\",\"className\":\"shadow-sm w-full sm:w-[400px] md:w-[600px] lg:w-[800px] max-h-[500px] mx-auto block\",\"width\":120,\"height\":80}]}]}],[\"$\",\"div\",null,{\"className\":\"max-w-2xl mx-auto\",\"children\":[[\"$\",\"div\",null,{\"className\":\"block md:hidden mb-6\",\"children\":[\"$\",\"div\",null,{\"className\":\"flex items-center\",\"children\":[[\"$\",\"img\",null,{\"src\":\"/assets/blog/authors/mukharomdev.png\",\"className\":\"w-12 h-12 rounded-full mr-4\",\"alt\":\"mukharomdev\"}],[\"$\",\"div\",null,{\"className\":\"text-xl font-bold\",\"children\":\"mukharomdev\"}]]}]}],[\"$\",\"div\",null,{\"className\":\"mb-6 text-lg\",\"children\":[\"$\",\"time\",null,{\"dateTime\":\"2025-02-26T05:35:07.322Z\",\"children\":\"February\\t26, 2025\"}]}]]}]],[\"$\",\"div\",null,{\"className\":\"max-w-2xl mx-auto\",\"children\":[\"$\",\"div\",null,{\"className\":\"markdown-styles_markdown__ORfR8 prose prose-code \",\"dangerouslySetInnerHTML\":{\"__html\":\"$f\"}}]}]]}]]}]]}]\n"])</script><script>self.__next_f.push([1,"9:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]\n6:null\n"])</script><script>self.__next_f.push([1,"7:null\nb:[[\"$\",\"title\",\"0\",{\"children\":\" Penggunaan React useState | mukharomdev blog build with Markdown\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"Mini blog seputar pengalaman pribadi dunia pemrograman komputer\"}],[\"$\",\"meta\",\"2\",{\"property\":\"og:title\",\"content\":\" Penggunaan React useState | mukharomdev blog build with Markdown\"}],[\"$\",\"meta\",\"3\",{\"property\":\"og:description\",\"content\":\"Mini blog seputar pengalaman pribadi dunia pemrograman komputer\"}],[\"$\",\"meta\",\"4\",{\"property\":\"og:image\",\"content\":\"http://localhost:3000/assets/blog/reacts/react1.png\"}],[\"$\",\"meta\",\"5\",{\"name\":\"twitter:card\",\"content\":\"summary_large_image\"}],[\"$\",\"meta\",\"6\",{\"name\":\"twitter:title\",\"content\":\" Penggunaan React useState | mukharomdev blog build with Markdown\"}],[\"$\",\"meta\",\"7\",{\"name\":\"twitter:description\",\"content\":\"Mini blog seputar pengalaman pribadi dunia pemrograman komputer\"}],[\"$\",\"meta\",\"8\",{\"name\":\"twitter:image\",\"content\":\"http://localhost:3000/assets/blog/reacts/react1.png\"}],[\"$\",\"link\",\"9\",{\"rel\":\"icon\",\"href\":\"/favicon.ico\",\"type\":\"image/x-icon\",\"sizes\":\"16x16\"}]]\n"])</script></body></html>

@@ -1,0 +1,260 @@
+1:"$Sreact.fragment"
+2:I[7397,[],""]
+3:I[8513,[],""]
+5:I[3514,[],"OutletBoundary"]
+8:I[3514,[],"ViewportBoundary"]
+a:I[3514,[],"MetadataBoundary"]
+c:I[1612,[],""]
+:HL["/_next/static/media/569ce4b8f30dc480-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/93f479601ee12b01-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/cc1b38a888361ae0.css","style"]
+:HL["/_next/static/css/a218dfb468eefcdf.css","style"]
+0:{"P":null,"b":"zB4SN0XwAB_SWMRVvwFhG","p":"","c":["","blog","matterjs-react-game-tutorial"],"i":false,"f":[[["",{"children":["blog",{"children":[["slug","matterjs-react-game-tutorial","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/cc1b38a888361ae0.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":["$","body",null,{"className":"__variable_4d318d __variable_ea5f4b antialiased ","children":["$","div",null,{"className":"min-h-screen flex items-center justify-center bg-gray-100","children":["$","div",null,{"className":"container mx-auto p-4 bg-white rounded-lg shadow-lg","children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],"$undefined",[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]}]]}],{"children":["blog",["$","$1","c",{"children":[null,["$","section",null,{"className":" prose lg:prose-3xl prose-img:rounded-xl prose-headings:underline prose-a:text-lime-600 prose-code:text-lime-500 mx-auto  ","children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]}]]}],{"children":[["slug","matterjs-react-game-tutorial","d"],["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L4","$undefined",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/a218dfb468eefcdf.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","$L5",null,{"children":["$L6","$L7",null]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","jsOZ4G8ZMG3gTA1xnlY0x",{"children":[["$","$L8",null,{"children":"$L9"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],["$","$La",null,{"children":"$Lb"}]]}],false]],"m":"$undefined","G":["$c","$undefined"],"s":false,"S":true}
+d:I[4184,["161","static/chunks/161-e1f62ef38275032d.js","953","static/chunks/app/blog/%5Bslug%5D/page-df444d222e09a7de.js"],""]
+e:I[8161,["161","static/chunks/161-e1f62ef38275032d.js","953","static/chunks/app/blog/%5Bslug%5D/page-df444d222e09a7de.js"],"Image"]
+f:T1aa2,<p>Untuk membuat game menggunakan <strong>Matter.js</strong> dan <strong>React</strong>, Anda dapat membagi aplikasi menjadi beberapa komponen React untuk memisahkan tanggung jawab dan menjaga kode tetap terorganisir. Berikut adalah contoh struktur komponen yang dapat digunakan:</p>
+<hr>
+<h3><strong>Struktur Komponen untuk Game Matter.js</strong></h3>
+<ol>
+<li>
+<p><strong>App</strong> (Komponen Utama):</p>
+<ul>
+<li>Bertanggung jawab untuk menginisialisasi game dan merender komponen lainnya.</li>
+<li>Mengelola state global jika diperlukan (misalnya, skor, status game).</li>
+</ul>
+</li>
+<li>
+<p><strong>GameWorld</strong> (Komponen Dunia Game):</p>
+<ul>
+<li>Bertanggung jawab untuk menginisialisasi dan mengelola dunia fisika Matter.js.</li>
+<li>Menangani logika game seperti menambahkan objek, mendeteksi tabrakan, dan merender canvas.</li>
+</ul>
+</li>
+<li>
+<p><strong>Player</strong> (Komponen Pemain):</p>
+<ul>
+<li>Bertanggung jawab untuk mengelola objek pemain (misalnya, karakter atau kendaraan).</li>
+<li>Menangani input pengguna (misalnya, keyboard atau mouse) untuk mengontrol pemain.</li>
+</ul>
+</li>
+<li>
+<p><strong>Obstacle</strong> (Komponen Rintangan):</p>
+<ul>
+<li>Bertanggung jawab untuk membuat dan mengelola rintangan atau objek statis di dunia game.</li>
+</ul>
+</li>
+<li>
+<p><strong>Scoreboard</strong> (Komponen Skor):</p>
+<ul>
+<li>Bertanggung jawab untuk menampilkan skor atau status game.</li>
+</ul>
+</li>
+<li>
+<p><strong>GameControls</strong> (Komponen Kontrol):</p>
+<ul>
+<li>Bertanggung jawab untuk menampilkan tombol atau kontrol game (misalnya, mulai, jeda, ulang).</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3><strong>Contoh Implementasi</strong></h3>
+<h4>1. <strong>App (Komponen Utama)</strong></h4>
+<pre><code class="language-javascript">import React, { useState } from 'react';
+import GameWorld from './GameWorld';
+import Scoreboard from './Scoreboard';
+import GameControls from './GameControls';
+
+function App() {
+  const [score, setScore] = useState(0);
+  const [isGameRunning, setIsGameRunning] = useState(false);
+
+  const startGame = () => {
+    setIsGameRunning(true);
+    setScore(0);
+  };
+
+  const endGame = () => {
+    setIsGameRunning(false);
+  };
+
+  return (
+    &#x3C;div>
+      &#x3C;h1>Matter.js Game&#x3C;/h1>
+      &#x3C;Scoreboard score={score} />
+      &#x3C;GameControls
+        isGameRunning={isGameRunning}
+        onStart={startGame}
+        onEnd={endGame}
+      />
+      {isGameRunning &#x26;&#x26; &#x3C;GameWorld setScore={setScore} />}
+    &#x3C;/div>
+  );
+}
+
+export default App;
+</code></pre>
+<hr>
+<h4>2. <strong>GameWorld (Komponen Dunia Game)</strong></h4>
+<pre><code class="language-javascript">import React, { useEffect, useRef } from 'react';
+import Matter from 'matter-js';
+import Player from './Player';
+import Obstacle from './Obstacle';
+
+function GameWorld({ setScore }) {
+  const sceneRef = useRef(null);
+
+  useEffect(() => {
+    const { Engine, Render, Runner, World, Bodies } = Matter;
+
+    // Buat engine dan renderer
+    const engine = Engine.create();
+    const render = Render.create({
+      element: sceneRef.current,
+      engine: engine,
+      options: {
+        width: 800,
+        height: 600,
+        wireframes: false,
+        background: '#f4f4f4',
+      },
+    });
+
+    // Tambahkan canvas ke DOM
+    sceneRef.current.appendChild(render.canvas);
+
+    // Buat dunia fisika
+    const ground = Bodies.rectangle(400, 590, 810, 60, { isStatic: true });
+    World.add(engine.world, [ground]);
+
+    // Tambahkan pemain dan rintangan
+    const player = Player(engine);
+    const obstacle = Obstacle(engine);
+
+    // Deteksi tabrakan untuk skor
+    Matter.Events.on(engine, 'collisionStart', (event) => {
+      event.pairs.forEach((pair) => {
+        if (pair.bodyA === player || pair.bodyB === player) {
+          setScore((prevScore) => prevScore + 1);
+        }
+      });
+    });
+
+    // Jalankan renderer dan engine
+    Render.run(render);
+    const runner = Runner.create();
+    Runner.run(runner, engine);
+
+    // Bersihkan saat komponen di-unmount
+    return () => {
+      Render.stop(render);
+      Runner.stop(runner);
+      World.clear(engine.world, false);
+      Engine.clear(engine);
+      render.canvas.remove();
+    };
+  }, [setScore]);
+
+  return &#x3C;div ref={sceneRef}>&#x3C;/div>;
+}
+
+export default GameWorld;
+</code></pre>
+<hr>
+<h4>3. <strong>Player (Komponen Pemain)</strong></h4>
+<pre><code class="language-javascript">import Matter from 'matter-js';
+
+function Player(engine) {
+  const player = Matter.Bodies.rectangle(100, 100, 50, 50, {
+    restitution: 0.9,
+    render: {
+      fillStyle: 'blue',
+    },
+  });
+
+  Matter.World.add(engine.world, [player]);
+
+  // Tambahkan kontrol keyboard
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowRight') {
+      Matter.Body.setVelocity(player, { x: 5, y: 0 });
+    }
+    if (event.key === 'ArrowLeft') {
+      Matter.Body.setVelocity(player, { x: -5, y: 0 });
+    }
+  });
+
+  return player;
+}
+
+export default Player;
+</code></pre>
+<hr>
+<h4>4. <strong>Obstacle (Komponen Rintangan)</strong></h4>
+<pre><code class="language-javascript">import Matter from 'matter-js';
+
+function Obstacle(engine) {
+  const obstacle = Matter.Bodies.rectangle(400, 300, 80, 80, {
+    isStatic: true,
+    render: {
+      fillStyle: 'red',
+    },
+  });
+
+  Matter.World.add(engine.world, [obstacle]);
+
+  return obstacle;
+}
+
+export default Obstacle;
+</code></pre>
+<hr>
+<h4>5. <strong>Scoreboard (Komponen Skor)</strong></h4>
+<pre><code class="language-javascript">import React from 'react';
+
+function Scoreboard({ score }) {
+  return (
+    &#x3C;div>
+      &#x3C;h2>Score: {score}&#x3C;/h2>
+    &#x3C;/div>
+  );
+}
+
+export default Scoreboard;
+</code></pre>
+<hr>
+<h4>6. <strong>GameControls (Komponen Kontrol)</strong></h4>
+<pre><code class="language-javascript">import React from 'react';
+
+function GameControls({ isGameRunning, onStart, onEnd }) {
+  return (
+    &#x3C;div>
+      {!isGameRunning &#x26;&#x26; &#x3C;button onClick={onStart}>Start Game&#x3C;/button>}
+      {isGameRunning &#x26;&#x26; &#x3C;button onClick={onEnd}>End Game&#x3C;/button>}
+    &#x3C;/div>
+  );
+}
+
+export default GameControls;
+</code></pre>
+<hr>
+<h3><strong>Struktur Folder</strong></h3>
+<pre><code>src/
+├── components/
+│   ├── App.js
+│   ├── GameWorld.js
+│   ├── Player.js
+│   ├── Obstacle.js
+│   ├── Scoreboard.js
+│   └── GameControls.js
+├── App.css
+└── index.js
+</code></pre>
+<hr>
+<h3><strong>Kesimpulan</strong></h3>
+<p>Dengan membagi game menjadi beberapa komponen, kode menjadi lebih modular, mudah dikelola, dan dapat dikembangkan lebih lanjut. Anda dapat menambahkan lebih banyak fitur seperti level, musuh, atau efek khusus sesuai kebutuhan game Anda.</p>
+<p>Jika ada pertanyaan lebih lanjut, jangan ragu untuk bertanya! 😊</p>
+4:["$","main",null,{"className":"container","children":[["$","div",null,{"className":"border-b dark:bg-slate-800 bg-neutral-50 border-neutral-200","children":["$","div",null,{"className":" mx-auto px-5","children":["$","div",null,{"className":"py-2 text-center text-sm","children":["source code blog ini bisa ditemukan di link ini"," ",["$","a",null,{"href":"https://github.com/mukharomdev/mukharomdev.github.io","className":"underline hover:text-blue-600 duration-200 transition-colors","children":"available on GitHub"}],"."]}]}]}],["$","div",null,{"className":" mx-auto px-5","children":[["$","h2",null,{"className":"text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight mb-20 mt-8 flex items-center","children":[["$","$Ld",null,{"href":"/","className":"hover:underline","children":"Blog"}],"."]}],["$","article",null,{"className":"mb-32","children":[[["$","h1",null,{"className":"text-3xl text-center md:text-5xl lg:text-6xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left","children":"Membuat Game 2D MatterJs dan React"}],["$","div",null,{"className":"hidden md:block md:mb-12","children":["$","div",null,{"className":"flex items-center","children":[["$","img",null,{"src":"/assets/blog/authors/mukharomdev.png","className":"w-12 h-12 rounded-full mr-4","alt":"Mukharomdev"}],["$","div",null,{"className":"text-xl font-bold","children":"Mukharomdev"}]]}]}],["$","div",null,{"className":"mb-8 md:mb-16 sm:mx-0","children":["$","div",null,{"className":"sm:mx-0","children":["$","$Le",null,{"src":"https://brm.io/matter-js/img/matter-js.svg","alt":"Cover Image for Membuat Game 2D MatterJs dan React","className":"shadow-sm w-full sm:w-[400px] md:w-[600px] lg:w-[800px] max-h-[500px] mx-auto block","width":120,"height":80}]}]}],["$","div",null,{"className":"max-w-2xl mx-auto","children":[["$","div",null,{"className":"block md:hidden mb-6","children":["$","div",null,{"className":"flex items-center","children":[["$","img",null,{"src":"/assets/blog/authors/mukharomdev.png","className":"w-12 h-12 rounded-full mr-4","alt":"Mukharomdev"}],["$","div",null,{"className":"text-xl font-bold","children":"Mukharomdev"}]]}]}],["$","div",null,{"className":"mb-6 text-lg","children":["$","time",null,{"dateTime":"2025-03-03T17:24:17.910Z","children":"March\t3, 2025"}]}]]}]],["$","div",null,{"className":"max-w-2xl mx-auto","children":["$","div",null,{"className":"markdown-styles_markdown__ORfR8 prose prose-code ","dangerouslySetInnerHTML":{"__html":"$f"}}]}]]}]]}]]}]
+9:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+6:null
+7:null
+b:[["$","title","0",{"children":"Membuat Game 2D MatterJs dan React | mukharomdev blog build with Markdown"}],["$","meta","1",{"name":"description","content":"Mini blog seputar pengalaman pribadi dunia pemrograman komputer"}],["$","meta","2",{"property":"og:title","content":"Membuat Game 2D MatterJs dan React | mukharomdev blog build with Markdown"}],["$","meta","3",{"property":"og:description","content":"Mini blog seputar pengalaman pribadi dunia pemrograman komputer"}],["$","meta","4",{"property":"og:image","content":"https://brm.io/matter-js/img/matter-js.svg"}],["$","meta","5",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","6",{"name":"twitter:title","content":"Membuat Game 2D MatterJs dan React | mukharomdev blog build with Markdown"}],["$","meta","7",{"name":"twitter:description","content":"Mini blog seputar pengalaman pribadi dunia pemrograman komputer"}],["$","meta","8",{"name":"twitter:image","content":"https://brm.io/matter-js/img/matter-js.svg"}],["$","link","9",{"rel":"icon","href":"/favicon.ico","type":"image/x-icon","sizes":"16x16"}]]

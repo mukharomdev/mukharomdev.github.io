@@ -1,0 +1,210 @@
+1:"$Sreact.fragment"
+2:I[7397,[],""]
+3:I[8513,[],""]
+5:I[3514,[],"OutletBoundary"]
+8:I[3514,[],"ViewportBoundary"]
+a:I[3514,[],"MetadataBoundary"]
+c:I[1612,[],""]
+:HL["/_next/static/media/569ce4b8f30dc480-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/93f479601ee12b01-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/cc1b38a888361ae0.css","style"]
+:HL["/_next/static/css/a218dfb468eefcdf.css","style"]
+0:{"P":null,"b":"zB4SN0XwAB_SWMRVvwFhG","p":"","c":["","blog","javascript-object-metode"],"i":false,"f":[[["",{"children":["blog",{"children":[["slug","javascript-object-metode","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/cc1b38a888361ae0.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":["$","body",null,{"className":"__variable_4d318d __variable_ea5f4b antialiased ","children":["$","div",null,{"className":"min-h-screen flex items-center justify-center bg-gray-100","children":["$","div",null,{"className":"container mx-auto p-4 bg-white rounded-lg shadow-lg","children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],"$undefined",[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]}]]}],{"children":["blog",["$","$1","c",{"children":[null,["$","section",null,{"className":" prose lg:prose-3xl prose-img:rounded-xl prose-headings:underline prose-a:text-lime-600 prose-code:text-lime-500 mx-auto  ","children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]}]]}],{"children":[["slug","javascript-object-metode","d"],["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L4","$undefined",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/a218dfb468eefcdf.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","$L5",null,{"children":["$L6","$L7",null]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","9GtDg_5OiykfztlIYHBNE",{"children":[["$","$L8",null,{"children":"$L9"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],["$","$La",null,{"children":"$Lb"}]]}],false]],"m":"$undefined","G":["$c","$undefined"],"s":false,"S":true}
+d:I[4184,["161","static/chunks/161-e1f62ef38275032d.js","953","static/chunks/app/blog/%5Bslug%5D/page-df444d222e09a7de.js"],""]
+e:I[8161,["161","static/chunks/161-e1f62ef38275032d.js","953","static/chunks/app/blog/%5Bslug%5D/page-df444d222e09a7de.js"],"Image"]
+f:T1c2e,<p>JavaScript menyediakan banyak metode bawaan pada objek Object yang berguna untuk memanipulasi, mengakses, dan memeriksa objek. Berikut adalah beberapa metode penting dari Object beserta penjelasannya:</p>
+<hr>
+<h3>1. <strong>Object.assign(target, ...sources)</strong></h3>
+<ul>
+<li><strong>Fungsi</strong>: Menyalin properti yang dapat di-enumerate (yang bisa di-loop) dari satu atau lebih objek sumber (sources) ke objek target (target).</li>
+<li><strong>Contoh</strong>:
+<pre><code class="language-javascript">const target = { a: 1 };
+const source = { b: 2, c: 3 };
+const result = Object.assign(target, source);
+console.log(result); // Output: { a: 1, b: 2, c: 3 }
+</code></pre>
+</li>
+<li><strong>Catatan</strong>: Jika ada properti yang sama di target dan source, nilai dari source akan menimpa nilai di target.</li>
+</ul>
+<hr>
+<h3>2. <strong>Object.create(proto, propertiesObject)</strong></h3>
+<ul>
+<li><strong>Fungsi</strong>: Membuat objek baru dengan prototipe yang ditentukan (proto) dan properti opsional (propertiesObject).</li>
+<li><strong>Contoh</strong>:
+<pre><code class="language-javascript">const proto = { greet: function() { return "Hello!"; } };
+const obj = Object.create(proto);
+console.log(obj.greet()); // Output: "Hello!"
+</code></pre>
+</li>
+</ul>
+<hr>
+<h3>3. <strong>Object.defineProperty(obj, prop, descriptor)</strong></h3>
+<ul>
+<li><strong>Fungsi</strong>: Menambahkan atau memodifikasi properti pada objek dengan deskripsi tertentu (seperti writable, enumerable, configurable, value, get, set).</li>
+<li><strong>Contoh</strong>:
+<pre><code class="language-javascript">const obj = {};
+Object.defineProperty(obj, 'name', {
+  value: 'John',
+  writable: false, // Tidak bisa diubah
+  enumerable: true // Bisa di-loop
+});
+console.log(obj.name); // Output: "John"
+</code></pre>
+</li>
+</ul>
+<hr>
+<h3>4. <strong>Object.defineProperties(obj, properties)</strong></h3>
+<ul>
+<li><strong>Fungsi</strong>: Menambahkan atau memodifikasi beberapa properti sekaligus pada objek.</li>
+<li><strong>Contoh</strong>:
+<pre><code class="language-javascript">const obj = {};
+Object.defineProperties(obj, {
+  name: { value: 'John', enumerable: true },
+  age: { value: 30, enumerable: true }
+});
+console.log(obj); // Output: { name: "John", age: 30 }
+</code></pre>
+</li>
+</ul>
+<hr>
+<h3>5. <strong>Object.entries(obj)</strong></h3>
+<ul>
+<li><strong>Fungsi</strong>: Mengembalikan array dari pasangan [key, value] untuk setiap properti yang dapat di-enumerate pada objek.</li>
+<li><strong>Contoh</strong>:
+<pre><code class="language-javascript">const obj = { a: 1, b: 2 };
+console.log(Object.entries(obj)); // Output: [ ['a', 1], ['b', 2] ]
+</code></pre>
+</li>
+</ul>
+<hr>
+<h3>6. <strong>Object.keys(obj)</strong></h3>
+<ul>
+<li><strong>Fungsi</strong>: Mengembalikan array dari semua properti yang dapat di-enumerate pada objek.</li>
+<li><strong>Contoh</strong>:
+<pre><code class="language-javascript">const obj = { a: 1, b: 2 };
+console.log(Object.keys(obj)); // Output: ['a', 'b']
+</code></pre>
+</li>
+</ul>
+<hr>
+<h3>7. <strong>Object.values(obj)</strong></h3>
+<ul>
+<li><strong>Fungsi</strong>: Mengembalikan array dari semua nilai properti yang dapat di-enumerate pada objek.</li>
+<li><strong>Contoh</strong>:
+<pre><code class="language-javascript">const obj = { a: 1, b: 2 };
+console.log(Object.values(obj)); // Output: [1, 2]
+</code></pre>
+</li>
+</ul>
+<hr>
+<h3>8. <strong>Object.freeze(obj)</strong></h3>
+<ul>
+<li><strong>Fungsi</strong>: Membekukan objek, sehingga propertinya tidak bisa diubah, ditambah, atau dihapus.</li>
+<li><strong>Contoh</strong>:
+<pre><code class="language-javascript">const obj = { a: 1 };
+Object.freeze(obj);
+obj.a = 2; // Tidak akan berubah
+console.log(obj.a); // Output: 1
+</code></pre>
+</li>
+</ul>
+<hr>
+<h3>9. <strong>Object.seal(obj)</strong></h3>
+<ul>
+<li><strong>Fungsi</strong>: Menyegel objek, sehingga properti yang sudah ada tidak bisa dihapus, tetapi masih bisa diubah.</li>
+<li><strong>Contoh</strong>:
+<pre><code class="language-javascript">const obj = { a: 1 };
+Object.seal(obj);
+obj.a = 2; // Bisa diubah
+delete obj.a; // Tidak bisa dihapus
+console.log(obj); // Output: { a: 2 }
+</code></pre>
+</li>
+</ul>
+<hr>
+<h3>10. <strong>Object.is(value1, value2)</strong></h3>
+<ul>
+<li><strong>Fungsi</strong>: Membandingkan dua nilai secara strict (termasuk NaN dan +0/<code>-0</code>).</li>
+<li><strong>Contoh</strong>:
+<pre><code class="language-javascript">console.log(Object.is(NaN, NaN)); // Output: true
+console.log(Object.is(0, -0)); // Output: false
+</code></pre>
+</li>
+</ul>
+<hr>
+<h3>11. <strong>Object.getPrototypeOf(obj)</strong></h3>
+<ul>
+<li><strong>Fungsi</strong>: Mengembalikan prototipe dari objek.</li>
+<li><strong>Contoh</strong>:
+<pre><code class="language-javascript">const proto = { greet: function() { return "Hello!"; } };
+const obj = Object.create(proto);
+console.log(Object.getPrototypeOf(obj) === proto); // Output: true
+</code></pre>
+</li>
+</ul>
+<hr>
+<h3>12. <strong>Object.setPrototypeOf(obj, prototype)</strong></h3>
+<ul>
+<li><strong>Fungsi</strong>: Mengatur prototipe dari objek.</li>
+<li><strong>Contoh</strong>:
+<pre><code class="language-javascript">const proto = { greet: function() { return "Hello!"; } };
+const obj = {};
+Object.setPrototypeOf(obj, proto);
+console.log(obj.greet()); // Output: "Hello!"
+</code></pre>
+</li>
+</ul>
+<hr>
+<h3>13. <strong>Object.hasOwnProperty(prop)</strong></h3>
+<ul>
+<li><strong>Fungsi</strong>: Memeriksa apakah objek memiliki properti tertentu (tidak termasuk properti dari prototipe).</li>
+<li><strong>Contoh</strong>:
+<pre><code class="language-javascript">const obj = { a: 1 };
+console.log(obj.hasOwnProperty('a')); // Output: true
+console.log(obj.hasOwnProperty('toString')); // Output: false
+</code></pre>
+</li>
+</ul>
+<hr>
+<h3>14. <strong>Object.isExtensible(obj)</strong></h3>
+<ul>
+<li><strong>Fungsi</strong>: Memeriksa apakah objek bisa ditambahkan properti baru.</li>
+<li><strong>Contoh</strong>:
+<pre><code class="language-javascript">const obj = { a: 1 };
+console.log(Object.isExtensible(obj)); // Output: true
+Object.freeze(obj);
+console.log(Object.isExtensible(obj)); // Output: false
+</code></pre>
+</li>
+</ul>
+<hr>
+<h3>15. <strong>Object.preventExtensions(obj)</strong></h3>
+<ul>
+<li><strong>Fungsi</strong>: Mencegah penambahan properti baru ke objek.</li>
+<li><strong>Contoh</strong>:
+<pre><code class="language-javascript">const obj = { a: 1 };
+Object.preventExtensions(obj);
+obj.b = 2; // Tidak akan ditambahkan
+console.log(obj); // Output: { a: 1 }
+</code></pre>
+</li>
+</ul>
+<hr>
+<h3>16. <strong>Object.fromEntries(iterable)</strong></h3>
+<ul>
+<li><strong>Fungsi</strong>: Mengubah array pasangan [key, value] menjadi objek.</li>
+<li><strong>Contoh</strong>:
+<pre><code class="language-javascript">const entries = [ ['a', 1], ['b', 2] ];
+const obj = Object.fromEntries(entries);
+console.log(obj); // Output: { a: 1, b: 2 }
+</code></pre>
+</li>
+</ul>
+<hr>
+<h3>Kesimpulan</h3>
+<p>Metode-metode di atas adalah alat yang sangat berguna untuk bekerja dengan objek di JavaScript. Setiap metode memiliki kegunaan spesifik, seperti manipulasi properti, pengaturan prototipe, atau pemeriksaan objek. Jika Anda memiliki pertanyaan lebih lanjut atau butuh contoh tambahan, beri tahu saya! 😊</p>
+4:["$","main",null,{"className":"container","children":[["$","div",null,{"className":"border-b dark:bg-slate-800 bg-neutral-50 border-neutral-200","children":["$","div",null,{"className":" mx-auto px-5","children":["$","div",null,{"className":"py-2 text-center text-sm","children":["source code blog ini bisa ditemukan di link ini"," ",["$","a",null,{"href":"https://github.com/mukharomdev/mukharomdev.github.io","className":"underline hover:text-blue-600 duration-200 transition-colors","children":"available on GitHub"}],"."]}]}]}],["$","div",null,{"className":" mx-auto px-5","children":[["$","h2",null,{"className":"text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight mb-20 mt-8 flex items-center","children":[["$","$Ld",null,{"href":"/","className":"hover:underline","children":"Blog"}],"."]}],["$","article",null,{"className":"mb-32","children":[[["$","h1",null,{"className":"text-3xl text-center md:text-5xl lg:text-6xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left","children":"Javascript Object Metode dan Penggunaanya"}],["$","div",null,{"className":"hidden md:block md:mb-12","children":["$","div",null,{"className":"flex items-center","children":[["$","img",null,{"src":"/assets/blog/authors/mukharomdev.png","className":"w-12 h-12 rounded-full mr-4","alt":"mukharomdev"}],["$","div",null,{"className":"text-xl font-bold","children":"mukharomdev"}]]}]}],["$","div",null,{"className":"mb-8 md:mb-16 sm:mx-0","children":["$","div",null,{"className":"sm:mx-0","children":["$","$Le",null,{"src":"/assets/blog/javascript/javascript.png","alt":"Cover Image for Javascript Object Metode dan Penggunaanya","className":"shadow-sm w-full sm:w-[400px] md:w-[600px] lg:w-[800px] max-h-[500px] mx-auto block","width":120,"height":80}]}]}],["$","div",null,{"className":"max-w-2xl mx-auto","children":[["$","div",null,{"className":"block md:hidden mb-6","children":["$","div",null,{"className":"flex items-center","children":[["$","img",null,{"src":"/assets/blog/authors/mukharomdev.png","className":"w-12 h-12 rounded-full mr-4","alt":"mukharomdev"}],["$","div",null,{"className":"text-xl font-bold","children":"mukharomdev"}]]}]}],["$","div",null,{"className":"mb-6 text-lg","children":["$","time",null,{"dateTime":"2025-03-14T22:03:20.516Z","children":"March\t14, 2025"}]}]]}]],["$","div",null,{"className":"max-w-2xl mx-auto","children":["$","div",null,{"className":"markdown-styles_markdown__ORfR8 prose prose-code ","dangerouslySetInnerHTML":{"__html":"$f"}}]}]]}]]}]]}]
+9:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+6:null
+7:null
+b:[["$","title","0",{"children":"Javascript Object Metode dan Penggunaanya | mukharomdev blog build with Markdown"}],["$","meta","1",{"name":"description","content":"Mini blog seputar pengalaman pribadi dunia pemrograman komputer"}],["$","meta","2",{"property":"og:title","content":"Javascript Object Metode dan Penggunaanya | mukharomdev blog build with Markdown"}],["$","meta","3",{"property":"og:description","content":"Mini blog seputar pengalaman pribadi dunia pemrograman komputer"}],["$","meta","4",{"property":"og:image","content":"http://localhost:3000/assets/blog/javascript/javascript.png"}],["$","meta","5",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","6",{"name":"twitter:title","content":"Javascript Object Metode dan Penggunaanya | mukharomdev blog build with Markdown"}],["$","meta","7",{"name":"twitter:description","content":"Mini blog seputar pengalaman pribadi dunia pemrograman komputer"}],["$","meta","8",{"name":"twitter:image","content":"http://localhost:3000/assets/blog/javascript/javascript.png"}],["$","link","9",{"rel":"icon","href":"/favicon.ico","type":"image/x-icon","sizes":"16x16"}]]

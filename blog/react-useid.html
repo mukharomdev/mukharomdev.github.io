@@ -1,0 +1,173 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" href="/_next/static/media/569ce4b8f30dc480-s.p.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" href="/_next/static/media/93f479601ee12b01-s.p.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" as="image" href="/assets/blog/authors/mukharomdev.png"/><link rel="stylesheet" href="/_next/static/css/cc1b38a888361ae0.css" data-precedence="next"/><link rel="stylesheet" href="/_next/static/css/a218dfb468eefcdf.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/_next/static/chunks/webpack-d1f044851490e377.js"/><script src="/_next/static/chunks/748859cf-d1727182a584e899.js" async=""></script><script src="/_next/static/chunks/702-3097f4c2de53f6aa.js" async=""></script><script src="/_next/static/chunks/main-app-f6a0c1bda6624e2a.js" async=""></script><script src="/_next/static/chunks/161-e1f62ef38275032d.js" async=""></script><script src="/_next/static/chunks/app/blog/%5Bslug%5D/page-df444d222e09a7de.js" async=""></script><meta name="next-size-adjust" content=""/><title> Penggunaan React useId | mukharomdev blog build with Markdown</title><meta name="description" content="Mini blog seputar pengalaman pribadi dunia pemrograman komputer"/><meta property="og:title" content=" Penggunaan React useId | mukharomdev blog build with Markdown"/><meta property="og:description" content="Mini blog seputar pengalaman pribadi dunia pemrograman komputer"/><meta property="og:image" content="http://localhost:3000/assets/blog/reacts/react1.png"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content=" Penggunaan React useId | mukharomdev blog build with Markdown"/><meta name="twitter:description" content="Mini blog seputar pengalaman pribadi dunia pemrograman komputer"/><meta name="twitter:image" content="http://localhost:3000/assets/blog/reacts/react1.png"/><link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="16x16"/><script src="/_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script></head><body class="__variable_4d318d __variable_ea5f4b antialiased "><div class="min-h-screen flex items-center justify-center bg-gray-100"><div class="container mx-auto p-4 bg-white rounded-lg shadow-lg"><section class=" prose lg:prose-3xl prose-img:rounded-xl prose-headings:underline prose-a:text-lime-600 prose-code:text-lime-500 mx-auto  "><main class="container"><div class="border-b dark:bg-slate-800 bg-neutral-50 border-neutral-200"><div class=" mx-auto px-5"><div class="py-2 text-center text-sm">source code blog ini bisa ditemukan di link ini<!-- --> <a href="https://github.com/mukharomdev/mukharomdev.github.io" class="underline hover:text-blue-600 duration-200 transition-colors">available on GitHub</a>.</div></div></div><div class=" mx-auto px-5"><h2 class="text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight mb-20 mt-8 flex items-center"><a class="hover:underline" href="/">Blog</a>.</h2><article class="mb-32"><h1 class="text-3xl text-center md:text-5xl lg:text-6xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left"> Penggunaan React useId</h1><div class="hidden md:block md:mb-12"><div class="flex items-center"><img src="/assets/blog/authors/mukharomdev.png" class="w-12 h-12 rounded-full mr-4" alt="mukharomdev"/><div class="text-xl font-bold">mukharomdev</div></div></div><div class="mb-8 md:mb-16 sm:mx-0"><div class="sm:mx-0"><img alt="Cover Image for  Penggunaan React useId" loading="lazy" width="120" height="80" decoding="async" data-nimg="1" class="shadow-sm w-full sm:w-[400px] md:w-[600px] lg:w-[800px] max-h-[500px] mx-auto block" style="color:transparent" src="/assets/blog/reacts/react1.png"/></div></div><div class="max-w-2xl mx-auto"><div class="block md:hidden mb-6"><div class="flex items-center"><img src="/assets/blog/authors/mukharomdev.png" class="w-12 h-12 rounded-full mr-4" alt="mukharomdev"/><div class="text-xl font-bold">mukharomdev</div></div></div><div class="mb-6 text-lg"><time dateTime="2025-03-01T14:52:04.709Z">March	1, 2025</time></div></div><div class="max-w-2xl mx-auto"><div class="markdown-styles_markdown__ORfR8 prose prose-code "><p>useId adalah hook di React yang digunakan untuk <strong>menghasilkan ID unik yang stabil</strong> baik di sisi klien (client-side) maupun server (server-side). Hook ini terutama berguna untuk menghindari masalah <em>hydration mismatch</em> saat menggunakan Server-Side Rendering (SSR) dan untuk keperluan aksesibilitas seperti menghubungkan label dengan input menggunakan atribut htmlFor dan id.</p>
+<hr>
+<h3><strong>Kapan Menggunakan useId?</strong></h3>
+<ol>
+<li><strong>Aksesibilitas</strong>: Mengaitkan  dengan  menggunakan htmlFor dan id.</li>
+<li><strong>Komponen yang Dirender di Server (SSR)</strong>: Menghindari perbedaan ID antara server dan klien.</li>
+<li><strong>Elemen yang Membutuhkan ID Unik</strong>: Seperti elemen ARIA (aria-labelledby, aria-describedby) atau komponen kustom.</li>
+</ol>
+<hr>
+<h3><strong>Sintaks Dasar</strong></h3>
+<pre><code class="language-javascript">const id = useId();
+</code></pre>
+<hr>
+<h3><strong>Contoh Penggunaan</strong></h3>
+<h4>1. <strong>Label dan Input</strong></h4>
+<pre><code class="language-jsx">import { useId } from 'react';
+
+function InputField() {
+  const id = useId();
+
+  return (
+    &#x3C;div>
+      &#x3C;label htmlFor={id}>Nama:&#x3C;/label>
+      &#x3C;input type="text" id={id} />
+    &#x3C;/div>
+  );
+}
+</code></pre>
+<h4>2. <strong>Komponen dengan Beberapa ID</strong></h4>
+<pre><code class="language-jsx">function LoginForm() {
+  const emailId = useId();
+  const passwordId = useId();
+
+  return (
+    &#x3C;form>
+      &#x3C;div>
+        &#x3C;label htmlFor={emailId}>Email:&#x3C;/label>
+        &#x3C;input type="email" id={emailId} />
+      &#x3C;/div>
+      &#x3C;div>
+        &#x3C;label htmlFor={passwordId}>Password:&#x3C;/label>
+        &#x3C;input type="password" id={passwordId} />
+      &#x3C;/div>
+    &#x3C;/form>
+  );
+}
+</code></pre>
+<h4>3. <strong>Kompleks dengan Suffix/Prefix</strong></h4>
+<pre><code class="language-jsx">function Accordion() {
+  const id = useId();
+
+  return (
+    &#x3C;div>
+      &#x3C;button aria-controls={&#x3C;code>${id}-panel&#x3C;/code>} id={&#x3C;code>${id}-button&#x3C;/code>}>
+        Toggle Panel
+      &#x3C;/button>
+      &#x3C;div id={&#x3C;code>${id}-panel&#x3C;/code>} aria-labelledby={&#x3C;code>${id}-button&#x3C;/code>}>
+        Konten panel...
+      &#x3C;/div>
+    &#x3C;/div>
+  );
+}
+</code></pre>
+<hr>
+<h3><strong>Mengapa Tidak Boleh Menggunakan Math.random() atau Counter?</strong></h3>
+<ul>
+<li><strong>Math.random()</strong>: Menghasilkan ID berbeda setiap render → menyebabkan <em>hydration mismatch</em> di SSR.</li>
+<li><strong>Counter</strong>: ID tidak unik antar komponen atau sesi.</li>
+<li><strong>useId</strong>: Menjamin ID stabil dan unik di seluruh komponen, baik di server maupun klien.</li>
+</ul>
+<hr>
+<h3><strong>Aturan Penting</strong></h3>
+<ol>
+<li>
+<p><strong>Jangan Gunakan untuk Key dalam List</strong><br>
+useId tidak dirancang untuk key di list. Gunakan ID dari data atau hash unik.</p>
+<pre><code class="language-jsx">// ❌ Salah
+{items.map((item) => (
+  &#x3C;div key={useId()}>{item}&#x3C;/div>
+))}
+
+// ✅ Benar
+{items.map((item) => (
+  &#x3C;div key={item.id}>{item.name}&#x3C;/div>
+))}
+</code></pre>
+</li>
+<li>
+<p><strong>Hanya untuk ID yang Terkait dengan HTML</strong><br>
+Jangan gunakan untuk keperluan lain seperti CSS-in-JS atau ID kustom untuk logika bisnis.</p>
+</li>
+</ol>
+<hr>
+<h3><strong>Perbandingan dengan Cara Lain</strong></h3>
+<div class="overflow-x-auto bg-lime-100"><table>
+<thead>
+<tr>
+<th><strong>Metode</strong></th>
+<th><strong>Masalah</strong></th>
+<th><strong>Solusi useId</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Math.random()</td>
+<td>ID berbeda setiap render</td>
+<td>ID stabil antar server dan klien</td>
+</tr>
+<tr>
+<td>crypto.randomUUID()</td>
+<td>Tidak bekerja di SSR</td>
+<td>Mendukung SSR</td>
+</tr>
+<tr>
+<td>Manual counter</td>
+<td>ID tidak unik antar komponen</td>
+<td>ID unik global</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h3><strong>Best Practices</strong></h3>
+<ul>
+<li><strong>Gunakan untuk Aksesibilitas</strong>: Pastikan atribut id dan htmlFor selalu terhubung.</li>
+<li><strong>Hindari Concatenasi Manual</strong>: Jika membutuhkan beberapa ID dalam satu komponen, gunakan suffix/prefix:
+<pre><code class="language-jsx">const id = useId();
+const inputId = &#x3C;code>${id}-input&#x3C;/code>;
+const labelId = &#x3C;code>${id}-label&#x3C;/code>;
+</code></pre>
+</li>
+<li><strong>SSR/Next.js</strong>: Tidak perlu konfigurasi khusus. useId otomatis bekerja dengan baik.</li>
+</ul>
+<hr>
+<h3><strong>Contoh Lengkap: Form dengan Validasi</strong></h3>
+<pre><code class="language-jsx">function SignupForm() {
+  const emailId = useId();
+  const passwordId = useId();
+  const [error, setError] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const email = e.target.elements[emailId].value;
+    if (!email.includes('@')) {
+      setError('Email tidak valid');
+    }
+  };
+
+  return (
+    &#x3C;form onSubmit={handleSubmit}>
+      &#x3C;div>
+        &#x3C;label htmlFor={emailId}>Email:&#x3C;/label>
+        &#x3C;input type="email" id={emailId} />
+      &#x3C;/div>
+      &#x3C;div>
+        &#x3C;label htmlFor={passwordId}>Password:&#x3C;/label>
+        &#x3C;input type="password" id={passwordId} />
+      &#x3C;/div>
+      {error &#x26;&#x26; &#x3C;p role="alert">{error}&#x3C;/p>}
+      &#x3C;button type="submit">Daftar&#x3C;/button>
+    &#x3C;/form>
+  );
+}
+</code></pre>
+<hr>
+<h3><strong>Kesimpulan</strong></h3>
+<p>useId adalah solusi React untuk:</p>
+<ul>
+<li>Menghasilkan <strong>ID unik yang stabil</strong> di server dan klien.</li>
+<li>Mencegah masalah <strong>hydration mismatch</strong> di SSR.</li>
+<li>Meningkatkan <strong>aksesibilitas</strong> dengan menghubungkan elemen HTML.</li>
+</ul>
+<p>Gunakan hook ini untuk semua kebutuhan ID yang terkait dengan markup HTML! 🛠️</p>
+</div></div></article></div></main></section></div></div><script src="/_next/static/chunks/webpack-d1f044851490e377.js" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"1:\"$Sreact.fragment\"\n2:I[7397,[],\"\"]\n3:I[8513,[],\"\"]\n5:I[3514,[],\"OutletBoundary\"]\n8:I[3514,[],\"ViewportBoundary\"]\na:I[3514,[],\"MetadataBoundary\"]\nc:I[1612,[],\"\"]\n:HL[\"/_next/static/media/569ce4b8f30dc480-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/_next/static/media/93f479601ee12b01-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/_next/static/css/cc1b38a888361ae0.css\",\"style\"]\n:HL[\"/_next/static/css/a218dfb468eefcdf.css\",\"style\"]\n"])</script><script>self.__next_f.push([1,"0:{\"P\":null,\"b\":\"zB4SN0XwAB_SWMRVvwFhG\",\"p\":\"\",\"c\":[\"\",\"blog\",\"react-useid\"],\"i\":false,\"f\":[[[\"\",{\"children\":[\"blog\",{\"children\":[[\"slug\",\"react-useid\",\"d\"],{\"children\":[\"__PAGE__\",{}]}]}]},\"$undefined\",\"$undefined\",true],[\"\",[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/cc1b38a888361ae0.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"en\",\"children\":[\"$\",\"body\",null,{\"className\":\"__variable_4d318d __variable_ea5f4b antialiased \",\"children\":[\"$\",\"div\",null,{\"className\":\"min-h-screen flex items-center justify-center bg-gray-100\",\"children\":[\"$\",\"div\",null,{\"className\":\"container mx-auto p-4 bg-white rounded-lg shadow-lg\",\"children\":[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L3\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":404}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],\"$undefined\",[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}]}]}]}]]}],{\"children\":[\"blog\",[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"section\",null,{\"className\":\" prose lg:prose-3xl prose-img:rounded-xl prose-headings:underline prose-a:text-lime-600 prose-code:text-lime-500 mx-auto  \",\"children\":[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L3\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}]]}],{\"children\":[[\"slug\",\"react-useid\",\"d\"],[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L3\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[\"__PAGE__\",[\"$\",\"$1\",\"c\",{\"children\":[\"$L4\",\"$undefined\",[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/a218dfb468eefcdf.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]],[\"$\",\"$L5\",null,{\"children\":[\"$L6\",\"$L7\",null]}]]}],{},null,false]},null,false]},null,false]},null,false],[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$1\",\"_E4MNbbhnAhq0a_fhJLMm\",{\"children\":[[\"$\",\"$L8\",null,{\"children\":\"$L9\"}],[\"$\",\"meta\",null,{\"name\":\"next-size-adjust\",\"content\":\"\"}]]}],[\"$\",\"$La\",null,{\"children\":\"$Lb\"}]]}],false]],\"m\":\"$undefined\",\"G\":[\"$c\",\"$undefined\"],\"s\":false,\"S\":true}\n"])</script><script>self.__next_f.push([1,"d:I[4184,[\"161\",\"static/chunks/161-e1f62ef38275032d.js\",\"953\",\"static/chunks/app/blog/%5Bslug%5D/page-df444d222e09a7de.js\"],\"\"]\ne:I[8161,[\"161\",\"static/chunks/161-e1f62ef38275032d.js\",\"953\",\"static/chunks/app/blog/%5Bslug%5D/page-df444d222e09a7de.js\"],\"Image\"]\nf:T16c1,"])</script><script>self.__next_f.push([1,"\u003cp\u003euseId adalah hook di React yang digunakan untuk \u003cstrong\u003emenghasilkan ID unik yang stabil\u003c/strong\u003e baik di sisi klien (client-side) maupun server (server-side). Hook ini terutama berguna untuk menghindari masalah \u003cem\u003ehydration mismatch\u003c/em\u003e saat menggunakan Server-Side Rendering (SSR) dan untuk keperluan aksesibilitas seperti menghubungkan label dengan input menggunakan atribut htmlFor dan id.\u003c/p\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003eKapan Menggunakan useId?\u003c/strong\u003e\u003c/h3\u003e\n\u003col\u003e\n\u003cli\u003e\u003cstrong\u003eAksesibilitas\u003c/strong\u003e: Mengaitkan  dengan  menggunakan htmlFor dan id.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eKomponen yang Dirender di Server (SSR)\u003c/strong\u003e: Menghindari perbedaan ID antara server dan klien.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eElemen yang Membutuhkan ID Unik\u003c/strong\u003e: Seperti elemen ARIA (aria-labelledby, aria-describedby) atau komponen kustom.\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003eSintaks Dasar\u003c/strong\u003e\u003c/h3\u003e\n\u003cpre\u003e\u003ccode class=\"language-javascript\"\u003econst id = useId();\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003eContoh Penggunaan\u003c/strong\u003e\u003c/h3\u003e\n\u003ch4\u003e1. \u003cstrong\u003eLabel dan Input\u003c/strong\u003e\u003c/h4\u003e\n\u003cpre\u003e\u003ccode class=\"language-jsx\"\u003eimport { useId } from 'react';\n\nfunction InputField() {\n  const id = useId();\n\n  return (\n    \u0026#x3C;div\u003e\n      \u0026#x3C;label htmlFor={id}\u003eNama:\u0026#x3C;/label\u003e\n      \u0026#x3C;input type=\"text\" id={id} /\u003e\n    \u0026#x3C;/div\u003e\n  );\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003e2. \u003cstrong\u003eKomponen dengan Beberapa ID\u003c/strong\u003e\u003c/h4\u003e\n\u003cpre\u003e\u003ccode class=\"language-jsx\"\u003efunction LoginForm() {\n  const emailId = useId();\n  const passwordId = useId();\n\n  return (\n    \u0026#x3C;form\u003e\n      \u0026#x3C;div\u003e\n        \u0026#x3C;label htmlFor={emailId}\u003eEmail:\u0026#x3C;/label\u003e\n        \u0026#x3C;input type=\"email\" id={emailId} /\u003e\n      \u0026#x3C;/div\u003e\n      \u0026#x3C;div\u003e\n        \u0026#x3C;label htmlFor={passwordId}\u003ePassword:\u0026#x3C;/label\u003e\n        \u0026#x3C;input type=\"password\" id={passwordId} /\u003e\n      \u0026#x3C;/div\u003e\n    \u0026#x3C;/form\u003e\n  );\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003e3. \u003cstrong\u003eKompleks dengan Suffix/Prefix\u003c/strong\u003e\u003c/h4\u003e\n\u003cpre\u003e\u003ccode class=\"language-jsx\"\u003efunction Accordion() {\n  const id = useId();\n\n  return (\n    \u0026#x3C;div\u003e\n      \u0026#x3C;button aria-controls={\u0026#x3C;code\u003e${id}-panel\u0026#x3C;/code\u003e} id={\u0026#x3C;code\u003e${id}-button\u0026#x3C;/code\u003e}\u003e\n        Toggle Panel\n      \u0026#x3C;/button\u003e\n      \u0026#x3C;div id={\u0026#x3C;code\u003e${id}-panel\u0026#x3C;/code\u003e} aria-labelledby={\u0026#x3C;code\u003e${id}-button\u0026#x3C;/code\u003e}\u003e\n        Konten panel...\n      \u0026#x3C;/div\u003e\n    \u0026#x3C;/div\u003e\n  );\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003eMengapa Tidak Boleh Menggunakan Math.random() atau Counter?\u003c/strong\u003e\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eMath.random()\u003c/strong\u003e: Menghasilkan ID berbeda setiap render → menyebabkan \u003cem\u003ehydration mismatch\u003c/em\u003e di SSR.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eCounter\u003c/strong\u003e: ID tidak unik antar komponen atau sesi.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003euseId\u003c/strong\u003e: Menjamin ID stabil dan unik di seluruh komponen, baik di server maupun klien.\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003eAturan Penting\u003c/strong\u003e\u003c/h3\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eJangan Gunakan untuk Key dalam List\u003c/strong\u003e\u003cbr\u003e\nuseId tidak dirancang untuk key di list. Gunakan ID dari data atau hash unik.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-jsx\"\u003e// ❌ Salah\n{items.map((item) =\u003e (\n  \u0026#x3C;div key={useId()}\u003e{item}\u0026#x3C;/div\u003e\n))}\n\n// ✅ Benar\n{items.map((item) =\u003e (\n  \u0026#x3C;div key={item.id}\u003e{item.name}\u0026#x3C;/div\u003e\n))}\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eHanya untuk ID yang Terkait dengan HTML\u003c/strong\u003e\u003cbr\u003e\nJangan gunakan untuk keperluan lain seperti CSS-in-JS atau ID kustom untuk logika bisnis.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003ePerbandingan dengan Cara Lain\u003c/strong\u003e\u003c/h3\u003e\n\u003cdiv class=\"overflow-x-auto bg-lime-100\"\u003e\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003e\u003cstrong\u003eMetode\u003c/strong\u003e\u003c/th\u003e\n\u003cth\u003e\u003cstrong\u003eMasalah\u003c/strong\u003e\u003c/th\u003e\n\u003cth\u003e\u003cstrong\u003eSolusi useId\u003c/strong\u003e\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003eMath.random()\u003c/td\u003e\n\u003ctd\u003eID berbeda setiap render\u003c/td\u003e\n\u003ctd\u003eID stabil antar server dan klien\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003ecrypto.randomUUID()\u003c/td\u003e\n\u003ctd\u003eTidak bekerja di SSR\u003c/td\u003e\n\u003ctd\u003eMendukung SSR\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eManual counter\u003c/td\u003e\n\u003ctd\u003eID tidak unik antar komponen\u003c/td\u003e\n\u003ctd\u003eID unik global\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\u003c/div\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003eBest Practices\u003c/strong\u003e\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eGunakan untuk Aksesibilitas\u003c/strong\u003e: Pastikan atribut id dan htmlFor selalu terhubung.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eHindari Concatenasi Manual\u003c/strong\u003e: Jika membutuhkan beberapa ID dalam satu komponen, gunakan suffix/prefix:\n\u003cpre\u003e\u003ccode class=\"language-jsx\"\u003econst id = useId();\nconst inputId = \u0026#x3C;code\u003e${id}-input\u0026#x3C;/code\u003e;\nconst labelId = \u0026#x3C;code\u003e${id}-label\u0026#x3C;/code\u003e;\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eSSR/Next.js\u003c/strong\u003e: Tidak perlu konfigurasi khusus. useId otomatis bekerja dengan baik.\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003eContoh Lengkap: Form dengan Validasi\u003c/strong\u003e\u003c/h3\u003e\n\u003cpre\u003e\u003ccode class=\"language-jsx\"\u003efunction SignupForm() {\n  const emailId = useId();\n  const passwordId = useId();\n  const [error, setError] = useState('');\n\n  const handleSubmit = (e) =\u003e {\n    e.preventDefault();\n    const email = e.target.elements[emailId].value;\n    if (!email.includes('@')) {\n      setError('Email tidak valid');\n    }\n  };\n\n  return (\n    \u0026#x3C;form onSubmit={handleSubmit}\u003e\n      \u0026#x3C;div\u003e\n        \u0026#x3C;label htmlFor={emailId}\u003eEmail:\u0026#x3C;/label\u003e\n        \u0026#x3C;input type=\"email\" id={emailId} /\u003e\n      \u0026#x3C;/div\u003e\n      \u0026#x3C;div\u003e\n        \u0026#x3C;label htmlFor={passwordId}\u003ePassword:\u0026#x3C;/label\u003e\n        \u0026#x3C;input type=\"password\" id={passwordId} /\u003e\n      \u0026#x3C;/div\u003e\n      {error \u0026#x26;\u0026#x26; \u0026#x3C;p role=\"alert\"\u003e{error}\u0026#x3C;/p\u003e}\n      \u0026#x3C;button type=\"submit\"\u003eDaftar\u0026#x3C;/button\u003e\n    \u0026#x3C;/form\u003e\n  );\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003eKesimpulan\u003c/strong\u003e\u003c/h3\u003e\n\u003cp\u003euseId adalah solusi React untuk:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eMenghasilkan \u003cstrong\u003eID unik yang stabil\u003c/strong\u003e di server dan klien.\u003c/li\u003e\n\u003cli\u003eMencegah masalah \u003cstrong\u003ehydration mismatch\u003c/strong\u003e di SSR.\u003c/li\u003e\n\u003cli\u003eMeningkatkan \u003cstrong\u003eaksesibilitas\u003c/strong\u003e dengan menghubungkan elemen HTML.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eGunakan hook ini untuk semua kebutuhan ID yang terkait dengan markup HTML! 🛠️\u003c/p\u003e\n"])</script><script>self.__next_f.push([1,"4:[\"$\",\"main\",null,{\"className\":\"container\",\"children\":[[\"$\",\"div\",null,{\"className\":\"border-b dark:bg-slate-800 bg-neutral-50 border-neutral-200\",\"children\":[\"$\",\"div\",null,{\"className\":\" mx-auto px-5\",\"children\":[\"$\",\"div\",null,{\"className\":\"py-2 text-center text-sm\",\"children\":[\"source code blog ini bisa ditemukan di link ini\",\" \",[\"$\",\"a\",null,{\"href\":\"https://github.com/mukharomdev/mukharomdev.github.io\",\"className\":\"underline hover:text-blue-600 duration-200 transition-colors\",\"children\":\"available on GitHub\"}],\".\"]}]}]}],[\"$\",\"div\",null,{\"className\":\" mx-auto px-5\",\"children\":[[\"$\",\"h2\",null,{\"className\":\"text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight mb-20 mt-8 flex items-center\",\"children\":[[\"$\",\"$Ld\",null,{\"href\":\"/\",\"className\":\"hover:underline\",\"children\":\"Blog\"}],\".\"]}],[\"$\",\"article\",null,{\"className\":\"mb-32\",\"children\":[[[\"$\",\"h1\",null,{\"className\":\"text-3xl text-center md:text-5xl lg:text-6xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left\",\"children\":\" Penggunaan React useId\"}],[\"$\",\"div\",null,{\"className\":\"hidden md:block md:mb-12\",\"children\":[\"$\",\"div\",null,{\"className\":\"flex items-center\",\"children\":[[\"$\",\"img\",null,{\"src\":\"/assets/blog/authors/mukharomdev.png\",\"className\":\"w-12 h-12 rounded-full mr-4\",\"alt\":\"mukharomdev\"}],[\"$\",\"div\",null,{\"className\":\"text-xl font-bold\",\"children\":\"mukharomdev\"}]]}]}],[\"$\",\"div\",null,{\"className\":\"mb-8 md:mb-16 sm:mx-0\",\"children\":[\"$\",\"div\",null,{\"className\":\"sm:mx-0\",\"children\":[\"$\",\"$Le\",null,{\"src\":\"/assets/blog/reacts/react1.png\",\"alt\":\"Cover Image for  Penggunaan React useId\",\"className\":\"shadow-sm w-full sm:w-[400px] md:w-[600px] lg:w-[800px] max-h-[500px] mx-auto block\",\"width\":120,\"height\":80}]}]}],[\"$\",\"div\",null,{\"className\":\"max-w-2xl mx-auto\",\"children\":[[\"$\",\"div\",null,{\"className\":\"block md:hidden mb-6\",\"children\":[\"$\",\"div\",null,{\"className\":\"flex items-center\",\"children\":[[\"$\",\"img\",null,{\"src\":\"/assets/blog/authors/mukharomdev.png\",\"className\":\"w-12 h-12 rounded-full mr-4\",\"alt\":\"mukharomdev\"}],[\"$\",\"div\",null,{\"className\":\"text-xl font-bold\",\"children\":\"mukharomdev\"}]]}]}],[\"$\",\"div\",null,{\"className\":\"mb-6 text-lg\",\"children\":[\"$\",\"time\",null,{\"dateTime\":\"2025-03-01T14:52:04.709Z\",\"children\":\"March\\t1, 2025\"}]}]]}]],[\"$\",\"div\",null,{\"className\":\"max-w-2xl mx-auto\",\"children\":[\"$\",\"div\",null,{\"className\":\"markdown-styles_markdown__ORfR8 prose prose-code \",\"dangerouslySetInnerHTML\":{\"__html\":\"$f\"}}]}]]}]]}]]}]\n"])</script><script>self.__next_f.push([1,"9:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]\n6:null\n"])</script><script>self.__next_f.push([1,"7:null\nb:[[\"$\",\"title\",\"0\",{\"children\":\" Penggunaan React useId | mukharomdev blog build with Markdown\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"Mini blog seputar pengalaman pribadi dunia pemrograman komputer\"}],[\"$\",\"meta\",\"2\",{\"property\":\"og:title\",\"content\":\" Penggunaan React useId | mukharomdev blog build with Markdown\"}],[\"$\",\"meta\",\"3\",{\"property\":\"og:description\",\"content\":\"Mini blog seputar pengalaman pribadi dunia pemrograman komputer\"}],[\"$\",\"meta\",\"4\",{\"property\":\"og:image\",\"content\":\"http://localhost:3000/assets/blog/reacts/react1.png\"}],[\"$\",\"meta\",\"5\",{\"name\":\"twitter:card\",\"content\":\"summary_large_image\"}],[\"$\",\"meta\",\"6\",{\"name\":\"twitter:title\",\"content\":\" Penggunaan React useId | mukharomdev blog build with Markdown\"}],[\"$\",\"meta\",\"7\",{\"name\":\"twitter:description\",\"content\":\"Mini blog seputar pengalaman pribadi dunia pemrograman komputer\"}],[\"$\",\"meta\",\"8\",{\"name\":\"twitter:image\",\"content\":\"http://localhost:3000/assets/blog/reacts/react1.png\"}],[\"$\",\"link\",\"9\",{\"rel\":\"icon\",\"href\":\"/favicon.ico\",\"type\":\"image/x-icon\",\"sizes\":\"16x16\"}]]\n"])</script></body></html>

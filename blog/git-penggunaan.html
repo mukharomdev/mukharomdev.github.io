@@ -1,0 +1,150 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" href="/_next/static/media/569ce4b8f30dc480-s.p.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" href="/_next/static/media/93f479601ee12b01-s.p.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" as="image" href="/assets/blog/authors/mukharomdev.png"/><link rel="stylesheet" href="/_next/static/css/cc1b38a888361ae0.css" data-precedence="next"/><link rel="stylesheet" href="/_next/static/css/a218dfb468eefcdf.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/_next/static/chunks/webpack-d1f044851490e377.js"/><script src="/_next/static/chunks/748859cf-d1727182a584e899.js" async=""></script><script src="/_next/static/chunks/702-3097f4c2de53f6aa.js" async=""></script><script src="/_next/static/chunks/main-app-f6a0c1bda6624e2a.js" async=""></script><script src="/_next/static/chunks/161-e1f62ef38275032d.js" async=""></script><script src="/_next/static/chunks/app/blog/%5Bslug%5D/page-df444d222e09a7de.js" async=""></script><meta name="next-size-adjust" content=""/><title>tutorial singkat penggunaan git  | mukharomdev blog build with Markdown</title><meta name="description" content="Mini blog seputar pengalaman pribadi dunia pemrograman komputer"/><meta property="og:title" content="tutorial singkat penggunaan git  | mukharomdev blog build with Markdown"/><meta property="og:description" content="Mini blog seputar pengalaman pribadi dunia pemrograman komputer"/><meta property="og:image" content="http://localhost:3000/assets/blog/github/github1.png"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="tutorial singkat penggunaan git  | mukharomdev blog build with Markdown"/><meta name="twitter:description" content="Mini blog seputar pengalaman pribadi dunia pemrograman komputer"/><meta name="twitter:image" content="http://localhost:3000/assets/blog/github/github1.png"/><link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="16x16"/><script src="/_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script></head><body class="__variable_4d318d __variable_ea5f4b antialiased "><div class="min-h-screen flex items-center justify-center bg-gray-100"><div class="container mx-auto p-4 bg-white rounded-lg shadow-lg"><section class=" prose lg:prose-3xl prose-img:rounded-xl prose-headings:underline prose-a:text-lime-600 prose-code:text-lime-500 mx-auto  "><main class="container"><div class="border-b dark:bg-slate-800 bg-neutral-50 border-neutral-200"><div class=" mx-auto px-5"><div class="py-2 text-center text-sm">source code blog ini bisa ditemukan di link ini<!-- --> <a href="https://github.com/mukharomdev/mukharomdev.github.io" class="underline hover:text-blue-600 duration-200 transition-colors">available on GitHub</a>.</div></div></div><div class=" mx-auto px-5"><h2 class="text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight mb-20 mt-8 flex items-center"><a class="hover:underline" href="/">Blog</a>.</h2><article class="mb-32"><h1 class="text-3xl text-center md:text-5xl lg:text-6xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left">tutorial singkat penggunaan git </h1><div class="hidden md:block md:mb-12"><div class="flex items-center"><img src="/assets/blog/authors/mukharomdev.png" class="w-12 h-12 rounded-full mr-4" alt="mukharomdev"/><div class="text-xl font-bold">mukharomdev</div></div></div><div class="mb-8 md:mb-16 sm:mx-0"><div class="sm:mx-0"><img alt="Cover Image for tutorial singkat penggunaan git " loading="lazy" width="120" height="80" decoding="async" data-nimg="1" class="shadow-sm w-full sm:w-[400px] md:w-[600px] lg:w-[800px] max-h-[500px] mx-auto block" style="color:transparent" src="/assets/blog/github/github1.png"/></div></div><div class="max-w-2xl mx-auto"><div class="block md:hidden mb-6"><div class="flex items-center"><img src="/assets/blog/authors/mukharomdev.png" class="w-12 h-12 rounded-full mr-4" alt="mukharomdev"/><div class="text-xl font-bold">mukharomdev</div></div></div><div class="mb-6 text-lg"><time dateTime="2025-03-03T06:38:01.521Z">March	3, 2025</time></div></div><div class="max-w-2xl mx-auto"><div class="markdown-styles_markdown__ORfR8 prose prose-code "><p>Git adalah sistem kontrol versi yang digunakan untuk melacak perubahan dalam kode sumber selama pengembangan perangkat lunak. Berikut adalah panduan langkah demi langkah untuk menggunakan Git:</p>
+<hr>
+<h3><strong>1. Instal Git</strong></h3>
+<ul>
+<li><strong>Windows</strong>: Unduh Git dari <a href="https://git-scm.com/">git-scm.com</a> dan ikuti petunjuk instalasi.</li>
+<li><strong>Mac</strong>: Gunakan Homebrew (brew install git) atau unduh dari situs resmi.</li>
+<li><strong>Linux</strong>: Gunakan manajer paket (misalnya, sudo apt install git untuk Ubuntu).</li>
+</ul>
+<p>Verifikasi instalasi:</p>
+<pre><code class="language-bash">git --version
+</code></pre>
+<hr>
+<h3><strong>2. Konfigurasi Git</strong></h3>
+<p>Atur nama pengguna dan email (digunakan untuk commit):</p>
+<pre><code class="language-bash">git config --global user.name "Nama Anda"
+git config --global user.email "email.anda@example.com"
+</code></pre>
+<p>Periksa konfigurasi Anda:</p>
+<pre><code class="language-bash">git config --list
+</code></pre>
+<hr>
+<h3><strong>3. Buat Repositori Baru</strong></h3>
+<p>Inisialisasi repositori Git baru di folder proyek Anda:</p>
+<pre><code class="language-bash">git init
+</code></pre>
+<p>Ini akan membuat folder .git yang tersembunyi untuk melacak perubahan.</p>
+<hr>
+<h3><strong>4. Periksa Status Repositori</strong></h3>
+<p>Lihat status saat ini dari repositori Anda:</p>
+<pre><code class="language-bash">git status
+</code></pre>
+<hr>
+<h3><strong>5. Tambahkan File ke Staging Area</strong></h3>
+<p>Stage file untuk mempersiapkannya untuk commit:</p>
+<pre><code class="language-bash">git add &#x3C;nama-file>
+</code></pre>
+<p>Untuk menambahkan semua file:</p>
+<pre><code class="language-bash">git add .
+</code></pre>
+<hr>
+<h3><strong>6. Commit Perubahan</strong></h3>
+<p>Simpan perubahan Anda dengan pesan commit:</p>
+<pre><code class="language-bash">git commit -m "Pesan commit Anda"
+</code></pre>
+<hr>
+<h3><strong>7. Lihat Riwayat Commit</strong></h3>
+<p>Lihat log semua commit:</p>
+<pre><code class="language-bash">git log
+</code></pre>
+<hr>
+<h3><strong>8. Buat Branch</strong></h3>
+<p>Branch memungkinkan Anda bekerja pada versi berbeda dari proyek Anda:</p>
+<pre><code class="language-bash">git branch &#x3C;nama-branch>
+</code></pre>
+<p>Beralih ke branch:</p>
+<pre><code class="language-bash">git checkout &#x3C;nama-branch>
+</code></pre>
+<p>Buat dan beralih ke branch baru dalam satu perintah:</p>
+<pre><code class="language-bash">git checkout -b &#x3C;nama-branch>
+</code></pre>
+<hr>
+<h3><strong>9. Gabungkan Branch</strong></h3>
+<p>Gabungkan perubahan dari satu branch ke branch lain:</p>
+<pre><code class="language-bash">git checkout main
+git merge &#x3C;nama-branch>
+</code></pre>
+<hr>
+<h3><strong>10. Repositori Remote (GitHub, GitLab, dll.)</strong></h3>
+<ul>
+<li><strong>Clone repositori</strong>:
+<pre><code class="language-bash">git clone &#x3C;url-repositori>
+</code></pre>
+</li>
+<li><strong>Tambahkan remote</strong>:
+<pre><code class="language-bash">git remote add origin &#x3C;url-repositori>
+</code></pre>
+</li>
+<li><strong>Push perubahan</strong>:
+<pre><code class="language-bash">git push origin &#x3C;nama-branch>
+</code></pre>
+</li>
+<li><strong>Pull perubahan</strong>:
+<pre><code class="language-bash">git pull origin &#x3C;nama-branch>
+</code></pre>
+</li>
+</ul>
+<hr>
+<h3><strong>11. Selesaikan Konflik</strong></h3>
+<p>Saat menggabungkan branch, konflik mungkin terjadi. Buka file yang bermasalah, selesaikan perbedaan, lalu:</p>
+<pre><code class="language-bash">git add &#x3C;nama-file>
+git commit
+</code></pre>
+<hr>
+<h3><strong>12. Batalkan Perubahan</strong></h3>
+<ul>
+<li><strong>Unstage file</strong>:
+<pre><code class="language-bash">git reset &#x3C;nama-file>
+</code></pre>
+</li>
+<li><strong>Kembalikan ke commit terakhir</strong>:
+<pre><code class="language-bash">git checkout -- &#x3C;nama-file>
+</code></pre>
+</li>
+<li><strong>Ubah commit terakhir</strong>:
+<pre><code class="language-bash">git commit --amend
+</code></pre>
+</li>
+</ul>
+<hr>
+<h3><strong>13. Tagging</strong></h3>
+<p>Buat tag untuk commit tertentu (misalnya, untuk rilis):</p>
+<pre><code class="language-bash">git tag &#x3C;nama-tag>
+</code></pre>
+<p>Push tag ke repositori remote:</p>
+<pre><code class="language-bash">git push origin --tags
+</code></pre>
+<hr>
+<h3><strong>14. Abaikan File</strong></h3>
+<p>Buat file .gitignore untuk mengecualikan file/folder dari pelacakan:</p>
+<pre><code class="language-plaintext"># Contoh file .gitignore
+node_modules/
+*.log
+</code></pre>
+<hr>
+<h3><strong>15. Perintah Lanjutan</strong></h3>
+<ul>
+<li><strong>Stash perubahan</strong>: Simpan sementara perubahan tanpa commit:
+<pre><code class="language-bash">git stash
+</code></pre>
+</li>
+<li><strong>Rebase</strong>: Terapkan ulang commit di atas branch lain:
+<pre><code class="language-bash">git rebase &#x3C;nama-branch>
+</code></pre>
+</li>
+<li><strong>Cherry-pick</strong>: Terapkan commit tertentu dari branch lain:
+<pre><code class="language-bash">git cherry-pick &#x3C;hash-commit>
+</code></pre>
+</li>
+</ul>
+<hr>
+<h3><strong>16. Praktik Terbaik</strong></h3>
+<ul>
+<li>Tulis pesan commit yang jelas dan deskriptif.</li>
+<li>Commit sering dan dalam bagian kecil.</li>
+<li>Gunakan branch untuk fitur baru atau perbaikan bug.</li>
+<li>Secara teratur pull perubahan dari repositori remote untuk menghindari konflik.</li>
+</ul>
+<hr>
+<p>Panduan ini mencakup dasar-dasar penggunaan Git. Untuk penggunaan yang lebih lanjut, lihat <a href="https://git-scm.com/doc">dokumentasi resmi Git</a>. Selamat coding! 🚀</p>
+</div></div></article></div></main></section></div></div><script src="/_next/static/chunks/webpack-d1f044851490e377.js" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"1:\"$Sreact.fragment\"\n2:I[7397,[],\"\"]\n3:I[8513,[],\"\"]\n5:I[3514,[],\"OutletBoundary\"]\n8:I[3514,[],\"ViewportBoundary\"]\na:I[3514,[],\"MetadataBoundary\"]\nc:I[1612,[],\"\"]\n:HL[\"/_next/static/media/569ce4b8f30dc480-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/_next/static/media/93f479601ee12b01-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/_next/static/css/cc1b38a888361ae0.css\",\"style\"]\n:HL[\"/_next/static/css/a218dfb468eefcdf.css\",\"style\"]\n"])</script><script>self.__next_f.push([1,"0:{\"P\":null,\"b\":\"zB4SN0XwAB_SWMRVvwFhG\",\"p\":\"\",\"c\":[\"\",\"blog\",\"git-penggunaan\"],\"i\":false,\"f\":[[[\"\",{\"children\":[\"blog\",{\"children\":[[\"slug\",\"git-penggunaan\",\"d\"],{\"children\":[\"__PAGE__\",{}]}]}]},\"$undefined\",\"$undefined\",true],[\"\",[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/cc1b38a888361ae0.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"en\",\"children\":[\"$\",\"body\",null,{\"className\":\"__variable_4d318d __variable_ea5f4b antialiased \",\"children\":[\"$\",\"div\",null,{\"className\":\"min-h-screen flex items-center justify-center bg-gray-100\",\"children\":[\"$\",\"div\",null,{\"className\":\"container mx-auto p-4 bg-white rounded-lg shadow-lg\",\"children\":[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L3\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":404}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],\"$undefined\",[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}]}]}]}]]}],{\"children\":[\"blog\",[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"section\",null,{\"className\":\" prose lg:prose-3xl prose-img:rounded-xl prose-headings:underline prose-a:text-lime-600 prose-code:text-lime-500 mx-auto  \",\"children\":[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L3\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}]]}],{\"children\":[[\"slug\",\"git-penggunaan\",\"d\"],[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L3\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[\"__PAGE__\",[\"$\",\"$1\",\"c\",{\"children\":[\"$L4\",\"$undefined\",[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/a218dfb468eefcdf.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]],[\"$\",\"$L5\",null,{\"children\":[\"$L6\",\"$L7\",null]}]]}],{},null,false]},null,false]},null,false]},null,false],[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$1\",\"2McXnFUGpWmOYP-Nf43HC\",{\"children\":[[\"$\",\"$L8\",null,{\"children\":\"$L9\"}],[\"$\",\"meta\",null,{\"name\":\"next-size-adjust\",\"content\":\"\"}]]}],[\"$\",\"$La\",null,{\"children\":\"$Lb\"}]]}],false]],\"m\":\"$undefined\",\"G\":[\"$c\",\"$undefined\"],\"s\":false,\"S\":true}\n"])</script><script>self.__next_f.push([1,"d:I[4184,[\"161\",\"static/chunks/161-e1f62ef38275032d.js\",\"953\",\"static/chunks/app/blog/%5Bslug%5D/page-df444d222e09a7de.js\"],\"\"]\ne:I[8161,[\"161\",\"static/chunks/161-e1f62ef38275032d.js\",\"953\",\"static/chunks/app/blog/%5Bslug%5D/page-df444d222e09a7de.js\"],\"Image\"]\nf:T1590,"])</script><script>self.__next_f.push([1,"\u003cp\u003eGit adalah sistem kontrol versi yang digunakan untuk melacak perubahan dalam kode sumber selama pengembangan perangkat lunak. Berikut adalah panduan langkah demi langkah untuk menggunakan Git:\u003c/p\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e1. Instal Git\u003c/strong\u003e\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eWindows\u003c/strong\u003e: Unduh Git dari \u003ca href=\"https://git-scm.com/\"\u003egit-scm.com\u003c/a\u003e dan ikuti petunjuk instalasi.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eMac\u003c/strong\u003e: Gunakan Homebrew (brew install git) atau unduh dari situs resmi.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eLinux\u003c/strong\u003e: Gunakan manajer paket (misalnya, sudo apt install git untuk Ubuntu).\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eVerifikasi instalasi:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-bash\"\u003egit --version\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e2. Konfigurasi Git\u003c/strong\u003e\u003c/h3\u003e\n\u003cp\u003eAtur nama pengguna dan email (digunakan untuk commit):\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-bash\"\u003egit config --global user.name \"Nama Anda\"\ngit config --global user.email \"email.anda@example.com\"\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003ePeriksa konfigurasi Anda:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-bash\"\u003egit config --list\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e3. Buat Repositori Baru\u003c/strong\u003e\u003c/h3\u003e\n\u003cp\u003eInisialisasi repositori Git baru di folder proyek Anda:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-bash\"\u003egit init\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eIni akan membuat folder .git yang tersembunyi untuk melacak perubahan.\u003c/p\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e4. Periksa Status Repositori\u003c/strong\u003e\u003c/h3\u003e\n\u003cp\u003eLihat status saat ini dari repositori Anda:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-bash\"\u003egit status\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e5. Tambahkan File ke Staging Area\u003c/strong\u003e\u003c/h3\u003e\n\u003cp\u003eStage file untuk mempersiapkannya untuk commit:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-bash\"\u003egit add \u0026#x3C;nama-file\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eUntuk menambahkan semua file:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-bash\"\u003egit add .\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e6. Commit Perubahan\u003c/strong\u003e\u003c/h3\u003e\n\u003cp\u003eSimpan perubahan Anda dengan pesan commit:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-bash\"\u003egit commit -m \"Pesan commit Anda\"\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e7. Lihat Riwayat Commit\u003c/strong\u003e\u003c/h3\u003e\n\u003cp\u003eLihat log semua commit:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-bash\"\u003egit log\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e8. Buat Branch\u003c/strong\u003e\u003c/h3\u003e\n\u003cp\u003eBranch memungkinkan Anda bekerja pada versi berbeda dari proyek Anda:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-bash\"\u003egit branch \u0026#x3C;nama-branch\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eBeralih ke branch:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-bash\"\u003egit checkout \u0026#x3C;nama-branch\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eBuat dan beralih ke branch baru dalam satu perintah:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-bash\"\u003egit checkout -b \u0026#x3C;nama-branch\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e9. Gabungkan Branch\u003c/strong\u003e\u003c/h3\u003e\n\u003cp\u003eGabungkan perubahan dari satu branch ke branch lain:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-bash\"\u003egit checkout main\ngit merge \u0026#x3C;nama-branch\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e10. Repositori Remote (GitHub, GitLab, dll.)\u003c/strong\u003e\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eClone repositori\u003c/strong\u003e:\n\u003cpre\u003e\u003ccode class=\"language-bash\"\u003egit clone \u0026#x3C;url-repositori\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eTambahkan remote\u003c/strong\u003e:\n\u003cpre\u003e\u003ccode class=\"language-bash\"\u003egit remote add origin \u0026#x3C;url-repositori\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003ePush perubahan\u003c/strong\u003e:\n\u003cpre\u003e\u003ccode class=\"language-bash\"\u003egit push origin \u0026#x3C;nama-branch\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003ePull perubahan\u003c/strong\u003e:\n\u003cpre\u003e\u003ccode class=\"language-bash\"\u003egit pull origin \u0026#x3C;nama-branch\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e11. Selesaikan Konflik\u003c/strong\u003e\u003c/h3\u003e\n\u003cp\u003eSaat menggabungkan branch, konflik mungkin terjadi. Buka file yang bermasalah, selesaikan perbedaan, lalu:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-bash\"\u003egit add \u0026#x3C;nama-file\u003e\ngit commit\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e12. Batalkan Perubahan\u003c/strong\u003e\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eUnstage file\u003c/strong\u003e:\n\u003cpre\u003e\u003ccode class=\"language-bash\"\u003egit reset \u0026#x3C;nama-file\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eKembalikan ke commit terakhir\u003c/strong\u003e:\n\u003cpre\u003e\u003ccode class=\"language-bash\"\u003egit checkout -- \u0026#x3C;nama-file\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eUbah commit terakhir\u003c/strong\u003e:\n\u003cpre\u003e\u003ccode class=\"language-bash\"\u003egit commit --amend\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e13. Tagging\u003c/strong\u003e\u003c/h3\u003e\n\u003cp\u003eBuat tag untuk commit tertentu (misalnya, untuk rilis):\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-bash\"\u003egit tag \u0026#x3C;nama-tag\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003ePush tag ke repositori remote:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-bash\"\u003egit push origin --tags\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e14. Abaikan File\u003c/strong\u003e\u003c/h3\u003e\n\u003cp\u003eBuat file .gitignore untuk mengecualikan file/folder dari pelacakan:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-plaintext\"\u003e# Contoh file .gitignore\nnode_modules/\n*.log\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e15. Perintah Lanjutan\u003c/strong\u003e\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eStash perubahan\u003c/strong\u003e: Simpan sementara perubahan tanpa commit:\n\u003cpre\u003e\u003ccode class=\"language-bash\"\u003egit stash\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eRebase\u003c/strong\u003e: Terapkan ulang commit di atas branch lain:\n\u003cpre\u003e\u003ccode class=\"language-bash\"\u003egit rebase \u0026#x3C;nama-branch\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eCherry-pick\u003c/strong\u003e: Terapkan commit tertentu dari branch lain:\n\u003cpre\u003e\u003ccode class=\"language-bash\"\u003egit cherry-pick \u0026#x3C;hash-commit\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e16. Praktik Terbaik\u003c/strong\u003e\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003eTulis pesan commit yang jelas dan deskriptif.\u003c/li\u003e\n\u003cli\u003eCommit sering dan dalam bagian kecil.\u003c/li\u003e\n\u003cli\u003eGunakan branch untuk fitur baru atau perbaikan bug.\u003c/li\u003e\n\u003cli\u003eSecara teratur pull perubahan dari repositori remote untuk menghindari konflik.\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003cp\u003ePanduan ini mencakup dasar-dasar penggunaan Git. Untuk penggunaan yang lebih lanjut, lihat \u003ca href=\"https://git-scm.com/doc\"\u003edokumentasi resmi Git\u003c/a\u003e. Selamat coding! 🚀\u003c/p\u003e\n"])</script><script>self.__next_f.push([1,"4:[\"$\",\"main\",null,{\"className\":\"container\",\"children\":[[\"$\",\"div\",null,{\"className\":\"border-b dark:bg-slate-800 bg-neutral-50 border-neutral-200\",\"children\":[\"$\",\"div\",null,{\"className\":\" mx-auto px-5\",\"children\":[\"$\",\"div\",null,{\"className\":\"py-2 text-center text-sm\",\"children\":[\"source code blog ini bisa ditemukan di link ini\",\" \",[\"$\",\"a\",null,{\"href\":\"https://github.com/mukharomdev/mukharomdev.github.io\",\"className\":\"underline hover:text-blue-600 duration-200 transition-colors\",\"children\":\"available on GitHub\"}],\".\"]}]}]}],[\"$\",\"div\",null,{\"className\":\" mx-auto px-5\",\"children\":[[\"$\",\"h2\",null,{\"className\":\"text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight mb-20 mt-8 flex items-center\",\"children\":[[\"$\",\"$Ld\",null,{\"href\":\"/\",\"className\":\"hover:underline\",\"children\":\"Blog\"}],\".\"]}],[\"$\",\"article\",null,{\"className\":\"mb-32\",\"children\":[[[\"$\",\"h1\",null,{\"className\":\"text-3xl text-center md:text-5xl lg:text-6xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left\",\"children\":\"tutorial singkat penggunaan git \"}],[\"$\",\"div\",null,{\"className\":\"hidden md:block md:mb-12\",\"children\":[\"$\",\"div\",null,{\"className\":\"flex items-center\",\"children\":[[\"$\",\"img\",null,{\"src\":\"/assets/blog/authors/mukharomdev.png\",\"className\":\"w-12 h-12 rounded-full mr-4\",\"alt\":\"mukharomdev\"}],[\"$\",\"div\",null,{\"className\":\"text-xl font-bold\",\"children\":\"mukharomdev\"}]]}]}],[\"$\",\"div\",null,{\"className\":\"mb-8 md:mb-16 sm:mx-0\",\"children\":[\"$\",\"div\",null,{\"className\":\"sm:mx-0\",\"children\":[\"$\",\"$Le\",null,{\"src\":\"/assets/blog/github/github1.png\",\"alt\":\"Cover Image for tutorial singkat penggunaan git \",\"className\":\"shadow-sm w-full sm:w-[400px] md:w-[600px] lg:w-[800px] max-h-[500px] mx-auto block\",\"width\":120,\"height\":80}]}]}],[\"$\",\"div\",null,{\"className\":\"max-w-2xl mx-auto\",\"children\":[[\"$\",\"div\",null,{\"className\":\"block md:hidden mb-6\",\"children\":[\"$\",\"div\",null,{\"className\":\"flex items-center\",\"children\":[[\"$\",\"img\",null,{\"src\":\"/assets/blog/authors/mukharomdev.png\",\"className\":\"w-12 h-12 rounded-full mr-4\",\"alt\":\"mukharomdev\"}],[\"$\",\"div\",null,{\"className\":\"text-xl font-bold\",\"children\":\"mukharomdev\"}]]}]}],[\"$\",\"div\",null,{\"className\":\"mb-6 text-lg\",\"children\":[\"$\",\"time\",null,{\"dateTime\":\"2025-03-03T06:38:01.521Z\",\"children\":\"March\\t3, 2025\"}]}]]}]],[\"$\",\"div\",null,{\"className\":\"max-w-2xl mx-auto\",\"children\":[\"$\",\"div\",null,{\"className\":\"markdown-styles_markdown__ORfR8 prose prose-code \",\"dangerouslySetInnerHTML\":{\"__html\":\"$f\"}}]}]]}]]}]]}]\n"])</script><script>self.__next_f.push([1,"9:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]\n6:null\n"])</script><script>self.__next_f.push([1,"7:null\nb:[[\"$\",\"title\",\"0\",{\"children\":\"tutorial singkat penggunaan git  | mukharomdev blog build with Markdown\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"Mini blog seputar pengalaman pribadi dunia pemrograman komputer\"}],[\"$\",\"meta\",\"2\",{\"property\":\"og:title\",\"content\":\"tutorial singkat penggunaan git  | mukharomdev blog build with Markdown\"}],[\"$\",\"meta\",\"3\",{\"property\":\"og:description\",\"content\":\"Mini blog seputar pengalaman pribadi dunia pemrograman komputer\"}],[\"$\",\"meta\",\"4\",{\"property\":\"og:image\",\"content\":\"http://localhost:3000/assets/blog/github/github1.png\"}],[\"$\",\"meta\",\"5\",{\"name\":\"twitter:card\",\"content\":\"summary_large_image\"}],[\"$\",\"meta\",\"6\",{\"name\":\"twitter:title\",\"content\":\"tutorial singkat penggunaan git  | mukharomdev blog build with Markdown\"}],[\"$\",\"meta\",\"7\",{\"name\":\"twitter:description\",\"content\":\"Mini blog seputar pengalaman pribadi dunia pemrograman komputer\"}],[\"$\",\"meta\",\"8\",{\"name\":\"twitter:image\",\"content\":\"http://localhost:3000/assets/blog/github/github1.png\"}],[\"$\",\"link\",\"9\",{\"rel\":\"icon\",\"href\":\"/favicon.ico\",\"type\":\"image/x-icon\",\"sizes\":\"16x16\"}]]\n"])</script></body></html>

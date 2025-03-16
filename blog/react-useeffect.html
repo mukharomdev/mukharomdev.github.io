@@ -1,0 +1,191 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" href="/_next/static/media/569ce4b8f30dc480-s.p.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" href="/_next/static/media/93f479601ee12b01-s.p.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" as="image" href="/assets/blog/authors/mukharomdev.png"/><link rel="stylesheet" href="/_next/static/css/cc1b38a888361ae0.css" data-precedence="next"/><link rel="stylesheet" href="/_next/static/css/a218dfb468eefcdf.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/_next/static/chunks/webpack-d1f044851490e377.js"/><script src="/_next/static/chunks/748859cf-d1727182a584e899.js" async=""></script><script src="/_next/static/chunks/702-3097f4c2de53f6aa.js" async=""></script><script src="/_next/static/chunks/main-app-f6a0c1bda6624e2a.js" async=""></script><script src="/_next/static/chunks/161-e1f62ef38275032d.js" async=""></script><script src="/_next/static/chunks/app/blog/%5Bslug%5D/page-df444d222e09a7de.js" async=""></script><meta name="next-size-adjust" content=""/><title> Penggunaan React useEffect | mukharomdev blog build with Markdown</title><meta name="description" content="Mini blog seputar pengalaman pribadi dunia pemrograman komputer"/><meta property="og:title" content=" Penggunaan React useEffect | mukharomdev blog build with Markdown"/><meta property="og:description" content="Mini blog seputar pengalaman pribadi dunia pemrograman komputer"/><meta property="og:image" content="http://localhost:3000/assets/blog/reacts/react1.png"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content=" Penggunaan React useEffect | mukharomdev blog build with Markdown"/><meta name="twitter:description" content="Mini blog seputar pengalaman pribadi dunia pemrograman komputer"/><meta name="twitter:image" content="http://localhost:3000/assets/blog/reacts/react1.png"/><link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="16x16"/><script src="/_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script></head><body class="__variable_4d318d __variable_ea5f4b antialiased "><div class="min-h-screen flex items-center justify-center bg-gray-100"><div class="container mx-auto p-4 bg-white rounded-lg shadow-lg"><section class=" prose lg:prose-3xl prose-img:rounded-xl prose-headings:underline prose-a:text-lime-600 prose-code:text-lime-500 mx-auto  "><main class="container"><div class="border-b dark:bg-slate-800 bg-neutral-50 border-neutral-200"><div class=" mx-auto px-5"><div class="py-2 text-center text-sm">source code blog ini bisa ditemukan di link ini<!-- --> <a href="https://github.com/mukharomdev/mukharomdev.github.io" class="underline hover:text-blue-600 duration-200 transition-colors">available on GitHub</a>.</div></div></div><div class=" mx-auto px-5"><h2 class="text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight mb-20 mt-8 flex items-center"><a class="hover:underline" href="/">Blog</a>.</h2><article class="mb-32"><h1 class="text-3xl text-center md:text-5xl lg:text-6xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left"> Penggunaan React useEffect</h1><div class="hidden md:block md:mb-12"><div class="flex items-center"><img src="/assets/blog/authors/mukharomdev.png" class="w-12 h-12 rounded-full mr-4" alt="mukharomdev"/><div class="text-xl font-bold">mukharomdev</div></div></div><div class="mb-8 md:mb-16 sm:mx-0"><div class="sm:mx-0"><img alt="Cover Image for  Penggunaan React useEffect" loading="lazy" width="120" height="80" decoding="async" data-nimg="1" class="shadow-sm w-full sm:w-[400px] md:w-[600px] lg:w-[800px] max-h-[500px] mx-auto block" style="color:transparent" src="/assets/blog/reacts/react1.png"/></div></div><div class="max-w-2xl mx-auto"><div class="block md:hidden mb-6"><div class="flex items-center"><img src="/assets/blog/authors/mukharomdev.png" class="w-12 h-12 rounded-full mr-4" alt="mukharomdev"/><div class="text-xl font-bold">mukharomdev</div></div></div><div class="mb-6 text-lg"><time dateTime="2025-02-27T05:35:07.322Z">February	27, 2025</time></div></div><div class="max-w-2xl mx-auto"><div class="markdown-styles_markdown__ORfR8 prose prose-code "><p>useEffect adalah hook di React yang digunakan untuk menangani <strong>efek samping (side effects)</strong> dalam komponen fungsi, seperti fetching data, manipulasi DOM, atau berlangganan event. Berikut penjelasan lengkap dan contoh penggunaannya:</p>
+<hr>
+<h3><strong>1. Dasar Penggunaan useEffect</strong></h3>
+<h4>Sintaks:</h4>
+<pre><code class="language-javascript">useEffect(() => {
+  // Kode efek samping di sini
+  return () => {
+    // Cleanup (opsional)
+  };
+}, [dependencies]); // Daftar dependensi (opsional)
+</code></pre>
+<h4>Contoh Sederhana (Update judul halaman):</h4>
+<pre><code class="language-jsx">import { useEffect, useState } from 'react';
+
+function PageTitle() {
+  const [count, setCount] = useState(0);
+
+  // Update judul halaman setiap kali &#x3C;code>count&#x3C;/code> berubah
+  useEffect(() => {
+    document.title = &#x3C;code>Hitungan: ${count}&#x3C;/code>;
+  }, [count]); // Efek dijalankan hanya jika &#x3C;code>count&#x3C;/code> berubah
+
+  return (
+    &#x3C;button onClick={() => setCount(count + 1)}>
+      Klik ({count})
+    &#x3C;/button>
+  );
+}
+</code></pre>
+<hr>
+<h3><strong>2. Jenis Penggunaan useEffect</strong></h3>
+<h4>a. <strong>Jalankan Sekali Saat Komponen Mount (Komponen Pertama Kali Render)</strong></h4>
+<p>Gunakan <strong>array dependensi kosong</strong> []:</p>
+<pre><code class="language-jsx">useEffect(() => {
+  // Fetch data dari API saat komponen mount
+  fetch('https://api.example.com/data')
+    .then(response => response.json())
+    .then(data => console.log(data));
+}, []); // Tidak ada dependensi → jalankan sekali
+</code></pre>
+<h4>b. <strong>Jalankan Saat State/Props Tertentu Berubah</strong></h4>
+<p>Tambahkan variabel ke <strong>array dependensi</strong>:</p>
+<pre><code class="language-jsx">const [user, setUser] = useState('');
+
+useEffect(() => {
+  // Jalankan setiap kali &#x3C;code>user&#x3C;/code> berubah
+  console.log(&#x3C;code>User diperbarui: ${user}&#x3C;/code>);
+}, [user]); 
+</code></pre>
+<h4>c. <strong>Cleanup (Pembersihan)</strong></h4>
+<p>Gunakan <strong>return function</strong> untuk membersihkan efek (seperti unsubscribe atau clear timer):</p>
+<pre><code class="language-jsx">useEffect(() => {
+  const timer = setInterval(() => {
+    console.log('Timer aktif!');
+  }, 1000);
+
+  // Cleanup: Hentikan timer saat komponen di-unmount
+  return () => clearInterval(timer);
+}, []);
+</code></pre>
+<hr>
+<h3><strong>3. Contoh Kasus Umum</strong></h3>
+<h4>a. Fetch Data dari API:</h4>
+<pre><code class="language-jsx">function DataFetcher() {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    fetch('https://api.example.com/data')
+      .then((res) => res.json())
+      .then((data) => setData(data))
+      .catch((error) => console.error('Error:', error));
+  }, []);
+
+  return &#x3C;div>{data ? data.name : 'Loading...'}&#x3C;/div>;
+}
+</code></pre>
+<h4>b. Event Listener (Dengan Cleanup):</h4>
+<pre><code class="language-jsx">function WindowResizeLogger() {
+  useEffect(() => {
+    const handleResize = () => {
+      console.log('Ukuran window:', window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    // Hapus event listener saat komponen di-unmount
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return &#x3C;p>Lihat console saat resize window!&#x3C;/p>;
+}
+</code></pre>
+<h4>c. Gabungkan dengan State dan Dependency:</h4>
+<pre><code class="language-jsx">function UserTracker({ userId }) {
+  const [userData, setUserData] = useState({});
+
+  // Fetch ulang data saat &#x3C;code>userId&#x3C;/code> berubah
+  useEffect(() => {
+    fetch(&#x3C;code>https://api.example.com/users/${userId}&#x3C;/code>)
+      .then((res) => res.json())
+      .then((data) => setUserData(data));
+  }, [userId]); // Dependency: userId
+
+  return &#x3C;div>{userData.name || 'User tidak ditemukan'}&#x3C;/div>;
+}
+</code></pre>
+<hr>
+<h3><strong>4. Aturan Penting</strong></h3>
+<ol>
+<li>
+<p><strong>Hindari Infinite Loop</strong><br>
+Pastikan dependensi diatur dengan benar. Contoh kesalahan:</p>
+<pre><code class="language-jsx">useEffect(() => {
+  setCount(count + 1); // ❌ Memicu re-render tanpa henti jika dependensi [count] tidak ada
+}); // Tidak ada array dependensi → dijalankan setiap render
+</code></pre>
+</li>
+<li>
+<p><strong>Gunakan Dependency Array dengan Tepat</strong><br>
+Jika efek menggunakan nilai dari luar (state/props), tambahkan ke dependency array:</p>
+<pre><code class="language-jsx">useEffect(() => {
+  console.log(user); 
+}, [user]); // ✅ Jalankan hanya jika &#x3C;code>user&#x3C;/code> berubah
+</code></pre>
+</li>
+<li>
+<p><strong>Hindari Mutasi Langsung State di useEffect</strong><br>
+Gunakan fungsi setState untuk update state:</p>
+<pre><code class="language-jsx">useEffect(() => {
+  // ❌ Salah
+  // data.push(newItem);
+
+  // ✅ Benar
+  setData(prevData => [...prevData, newItem]);
+}, []);
+</code></pre>
+</li>
+</ol>
+<hr>
+<h3><strong>5. Perbandingan dengan Lifecycle Class Component</strong></h3>
+<div class="overflow-x-auto bg-lime-100"><table>
+<thead>
+<tr>
+<th><strong>Lifecycle Class</strong></th>
+<th><strong>useEffect Equivalent</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>componentDidMount</td>
+<td>useEffect(() => {}, [])</td>
+</tr>
+<tr>
+<td>componentDidUpdate</td>
+<td>useEffect(() => {}, [deps])</td>
+</tr>
+<tr>
+<td>componentWillUnmount</td>
+<td>return () => {} di dalam useEffect</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h3><strong>6. Best Practices</strong></h3>
+<ul>
+<li>
+<p><strong>Pisahkan Efek Berdasarkan Tujuan</strong>:</p>
+<pre><code class="language-jsx">// Pisahkan logika fetch data dan event listener
+useEffect(() => { /* fetch data */ }, []);
+useEffect(() => { /* event listener */ }, []);
+</code></pre>
+</li>
+<li>
+<p><strong>Hindari Efek untuk Logika yang Bisa Ditangani di Render</strong>:<br>
+Contoh: Formatting data atau filter array bisa dilakukan langsung di render.</p>
+</li>
+<li>
+<p><strong>Gunakan Custom Hooks untuk Efek Kompleks</strong>:<br>
+Contoh: useFetch, useEventListener.</p>
+</li>
+</ul>
+<hr>
+<h3><strong>Kapan Menggunakan useEffect?</strong></h3>
+<ul>
+<li>Fetch data dari API.</li>
+<li>Berlangganan event (scroll, resize, keyboard).</li>
+<li>Manipulasi DOM langsung.</li>
+<li>Integrasi dengan library eksternal (Chart.js, D3.js).</li>
+<li>Cleanup resource saat komponen di-unmount.</li>
+</ul>
+</div></div></article></div></main></section></div></div><script src="/_next/static/chunks/webpack-d1f044851490e377.js" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"1:\"$Sreact.fragment\"\n2:I[7397,[],\"\"]\n3:I[8513,[],\"\"]\n5:I[3514,[],\"OutletBoundary\"]\n8:I[3514,[],\"ViewportBoundary\"]\na:I[3514,[],\"MetadataBoundary\"]\nc:I[1612,[],\"\"]\n:HL[\"/_next/static/media/569ce4b8f30dc480-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/_next/static/media/93f479601ee12b01-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/_next/static/css/cc1b38a888361ae0.css\",\"style\"]\n:HL[\"/_next/static/css/a218dfb468eefcdf.css\",\"style\"]\n"])</script><script>self.__next_f.push([1,"0:{\"P\":null,\"b\":\"zB4SN0XwAB_SWMRVvwFhG\",\"p\":\"\",\"c\":[\"\",\"blog\",\"react-useeffect\"],\"i\":false,\"f\":[[[\"\",{\"children\":[\"blog\",{\"children\":[[\"slug\",\"react-useeffect\",\"d\"],{\"children\":[\"__PAGE__\",{}]}]}]},\"$undefined\",\"$undefined\",true],[\"\",[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/cc1b38a888361ae0.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"en\",\"children\":[\"$\",\"body\",null,{\"className\":\"__variable_4d318d __variable_ea5f4b antialiased \",\"children\":[\"$\",\"div\",null,{\"className\":\"min-h-screen flex items-center justify-center bg-gray-100\",\"children\":[\"$\",\"div\",null,{\"className\":\"container mx-auto p-4 bg-white rounded-lg shadow-lg\",\"children\":[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L3\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":404}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],\"$undefined\",[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}]}]}]}]]}],{\"children\":[\"blog\",[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"section\",null,{\"className\":\" prose lg:prose-3xl prose-img:rounded-xl prose-headings:underline prose-a:text-lime-600 prose-code:text-lime-500 mx-auto  \",\"children\":[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L3\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}]]}],{\"children\":[[\"slug\",\"react-useeffect\",\"d\"],[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L3\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[\"__PAGE__\",[\"$\",\"$1\",\"c\",{\"children\":[\"$L4\",\"$undefined\",[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/a218dfb468eefcdf.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]],[\"$\",\"$L5\",null,{\"children\":[\"$L6\",\"$L7\",null]}]]}],{},null,false]},null,false]},null,false]},null,false],[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$1\",\"DCd31fXaTIBkY4Tlz1s2W\",{\"children\":[[\"$\",\"$L8\",null,{\"children\":\"$L9\"}],[\"$\",\"meta\",null,{\"name\":\"next-size-adjust\",\"content\":\"\"}]]}],[\"$\",\"$La\",null,{\"children\":\"$Lb\"}]]}],false]],\"m\":\"$undefined\",\"G\":[\"$c\",\"$undefined\"],\"s\":false,\"S\":true}\n"])</script><script>self.__next_f.push([1,"d:I[4184,[\"161\",\"static/chunks/161-e1f62ef38275032d.js\",\"953\",\"static/chunks/app/blog/%5Bslug%5D/page-df444d222e09a7de.js\"],\"\"]\ne:I[8161,[\"161\",\"static/chunks/161-e1f62ef38275032d.js\",\"953\",\"static/chunks/app/blog/%5Bslug%5D/page-df444d222e09a7de.js\"],\"Image\"]\nf:T18a1,"])</script><script>self.__next_f.push([1,"\u003cp\u003euseEffect adalah hook di React yang digunakan untuk menangani \u003cstrong\u003eefek samping (side effects)\u003c/strong\u003e dalam komponen fungsi, seperti fetching data, manipulasi DOM, atau berlangganan event. Berikut penjelasan lengkap dan contoh penggunaannya:\u003c/p\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e1. Dasar Penggunaan useEffect\u003c/strong\u003e\u003c/h3\u003e\n\u003ch4\u003eSintaks:\u003c/h4\u003e\n\u003cpre\u003e\u003ccode class=\"language-javascript\"\u003euseEffect(() =\u003e {\n  // Kode efek samping di sini\n  return () =\u003e {\n    // Cleanup (opsional)\n  };\n}, [dependencies]); // Daftar dependensi (opsional)\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003eContoh Sederhana (Update judul halaman):\u003c/h4\u003e\n\u003cpre\u003e\u003ccode class=\"language-jsx\"\u003eimport { useEffect, useState } from 'react';\n\nfunction PageTitle() {\n  const [count, setCount] = useState(0);\n\n  // Update judul halaman setiap kali \u0026#x3C;code\u003ecount\u0026#x3C;/code\u003e berubah\n  useEffect(() =\u003e {\n    document.title = \u0026#x3C;code\u003eHitungan: ${count}\u0026#x3C;/code\u003e;\n  }, [count]); // Efek dijalankan hanya jika \u0026#x3C;code\u003ecount\u0026#x3C;/code\u003e berubah\n\n  return (\n    \u0026#x3C;button onClick={() =\u003e setCount(count + 1)}\u003e\n      Klik ({count})\n    \u0026#x3C;/button\u003e\n  );\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e2. Jenis Penggunaan useEffect\u003c/strong\u003e\u003c/h3\u003e\n\u003ch4\u003ea. \u003cstrong\u003eJalankan Sekali Saat Komponen Mount (Komponen Pertama Kali Render)\u003c/strong\u003e\u003c/h4\u003e\n\u003cp\u003eGunakan \u003cstrong\u003earray dependensi kosong\u003c/strong\u003e []:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-jsx\"\u003euseEffect(() =\u003e {\n  // Fetch data dari API saat komponen mount\n  fetch('https://api.example.com/data')\n    .then(response =\u003e response.json())\n    .then(data =\u003e console.log(data));\n}, []); // Tidak ada dependensi → jalankan sekali\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003eb. \u003cstrong\u003eJalankan Saat State/Props Tertentu Berubah\u003c/strong\u003e\u003c/h4\u003e\n\u003cp\u003eTambahkan variabel ke \u003cstrong\u003earray dependensi\u003c/strong\u003e:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-jsx\"\u003econst [user, setUser] = useState('');\n\nuseEffect(() =\u003e {\n  // Jalankan setiap kali \u0026#x3C;code\u003euser\u0026#x3C;/code\u003e berubah\n  console.log(\u0026#x3C;code\u003eUser diperbarui: ${user}\u0026#x3C;/code\u003e);\n}, [user]); \n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003ec. \u003cstrong\u003eCleanup (Pembersihan)\u003c/strong\u003e\u003c/h4\u003e\n\u003cp\u003eGunakan \u003cstrong\u003ereturn function\u003c/strong\u003e untuk membersihkan efek (seperti unsubscribe atau clear timer):\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-jsx\"\u003euseEffect(() =\u003e {\n  const timer = setInterval(() =\u003e {\n    console.log('Timer aktif!');\n  }, 1000);\n\n  // Cleanup: Hentikan timer saat komponen di-unmount\n  return () =\u003e clearInterval(timer);\n}, []);\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e3. Contoh Kasus Umum\u003c/strong\u003e\u003c/h3\u003e\n\u003ch4\u003ea. Fetch Data dari API:\u003c/h4\u003e\n\u003cpre\u003e\u003ccode class=\"language-jsx\"\u003efunction DataFetcher() {\n  const [data, setData] = useState(null);\n\n  useEffect(() =\u003e {\n    fetch('https://api.example.com/data')\n      .then((res) =\u003e res.json())\n      .then((data) =\u003e setData(data))\n      .catch((error) =\u003e console.error('Error:', error));\n  }, []);\n\n  return \u0026#x3C;div\u003e{data ? data.name : 'Loading...'}\u0026#x3C;/div\u003e;\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003eb. Event Listener (Dengan Cleanup):\u003c/h4\u003e\n\u003cpre\u003e\u003ccode class=\"language-jsx\"\u003efunction WindowResizeLogger() {\n  useEffect(() =\u003e {\n    const handleResize = () =\u003e {\n      console.log('Ukuran window:', window.innerWidth);\n    };\n\n    window.addEventListener('resize', handleResize);\n\n    // Hapus event listener saat komponen di-unmount\n    return () =\u003e window.removeEventListener('resize', handleResize);\n  }, []);\n\n  return \u0026#x3C;p\u003eLihat console saat resize window!\u0026#x3C;/p\u003e;\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003ec. Gabungkan dengan State dan Dependency:\u003c/h4\u003e\n\u003cpre\u003e\u003ccode class=\"language-jsx\"\u003efunction UserTracker({ userId }) {\n  const [userData, setUserData] = useState({});\n\n  // Fetch ulang data saat \u0026#x3C;code\u003euserId\u0026#x3C;/code\u003e berubah\n  useEffect(() =\u003e {\n    fetch(\u0026#x3C;code\u003ehttps://api.example.com/users/${userId}\u0026#x3C;/code\u003e)\n      .then((res) =\u003e res.json())\n      .then((data) =\u003e setUserData(data));\n  }, [userId]); // Dependency: userId\n\n  return \u0026#x3C;div\u003e{userData.name || 'User tidak ditemukan'}\u0026#x3C;/div\u003e;\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e4. Aturan Penting\u003c/strong\u003e\u003c/h3\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eHindari Infinite Loop\u003c/strong\u003e\u003cbr\u003e\nPastikan dependensi diatur dengan benar. Contoh kesalahan:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-jsx\"\u003euseEffect(() =\u003e {\n  setCount(count + 1); // ❌ Memicu re-render tanpa henti jika dependensi [count] tidak ada\n}); // Tidak ada array dependensi → dijalankan setiap render\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eGunakan Dependency Array dengan Tepat\u003c/strong\u003e\u003cbr\u003e\nJika efek menggunakan nilai dari luar (state/props), tambahkan ke dependency array:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-jsx\"\u003euseEffect(() =\u003e {\n  console.log(user); \n}, [user]); // ✅ Jalankan hanya jika \u0026#x3C;code\u003euser\u0026#x3C;/code\u003e berubah\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eHindari Mutasi Langsung State di useEffect\u003c/strong\u003e\u003cbr\u003e\nGunakan fungsi setState untuk update state:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-jsx\"\u003euseEffect(() =\u003e {\n  // ❌ Salah\n  // data.push(newItem);\n\n  // ✅ Benar\n  setData(prevData =\u003e [...prevData, newItem]);\n}, []);\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e5. Perbandingan dengan Lifecycle Class Component\u003c/strong\u003e\u003c/h3\u003e\n\u003cdiv class=\"overflow-x-auto bg-lime-100\"\u003e\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003e\u003cstrong\u003eLifecycle Class\u003c/strong\u003e\u003c/th\u003e\n\u003cth\u003e\u003cstrong\u003euseEffect Equivalent\u003c/strong\u003e\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003ecomponentDidMount\u003c/td\u003e\n\u003ctd\u003euseEffect(() =\u003e {}, [])\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003ecomponentDidUpdate\u003c/td\u003e\n\u003ctd\u003euseEffect(() =\u003e {}, [deps])\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003ecomponentWillUnmount\u003c/td\u003e\n\u003ctd\u003ereturn () =\u003e {} di dalam useEffect\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\u003c/div\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e6. Best Practices\u003c/strong\u003e\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003ePisahkan Efek Berdasarkan Tujuan\u003c/strong\u003e:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-jsx\"\u003e// Pisahkan logika fetch data dan event listener\nuseEffect(() =\u003e { /* fetch data */ }, []);\nuseEffect(() =\u003e { /* event listener */ }, []);\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eHindari Efek untuk Logika yang Bisa Ditangani di Render\u003c/strong\u003e:\u003cbr\u003e\nContoh: Formatting data atau filter array bisa dilakukan langsung di render.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eGunakan Custom Hooks untuk Efek Kompleks\u003c/strong\u003e:\u003cbr\u003e\nContoh: useFetch, useEventListener.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003eKapan Menggunakan useEffect?\u003c/strong\u003e\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003eFetch data dari API.\u003c/li\u003e\n\u003cli\u003eBerlangganan event (scroll, resize, keyboard).\u003c/li\u003e\n\u003cli\u003eManipulasi DOM langsung.\u003c/li\u003e\n\u003cli\u003eIntegrasi dengan library eksternal (Chart.js, D3.js).\u003c/li\u003e\n\u003cli\u003eCleanup resource saat komponen di-unmount.\u003c/li\u003e\n\u003c/ul\u003e\n"])</script><script>self.__next_f.push([1,"4:[\"$\",\"main\",null,{\"className\":\"container\",\"children\":[[\"$\",\"div\",null,{\"className\":\"border-b dark:bg-slate-800 bg-neutral-50 border-neutral-200\",\"children\":[\"$\",\"div\",null,{\"className\":\" mx-auto px-5\",\"children\":[\"$\",\"div\",null,{\"className\":\"py-2 text-center text-sm\",\"children\":[\"source code blog ini bisa ditemukan di link ini\",\" \",[\"$\",\"a\",null,{\"href\":\"https://github.com/mukharomdev/mukharomdev.github.io\",\"className\":\"underline hover:text-blue-600 duration-200 transition-colors\",\"children\":\"available on GitHub\"}],\".\"]}]}]}],[\"$\",\"div\",null,{\"className\":\" mx-auto px-5\",\"children\":[[\"$\",\"h2\",null,{\"className\":\"text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight mb-20 mt-8 flex items-center\",\"children\":[[\"$\",\"$Ld\",null,{\"href\":\"/\",\"className\":\"hover:underline\",\"children\":\"Blog\"}],\".\"]}],[\"$\",\"article\",null,{\"className\":\"mb-32\",\"children\":[[[\"$\",\"h1\",null,{\"className\":\"text-3xl text-center md:text-5xl lg:text-6xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left\",\"children\":\" Penggunaan React useEffect\"}],[\"$\",\"div\",null,{\"className\":\"hidden md:block md:mb-12\",\"children\":[\"$\",\"div\",null,{\"className\":\"flex items-center\",\"children\":[[\"$\",\"img\",null,{\"src\":\"/assets/blog/authors/mukharomdev.png\",\"className\":\"w-12 h-12 rounded-full mr-4\",\"alt\":\"mukharomdev\"}],[\"$\",\"div\",null,{\"className\":\"text-xl font-bold\",\"children\":\"mukharomdev\"}]]}]}],[\"$\",\"div\",null,{\"className\":\"mb-8 md:mb-16 sm:mx-0\",\"children\":[\"$\",\"div\",null,{\"className\":\"sm:mx-0\",\"children\":[\"$\",\"$Le\",null,{\"src\":\"/assets/blog/reacts/react1.png\",\"alt\":\"Cover Image for  Penggunaan React useEffect\",\"className\":\"shadow-sm w-full sm:w-[400px] md:w-[600px] lg:w-[800px] max-h-[500px] mx-auto block\",\"width\":120,\"height\":80}]}]}],[\"$\",\"div\",null,{\"className\":\"max-w-2xl mx-auto\",\"children\":[[\"$\",\"div\",null,{\"className\":\"block md:hidden mb-6\",\"children\":[\"$\",\"div\",null,{\"className\":\"flex items-center\",\"children\":[[\"$\",\"img\",null,{\"src\":\"/assets/blog/authors/mukharomdev.png\",\"className\":\"w-12 h-12 rounded-full mr-4\",\"alt\":\"mukharomdev\"}],[\"$\",\"div\",null,{\"className\":\"text-xl font-bold\",\"children\":\"mukharomdev\"}]]}]}],[\"$\",\"div\",null,{\"className\":\"mb-6 text-lg\",\"children\":[\"$\",\"time\",null,{\"dateTime\":\"2025-02-27T05:35:07.322Z\",\"children\":\"February\\t27, 2025\"}]}]]}]],[\"$\",\"div\",null,{\"className\":\"max-w-2xl mx-auto\",\"children\":[\"$\",\"div\",null,{\"className\":\"markdown-styles_markdown__ORfR8 prose prose-code \",\"dangerouslySetInnerHTML\":{\"__html\":\"$f\"}}]}]]}]]}]]}]\n"])</script><script>self.__next_f.push([1,"9:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]\n6:null\n"])</script><script>self.__next_f.push([1,"7:null\nb:[[\"$\",\"title\",\"0\",{\"children\":\" Penggunaan React useEffect | mukharomdev blog build with Markdown\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"Mini blog seputar pengalaman pribadi dunia pemrograman komputer\"}],[\"$\",\"meta\",\"2\",{\"property\":\"og:title\",\"content\":\" Penggunaan React useEffect | mukharomdev blog build with Markdown\"}],[\"$\",\"meta\",\"3\",{\"property\":\"og:description\",\"content\":\"Mini blog seputar pengalaman pribadi dunia pemrograman komputer\"}],[\"$\",\"meta\",\"4\",{\"property\":\"og:image\",\"content\":\"http://localhost:3000/assets/blog/reacts/react1.png\"}],[\"$\",\"meta\",\"5\",{\"name\":\"twitter:card\",\"content\":\"summary_large_image\"}],[\"$\",\"meta\",\"6\",{\"name\":\"twitter:title\",\"content\":\" Penggunaan React useEffect | mukharomdev blog build with Markdown\"}],[\"$\",\"meta\",\"7\",{\"name\":\"twitter:description\",\"content\":\"Mini blog seputar pengalaman pribadi dunia pemrograman komputer\"}],[\"$\",\"meta\",\"8\",{\"name\":\"twitter:image\",\"content\":\"http://localhost:3000/assets/blog/reacts/react1.png\"}],[\"$\",\"link\",\"9\",{\"rel\":\"icon\",\"href\":\"/favicon.ico\",\"type\":\"image/x-icon\",\"sizes\":\"16x16\"}]]\n"])</script></body></html>

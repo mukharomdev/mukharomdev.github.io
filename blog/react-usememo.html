@@ -1,0 +1,153 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" href="/_next/static/media/569ce4b8f30dc480-s.p.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" href="/_next/static/media/93f479601ee12b01-s.p.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" as="image" href="/assets/blog/authors/mukharomdev.png"/><link rel="stylesheet" href="/_next/static/css/cc1b38a888361ae0.css" data-precedence="next"/><link rel="stylesheet" href="/_next/static/css/a218dfb468eefcdf.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/_next/static/chunks/webpack-d1f044851490e377.js"/><script src="/_next/static/chunks/748859cf-d1727182a584e899.js" async=""></script><script src="/_next/static/chunks/702-3097f4c2de53f6aa.js" async=""></script><script src="/_next/static/chunks/main-app-f6a0c1bda6624e2a.js" async=""></script><script src="/_next/static/chunks/161-e1f62ef38275032d.js" async=""></script><script src="/_next/static/chunks/app/blog/%5Bslug%5D/page-df444d222e09a7de.js" async=""></script><meta name="next-size-adjust" content=""/><title> Penggunaan React useMemo | mukharomdev blog build with Markdown</title><meta name="description" content="Mini blog seputar pengalaman pribadi dunia pemrograman komputer"/><meta property="og:title" content=" Penggunaan React useMemo | mukharomdev blog build with Markdown"/><meta property="og:description" content="Mini blog seputar pengalaman pribadi dunia pemrograman komputer"/><meta property="og:image" content="http://localhost:3000/assets/blog/reacts/react1.png"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content=" Penggunaan React useMemo | mukharomdev blog build with Markdown"/><meta name="twitter:description" content="Mini blog seputar pengalaman pribadi dunia pemrograman komputer"/><meta name="twitter:image" content="http://localhost:3000/assets/blog/reacts/react1.png"/><link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="16x16"/><script src="/_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script></head><body class="__variable_4d318d __variable_ea5f4b antialiased "><div class="min-h-screen flex items-center justify-center bg-gray-100"><div class="container mx-auto p-4 bg-white rounded-lg shadow-lg"><section class=" prose lg:prose-3xl prose-img:rounded-xl prose-headings:underline prose-a:text-lime-600 prose-code:text-lime-500 mx-auto  "><main class="container"><div class="border-b dark:bg-slate-800 bg-neutral-50 border-neutral-200"><div class=" mx-auto px-5"><div class="py-2 text-center text-sm">source code blog ini bisa ditemukan di link ini<!-- --> <a href="https://github.com/mukharomdev/mukharomdev.github.io" class="underline hover:text-blue-600 duration-200 transition-colors">available on GitHub</a>.</div></div></div><div class=" mx-auto px-5"><h2 class="text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight mb-20 mt-8 flex items-center"><a class="hover:underline" href="/">Blog</a>.</h2><article class="mb-32"><h1 class="text-3xl text-center md:text-5xl lg:text-6xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left"> Penggunaan React useMemo</h1><div class="hidden md:block md:mb-12"><div class="flex items-center"><img src="/assets/blog/authors/mukharomdev.png" class="w-12 h-12 rounded-full mr-4" alt="mukharomdev"/><div class="text-xl font-bold">mukharomdev</div></div></div><div class="mb-8 md:mb-16 sm:mx-0"><div class="sm:mx-0"><img alt="Cover Image for  Penggunaan React useMemo" loading="lazy" width="120" height="80" decoding="async" data-nimg="1" class="shadow-sm w-full sm:w-[400px] md:w-[600px] lg:w-[800px] max-h-[500px] mx-auto block" style="color:transparent" src="/assets/blog/reacts/react1.png"/></div></div><div class="max-w-2xl mx-auto"><div class="block md:hidden mb-6"><div class="flex items-center"><img src="/assets/blog/authors/mukharomdev.png" class="w-12 h-12 rounded-full mr-4" alt="mukharomdev"/><div class="text-xl font-bold">mukharomdev</div></div></div><div class="mb-6 text-lg"><time dateTime="2025-02-28T15:17:34.135Z">February	28, 2025</time></div></div><div class="max-w-2xl mx-auto"><div class="markdown-styles_markdown__ORfR8 prose prose-code "><p>useMemo adalah hook di React yang digunakan untuk <strong>memoize (menyimpan cache) nilai hasil komputasi</strong>, sehingga komputasi tersebut tidak dijalankan ulang setiap kali komponen dirender, kecuali jika <em>dependency</em>-nya berubah. Ini berguna untuk mengoptimalkan performa, terutama ketika:</p>
+<ol>
+<li><strong>Komputasi berat</strong> (seperti filter array, kalkulasi matematika kompleks).</li>
+<li><strong>Mencegah re-render komponen anak</strong> yang bergantung pada nilai tersebut.</li>
+<li><strong>Mempertahankan referensi objek/array</strong> untuk mencegah efek samping di useEffect.</li>
+</ol>
+<hr>
+<h3><strong>1. Sintaks Dasar</strong></h3>
+<pre><code class="language-javascript">const memoizedValue = useMemo(
+  () => computeExpensiveValue(a, b), // Fungsi yang menghasilkan nilai
+  [a, b] // Dependency array (opsional)
+);
+</code></pre>
+<hr>
+<h3><strong>2. Contoh Penggunaan</strong></h3>
+<h4>a. <strong>Filter Data (Optimasi Komputasi)</strong></h4>
+<pre><code class="language-jsx">import { useMemo, useState } from 'react';
+
+function ProductList({ products, searchTerm }) {
+  // Hanya jalankan filter jika &#x3C;code>products&#x3C;/code> atau &#x3C;code>searchTerm&#x3C;/code> berubah
+  const filteredProducts = useMemo(() => {
+    return products.filter(product => 
+      product.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }, [products, searchTerm]);
+
+  return (
+    &#x3C;ul>
+      {filteredProducts.map(product => (
+        &#x3C;li key={product.id}>{product.name}&#x3C;/li>
+      ))}
+    &#x3C;/ul>
+  );
+}
+</code></pre>
+<h4>b. <strong>Mempertahankan Referensi Objek</strong></h4>
+<pre><code class="language-jsx">function UserProfile({ user }) {
+  // Objek config tidak dibuat ulang kecuali &#x3C;code>user.role&#x3C;/code> berubah
+  const config = useMemo(() => ({
+    theme: user.role === 'admin' ? 'dark' : 'light',
+    permissions: ['read', 'write']
+  }), [user.role]);
+
+  useEffect(() => {
+    // Efek ini hanya dijalankan jika &#x3C;code>config&#x3C;/code> berubah
+    console.log('Config diperbarui:', config);
+  }, [config]);
+
+  return &#x3C;div>Profil Pengguna&#x3C;/div>;
+}
+</code></pre>
+<hr>
+<h3><strong>3. Kapan Menggunakan useMemo?</strong></h3>
+<ul>
+<li><strong>Komputasi intensif</strong> (misal: sorting/filter data besar).</li>
+<li><strong>Mengirim nilai ke komponen anak yang di-optimasi</strong> (seperti React.memo).</li>
+<li><strong>Mencegah re-render tidak perlu</strong> karena perubahan referensi objek/array.</li>
+</ul>
+<hr>
+<h3><strong>4. Perbedaan useMemo vs useCallback</strong></h3>
+<div class="overflow-x-auto bg-lime-100"><table>
+<thead>
+<tr>
+<th><strong>Kriteria</strong></th>
+<th>useMemo</th>
+<th>useCallback</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Return Value</strong></td>
+<td>Nilai hasil fungsi</td>
+<td>Fungsi itu sendiri</td>
+</tr>
+<tr>
+<td><strong>Contoh</strong></td>
+<td>useMemo(() => [1,2,3], [])</td>
+<td>useCallback(() => {}, [])</td>
+</tr>
+<tr>
+<td><strong>Penggunaan</strong></td>
+<td>Untuk memoize nilai</td>
+<td>Untuk memoize fungsi</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h3><strong>5. Best Practices</strong></h3>
+<ol>
+<li>
+<p><strong>Jangan Overuse</strong><br>
+Gunakan hanya untuk komputasi yang benar-benar berat. Overuse bisa menambah kompleksitas.</p>
+</li>
+<li>
+<p><strong>Perhatikan Dependency Array</strong><br>
+Pastikan semua variabel yang digunakan di dalam fungsi dimasukkan ke dependency array:</p>
+<pre><code class="language-javascript">// ❌ Salah (stale data jika &#x3C;code>price&#x3C;/code> berubah)
+const total = useMemo(() => price * quantity, []);
+
+// ✅ Benar
+const total = useMemo(() => price * quantity, [price, quantity]);
+</code></pre>
+</li>
+<li>
+<p><strong>Pisahkan Logika Komputasi</strong><br>
+Untuk kode yang lebih bersih:</p>
+<pre><code class="language-javascript">const calculateTotal = (price, quantity) => price * quantity;
+const total = useMemo(() => calculateTotal(price, quantity), [price, quantity]);
+</code></pre>
+</li>
+</ol>
+<hr>
+<h3><strong>6. Contoh Kasus: Kalkulasi Kompleks</strong></h3>
+<pre><code class="language-jsx">function Fibonacci({ n }) {
+  const fibNumber = useMemo(() => {
+    const calculateFib = (num) => {
+      if (num &#x3C;= 1) return num;
+      return calculateFib(num - 1) + calculateFib(num - 2);
+    };
+    return calculateFib(n); // Komputasi berat untuk n besar
+  }, [n]);
+
+  return &#x3C;p>Fibonacci ke-{n}: {fibNumber}&#x3C;/p>;
+}
+</code></pre>
+<hr>
+<h3><strong>7. Kesalahan Umum</strong></h3>
+<h4>a. <strong>Lupa Dependency Array</strong></h4>
+<p>Nilai akan dihitung ulang setiap render:</p>
+<pre><code class="language-javascript">const total = useMemo(() => price * quantity); // ❌
+</code></pre>
+<h4>b. <strong>Menyimpan Nilai Sederhana</strong></h4>
+<p>Tidak perlu memoize operasi trivial:</p>
+<pre><code class="language-javascript">const total = useMemo(() => 10 + 20, []); // ❌ Tidak perlu
+</code></pre>
+<h4>c. <strong>Mengubah Nilai Langsung</strong></h4>
+<p>Hindari mutasi objek/array:</p>
+<pre><code class="language-javascript">const user = useMemo(() => {
+  const newUser = { ...prevUser }; // ✅ Salin objek
+  newUser.age = 30;
+  return newUser;
+}, [prevUser]);
+</code></pre>
+<hr>
+<h3><strong>Kesimpulan</strong></h3>
+<p>Gunakan useMemo untuk:</p>
+<ul>
+<li><strong>Mengoptimalkan komputasi berat</strong>.</li>
+<li><strong>Mencegah re-render komponen anak</strong> yang bergantung pada nilai kompleks.</li>
+<li><strong>Mempertahankan referensi objek/array</strong> yang stabil.</li>
+</ul>
+<p>Hindari penggunaannya untuk nilai sederhana atau operasi trivial. Selalu evaluasi apakah optimasi ini benar-benar diperlukan! 🚀</p>
+</div></div></article></div></main></section></div></div><script src="/_next/static/chunks/webpack-d1f044851490e377.js" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"1:\"$Sreact.fragment\"\n2:I[7397,[],\"\"]\n3:I[8513,[],\"\"]\n5:I[3514,[],\"OutletBoundary\"]\n8:I[3514,[],\"ViewportBoundary\"]\na:I[3514,[],\"MetadataBoundary\"]\nc:I[1612,[],\"\"]\n:HL[\"/_next/static/media/569ce4b8f30dc480-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/_next/static/media/93f479601ee12b01-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/_next/static/css/cc1b38a888361ae0.css\",\"style\"]\n:HL[\"/_next/static/css/a218dfb468eefcdf.css\",\"style\"]\n"])</script><script>self.__next_f.push([1,"0:{\"P\":null,\"b\":\"zB4SN0XwAB_SWMRVvwFhG\",\"p\":\"\",\"c\":[\"\",\"blog\",\"react-usememo\"],\"i\":false,\"f\":[[[\"\",{\"children\":[\"blog\",{\"children\":[[\"slug\",\"react-usememo\",\"d\"],{\"children\":[\"__PAGE__\",{}]}]}]},\"$undefined\",\"$undefined\",true],[\"\",[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/cc1b38a888361ae0.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"en\",\"children\":[\"$\",\"body\",null,{\"className\":\"__variable_4d318d __variable_ea5f4b antialiased \",\"children\":[\"$\",\"div\",null,{\"className\":\"min-h-screen flex items-center justify-center bg-gray-100\",\"children\":[\"$\",\"div\",null,{\"className\":\"container mx-auto p-4 bg-white rounded-lg shadow-lg\",\"children\":[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L3\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":404}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],\"$undefined\",[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}]}]}]}]]}],{\"children\":[\"blog\",[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"section\",null,{\"className\":\" prose lg:prose-3xl prose-img:rounded-xl prose-headings:underline prose-a:text-lime-600 prose-code:text-lime-500 mx-auto  \",\"children\":[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L3\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}]]}],{\"children\":[[\"slug\",\"react-usememo\",\"d\"],[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L3\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[\"__PAGE__\",[\"$\",\"$1\",\"c\",{\"children\":[\"$L4\",\"$undefined\",[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/a218dfb468eefcdf.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]],[\"$\",\"$L5\",null,{\"children\":[\"$L6\",\"$L7\",null]}]]}],{},null,false]},null,false]},null,false]},null,false],[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$1\",\"wGj6-6hYdiXjYN26aS6Mi\",{\"children\":[[\"$\",\"$L8\",null,{\"children\":\"$L9\"}],[\"$\",\"meta\",null,{\"name\":\"next-size-adjust\",\"content\":\"\"}]]}],[\"$\",\"$La\",null,{\"children\":\"$Lb\"}]]}],false]],\"m\":\"$undefined\",\"G\":[\"$c\",\"$undefined\"],\"s\":false,\"S\":true}\n"])</script><script>self.__next_f.push([1,"d:I[4184,[\"161\",\"static/chunks/161-e1f62ef38275032d.js\",\"953\",\"static/chunks/app/blog/%5Bslug%5D/page-df444d222e09a7de.js\"],\"\"]\ne:I[8161,[\"161\",\"static/chunks/161-e1f62ef38275032d.js\",\"953\",\"static/chunks/app/blog/%5Bslug%5D/page-df444d222e09a7de.js\"],\"Image\"]\nf:T15f7,"])</script><script>self.__next_f.push([1,"\u003cp\u003euseMemo adalah hook di React yang digunakan untuk \u003cstrong\u003ememoize (menyimpan cache) nilai hasil komputasi\u003c/strong\u003e, sehingga komputasi tersebut tidak dijalankan ulang setiap kali komponen dirender, kecuali jika \u003cem\u003edependency\u003c/em\u003e-nya berubah. Ini berguna untuk mengoptimalkan performa, terutama ketika:\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e\u003cstrong\u003eKomputasi berat\u003c/strong\u003e (seperti filter array, kalkulasi matematika kompleks).\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eMencegah re-render komponen anak\u003c/strong\u003e yang bergantung pada nilai tersebut.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eMempertahankan referensi objek/array\u003c/strong\u003e untuk mencegah efek samping di useEffect.\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e1. Sintaks Dasar\u003c/strong\u003e\u003c/h3\u003e\n\u003cpre\u003e\u003ccode class=\"language-javascript\"\u003econst memoizedValue = useMemo(\n  () =\u003e computeExpensiveValue(a, b), // Fungsi yang menghasilkan nilai\n  [a, b] // Dependency array (opsional)\n);\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e2. Contoh Penggunaan\u003c/strong\u003e\u003c/h3\u003e\n\u003ch4\u003ea. \u003cstrong\u003eFilter Data (Optimasi Komputasi)\u003c/strong\u003e\u003c/h4\u003e\n\u003cpre\u003e\u003ccode class=\"language-jsx\"\u003eimport { useMemo, useState } from 'react';\n\nfunction ProductList({ products, searchTerm }) {\n  // Hanya jalankan filter jika \u0026#x3C;code\u003eproducts\u0026#x3C;/code\u003e atau \u0026#x3C;code\u003esearchTerm\u0026#x3C;/code\u003e berubah\n  const filteredProducts = useMemo(() =\u003e {\n    return products.filter(product =\u003e \n      product.name.toLowerCase().includes(searchTerm.toLowerCase())\n    );\n  }, [products, searchTerm]);\n\n  return (\n    \u0026#x3C;ul\u003e\n      {filteredProducts.map(product =\u003e (\n        \u0026#x3C;li key={product.id}\u003e{product.name}\u0026#x3C;/li\u003e\n      ))}\n    \u0026#x3C;/ul\u003e\n  );\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003eb. \u003cstrong\u003eMempertahankan Referensi Objek\u003c/strong\u003e\u003c/h4\u003e\n\u003cpre\u003e\u003ccode class=\"language-jsx\"\u003efunction UserProfile({ user }) {\n  // Objek config tidak dibuat ulang kecuali \u0026#x3C;code\u003euser.role\u0026#x3C;/code\u003e berubah\n  const config = useMemo(() =\u003e ({\n    theme: user.role === 'admin' ? 'dark' : 'light',\n    permissions: ['read', 'write']\n  }), [user.role]);\n\n  useEffect(() =\u003e {\n    // Efek ini hanya dijalankan jika \u0026#x3C;code\u003econfig\u0026#x3C;/code\u003e berubah\n    console.log('Config diperbarui:', config);\n  }, [config]);\n\n  return \u0026#x3C;div\u003eProfil Pengguna\u0026#x3C;/div\u003e;\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e3. Kapan Menggunakan useMemo?\u003c/strong\u003e\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eKomputasi intensif\u003c/strong\u003e (misal: sorting/filter data besar).\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eMengirim nilai ke komponen anak yang di-optimasi\u003c/strong\u003e (seperti React.memo).\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eMencegah re-render tidak perlu\u003c/strong\u003e karena perubahan referensi objek/array.\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e4. Perbedaan useMemo vs useCallback\u003c/strong\u003e\u003c/h3\u003e\n\u003cdiv class=\"overflow-x-auto bg-lime-100\"\u003e\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003e\u003cstrong\u003eKriteria\u003c/strong\u003e\u003c/th\u003e\n\u003cth\u003euseMemo\u003c/th\u003e\n\u003cth\u003euseCallback\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003cstrong\u003eReturn Value\u003c/strong\u003e\u003c/td\u003e\n\u003ctd\u003eNilai hasil fungsi\u003c/td\u003e\n\u003ctd\u003eFungsi itu sendiri\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003cstrong\u003eContoh\u003c/strong\u003e\u003c/td\u003e\n\u003ctd\u003euseMemo(() =\u003e [1,2,3], [])\u003c/td\u003e\n\u003ctd\u003euseCallback(() =\u003e {}, [])\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003cstrong\u003ePenggunaan\u003c/strong\u003e\u003c/td\u003e\n\u003ctd\u003eUntuk memoize nilai\u003c/td\u003e\n\u003ctd\u003eUntuk memoize fungsi\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\u003c/div\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e5. Best Practices\u003c/strong\u003e\u003c/h3\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eJangan Overuse\u003c/strong\u003e\u003cbr\u003e\nGunakan hanya untuk komputasi yang benar-benar berat. Overuse bisa menambah kompleksitas.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003ePerhatikan Dependency Array\u003c/strong\u003e\u003cbr\u003e\nPastikan semua variabel yang digunakan di dalam fungsi dimasukkan ke dependency array:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-javascript\"\u003e// ❌ Salah (stale data jika \u0026#x3C;code\u003eprice\u0026#x3C;/code\u003e berubah)\nconst total = useMemo(() =\u003e price * quantity, []);\n\n// ✅ Benar\nconst total = useMemo(() =\u003e price * quantity, [price, quantity]);\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003ePisahkan Logika Komputasi\u003c/strong\u003e\u003cbr\u003e\nUntuk kode yang lebih bersih:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-javascript\"\u003econst calculateTotal = (price, quantity) =\u003e price * quantity;\nconst total = useMemo(() =\u003e calculateTotal(price, quantity), [price, quantity]);\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e6. Contoh Kasus: Kalkulasi Kompleks\u003c/strong\u003e\u003c/h3\u003e\n\u003cpre\u003e\u003ccode class=\"language-jsx\"\u003efunction Fibonacci({ n }) {\n  const fibNumber = useMemo(() =\u003e {\n    const calculateFib = (num) =\u003e {\n      if (num \u0026#x3C;= 1) return num;\n      return calculateFib(num - 1) + calculateFib(num - 2);\n    };\n    return calculateFib(n); // Komputasi berat untuk n besar\n  }, [n]);\n\n  return \u0026#x3C;p\u003eFibonacci ke-{n}: {fibNumber}\u0026#x3C;/p\u003e;\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e7. Kesalahan Umum\u003c/strong\u003e\u003c/h3\u003e\n\u003ch4\u003ea. \u003cstrong\u003eLupa Dependency Array\u003c/strong\u003e\u003c/h4\u003e\n\u003cp\u003eNilai akan dihitung ulang setiap render:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-javascript\"\u003econst total = useMemo(() =\u003e price * quantity); // ❌\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003eb. \u003cstrong\u003eMenyimpan Nilai Sederhana\u003c/strong\u003e\u003c/h4\u003e\n\u003cp\u003eTidak perlu memoize operasi trivial:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-javascript\"\u003econst total = useMemo(() =\u003e 10 + 20, []); // ❌ Tidak perlu\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003ec. \u003cstrong\u003eMengubah Nilai Langsung\u003c/strong\u003e\u003c/h4\u003e\n\u003cp\u003eHindari mutasi objek/array:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-javascript\"\u003econst user = useMemo(() =\u003e {\n  const newUser = { ...prevUser }; // ✅ Salin objek\n  newUser.age = 30;\n  return newUser;\n}, [prevUser]);\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003eKesimpulan\u003c/strong\u003e\u003c/h3\u003e\n\u003cp\u003eGunakan useMemo untuk:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eMengoptimalkan komputasi berat\u003c/strong\u003e.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eMencegah re-render komponen anak\u003c/strong\u003e yang bergantung pada nilai kompleks.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eMempertahankan referensi objek/array\u003c/strong\u003e yang stabil.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eHindari penggunaannya untuk nilai sederhana atau operasi trivial. Selalu evaluasi apakah optimasi ini benar-benar diperlukan! 🚀\u003c/p\u003e\n"])</script><script>self.__next_f.push([1,"4:[\"$\",\"main\",null,{\"className\":\"container\",\"children\":[[\"$\",\"div\",null,{\"className\":\"border-b dark:bg-slate-800 bg-neutral-50 border-neutral-200\",\"children\":[\"$\",\"div\",null,{\"className\":\" mx-auto px-5\",\"children\":[\"$\",\"div\",null,{\"className\":\"py-2 text-center text-sm\",\"children\":[\"source code blog ini bisa ditemukan di link ini\",\" \",[\"$\",\"a\",null,{\"href\":\"https://github.com/mukharomdev/mukharomdev.github.io\",\"className\":\"underline hover:text-blue-600 duration-200 transition-colors\",\"children\":\"available on GitHub\"}],\".\"]}]}]}],[\"$\",\"div\",null,{\"className\":\" mx-auto px-5\",\"children\":[[\"$\",\"h2\",null,{\"className\":\"text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight mb-20 mt-8 flex items-center\",\"children\":[[\"$\",\"$Ld\",null,{\"href\":\"/\",\"className\":\"hover:underline\",\"children\":\"Blog\"}],\".\"]}],[\"$\",\"article\",null,{\"className\":\"mb-32\",\"children\":[[[\"$\",\"h1\",null,{\"className\":\"text-3xl text-center md:text-5xl lg:text-6xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left\",\"children\":\" Penggunaan React useMemo\"}],[\"$\",\"div\",null,{\"className\":\"hidden md:block md:mb-12\",\"children\":[\"$\",\"div\",null,{\"className\":\"flex items-center\",\"children\":[[\"$\",\"img\",null,{\"src\":\"/assets/blog/authors/mukharomdev.png\",\"className\":\"w-12 h-12 rounded-full mr-4\",\"alt\":\"mukharomdev\"}],[\"$\",\"div\",null,{\"className\":\"text-xl font-bold\",\"children\":\"mukharomdev\"}]]}]}],[\"$\",\"div\",null,{\"className\":\"mb-8 md:mb-16 sm:mx-0\",\"children\":[\"$\",\"div\",null,{\"className\":\"sm:mx-0\",\"children\":[\"$\",\"$Le\",null,{\"src\":\"/assets/blog/reacts/react1.png\",\"alt\":\"Cover Image for  Penggunaan React useMemo\",\"className\":\"shadow-sm w-full sm:w-[400px] md:w-[600px] lg:w-[800px] max-h-[500px] mx-auto block\",\"width\":120,\"height\":80}]}]}],[\"$\",\"div\",null,{\"className\":\"max-w-2xl mx-auto\",\"children\":[[\"$\",\"div\",null,{\"className\":\"block md:hidden mb-6\",\"children\":[\"$\",\"div\",null,{\"className\":\"flex items-center\",\"children\":[[\"$\",\"img\",null,{\"src\":\"/assets/blog/authors/mukharomdev.png\",\"className\":\"w-12 h-12 rounded-full mr-4\",\"alt\":\"mukharomdev\"}],[\"$\",\"div\",null,{\"className\":\"text-xl font-bold\",\"children\":\"mukharomdev\"}]]}]}],[\"$\",\"div\",null,{\"className\":\"mb-6 text-lg\",\"children\":[\"$\",\"time\",null,{\"dateTime\":\"2025-02-28T15:17:34.135Z\",\"children\":\"February\\t28, 2025\"}]}]]}]],[\"$\",\"div\",null,{\"className\":\"max-w-2xl mx-auto\",\"children\":[\"$\",\"div\",null,{\"className\":\"markdown-styles_markdown__ORfR8 prose prose-code \",\"dangerouslySetInnerHTML\":{\"__html\":\"$f\"}}]}]]}]]}]]}]\n"])</script><script>self.__next_f.push([1,"9:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]\n6:null\n"])</script><script>self.__next_f.push([1,"7:null\nb:[[\"$\",\"title\",\"0\",{\"children\":\" Penggunaan React useMemo | mukharomdev blog build with Markdown\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"Mini blog seputar pengalaman pribadi dunia pemrograman komputer\"}],[\"$\",\"meta\",\"2\",{\"property\":\"og:title\",\"content\":\" Penggunaan React useMemo | mukharomdev blog build with Markdown\"}],[\"$\",\"meta\",\"3\",{\"property\":\"og:description\",\"content\":\"Mini blog seputar pengalaman pribadi dunia pemrograman komputer\"}],[\"$\",\"meta\",\"4\",{\"property\":\"og:image\",\"content\":\"http://localhost:3000/assets/blog/reacts/react1.png\"}],[\"$\",\"meta\",\"5\",{\"name\":\"twitter:card\",\"content\":\"summary_large_image\"}],[\"$\",\"meta\",\"6\",{\"name\":\"twitter:title\",\"content\":\" Penggunaan React useMemo | mukharomdev blog build with Markdown\"}],[\"$\",\"meta\",\"7\",{\"name\":\"twitter:description\",\"content\":\"Mini blog seputar pengalaman pribadi dunia pemrograman komputer\"}],[\"$\",\"meta\",\"8\",{\"name\":\"twitter:image\",\"content\":\"http://localhost:3000/assets/blog/reacts/react1.png\"}],[\"$\",\"link\",\"9\",{\"rel\":\"icon\",\"href\":\"/favicon.ico\",\"type\":\"image/x-icon\",\"sizes\":\"16x16\"}]]\n"])</script></body></html>

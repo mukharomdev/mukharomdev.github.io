@@ -1,0 +1,247 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" href="/_next/static/media/569ce4b8f30dc480-s.p.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" href="/_next/static/media/93f479601ee12b01-s.p.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" as="image" href="/assets/blog/authors/mukharomdev.png"/><link rel="stylesheet" href="/_next/static/css/cc1b38a888361ae0.css" data-precedence="next"/><link rel="stylesheet" href="/_next/static/css/a218dfb468eefcdf.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/_next/static/chunks/webpack-d1f044851490e377.js"/><script src="/_next/static/chunks/748859cf-d1727182a584e899.js" async=""></script><script src="/_next/static/chunks/702-3097f4c2de53f6aa.js" async=""></script><script src="/_next/static/chunks/main-app-f6a0c1bda6624e2a.js" async=""></script><script src="/_next/static/chunks/161-e1f62ef38275032d.js" async=""></script><script src="/_next/static/chunks/app/blog/%5Bslug%5D/page-df444d222e09a7de.js" async=""></script><meta name="next-size-adjust" content=""/><title> Penggunaan React useReducer | mukharomdev blog build with Markdown</title><meta name="description" content="Mini blog seputar pengalaman pribadi dunia pemrograman komputer"/><meta property="og:title" content=" Penggunaan React useReducer | mukharomdev blog build with Markdown"/><meta property="og:description" content="Mini blog seputar pengalaman pribadi dunia pemrograman komputer"/><meta property="og:image" content="http://localhost:3000/assets/blog/reacts/react1.png"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content=" Penggunaan React useReducer | mukharomdev blog build with Markdown"/><meta name="twitter:description" content="Mini blog seputar pengalaman pribadi dunia pemrograman komputer"/><meta name="twitter:image" content="http://localhost:3000/assets/blog/reacts/react1.png"/><link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="16x16"/><script src="/_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script></head><body class="__variable_4d318d __variable_ea5f4b antialiased "><div class="min-h-screen flex items-center justify-center bg-gray-100"><div class="container mx-auto p-4 bg-white rounded-lg shadow-lg"><section class=" prose lg:prose-3xl prose-img:rounded-xl prose-headings:underline prose-a:text-lime-600 prose-code:text-lime-500 mx-auto  "><main class="container"><div class="border-b dark:bg-slate-800 bg-neutral-50 border-neutral-200"><div class=" mx-auto px-5"><div class="py-2 text-center text-sm">source code blog ini bisa ditemukan di link ini<!-- --> <a href="https://github.com/mukharomdev/mukharomdev.github.io" class="underline hover:text-blue-600 duration-200 transition-colors">available on GitHub</a>.</div></div></div><div class=" mx-auto px-5"><h2 class="text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight mb-20 mt-8 flex items-center"><a class="hover:underline" href="/">Blog</a>.</h2><article class="mb-32"><h1 class="text-3xl text-center md:text-5xl lg:text-6xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left"> Penggunaan React useReducer</h1><div class="hidden md:block md:mb-12"><div class="flex items-center"><img src="/assets/blog/authors/mukharomdev.png" class="w-12 h-12 rounded-full mr-4" alt="mukharomdev"/><div class="text-xl font-bold">mukharomdev</div></div></div><div class="mb-8 md:mb-16 sm:mx-0"><div class="sm:mx-0"><img alt="Cover Image for  Penggunaan React useReducer" loading="lazy" width="120" height="80" decoding="async" data-nimg="1" class="shadow-sm w-full sm:w-[400px] md:w-[600px] lg:w-[800px] max-h-[500px] mx-auto block" style="color:transparent" src="/assets/blog/reacts/react1.png"/></div></div><div class="max-w-2xl mx-auto"><div class="block md:hidden mb-6"><div class="flex items-center"><img src="/assets/blog/authors/mukharomdev.png" class="w-12 h-12 rounded-full mr-4" alt="mukharomdev"/><div class="text-xl font-bold">mukharomdev</div></div></div><div class="mb-6 text-lg"><time dateTime="2025-02-28T11:17:44.507Z">February	28, 2025</time></div></div><div class="max-w-2xl mx-auto"><div class="markdown-styles_markdown__ORfR8 prose prose-code "><p>useReducer adalah hook di React untuk mengelola state yang kompleks dengan pola <strong>reducer</strong> (seperti Redux). Hook ini cocok digunakan ketika:</p>
+<ol>
+<li><strong>State memiliki logika yang rumit</strong> dengan banyak sub-nilai.</li>
+<li><strong>State berikutnya bergantung pada state sebelumnya</strong>.</li>
+<li>Anda ingin memisahkan logika state dari komponen untuk meningkatkan keterbacaan.</li>
+</ol>
+<p>Berikut penjelasan lengkap dan contoh penggunaannya:</p>
+<hr>
+<h3><strong>1. Sintaks Dasar</strong></h3>
+<pre><code class="language-javascript">const [state, dispatch] = useReducer(reducer, initialArg, init?);
+</code></pre>
+<ul>
+<li><strong>reducer</strong>: Fungsi yang menentukan bagaimana state diperbarui.</li>
+<li><strong>initialArg</strong>: Nilai awal state atau argumen untuk fungsi inisialisasi (init).</li>
+<li><strong>init</strong> (opsional): Fungsi untuk inisialisasi state secara lazy.</li>
+</ul>
+<hr>
+<h3><strong>2. Cara Kerja useReducer</strong></h3>
+<h4>a. <strong>Buat Reducer Function</strong></h4>
+<p>Reducer menerima state saat ini dan action, lalu mengembalikan state baru.</p>
+<pre><code class="language-javascript">function reducer(state, action) {
+  switch (action.type) {
+    case 'TAMBAH':
+      return { count: state.count + 1 };
+    case 'KURANGI':
+      return { count: state.count - 1 };
+    default:
+      return state;
+  }
+}
+</code></pre>
+<h4>b. <strong>Inisialisasi useReducer di Komponen</strong></h4>
+<pre><code class="language-jsx">import { useReducer } from 'react';
+
+function Counter() {
+  const [state, dispatch] = useReducer(reducer, { count: 0 });
+
+  return (
+    &#x3C;div>
+      &#x3C;p>Hitungan: {state.count}&#x3C;/p>
+      &#x3C;button onClick={() => dispatch({ type: 'TAMBAH' })}>+&#x3C;/button>
+      &#x3C;button onClick={() => dispatch({ type: 'KURANGI' })}>-&#x3C;/button>
+    &#x3C;/div>
+  );
+}
+</code></pre>
+<hr>
+<h3><strong>3. Contoh Lengkap: Todo List</strong></h3>
+<h4>a. Definisi Reducer dan State Awal</h4>
+<pre><code class="language-javascript">const initialState = {
+  todos: [],
+  input: ''
+};
+
+function todoReducer(state, action) {
+  switch (action.type) {
+    case 'SET_INPUT':
+      return { ...state, input: action.payload };
+    case 'TAMBAH_TODO':
+      return {
+        ...state,
+        todos: [...state.todos, action.payload],
+        input: ''
+      };
+    case 'HAPUS_TODO':
+      return {
+        ...state,
+        todos: state.todos.filter((_, index) => index !== action.payload)
+      };
+    default:
+      return state;
+  }
+}
+</code></pre>
+<h4>b. Komponen Todo</h4>
+<pre><code class="language-jsx">function TodoApp() {
+  const [state, dispatch] = useReducer(todoReducer, initialState);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (state.input.trim()) {
+      dispatch({ type: 'TAMBAH_TODO', payload: state.input });
+    }
+  };
+
+  return (
+    &#x3C;div>
+      &#x3C;form onSubmit={handleSubmit}>
+        &#x3C;input
+          value={state.input}
+          onChange={(e) => 
+            dispatch({ type: 'SET_INPUT', payload: e.target.value })
+          }
+        />
+        &#x3C;button type="submit">Tambah&#x3C;/button>
+      &#x3C;/form>
+      &#x3C;ul>
+        {state.todos.map((todo, index) => (
+          &#x3C;li key={index}>
+            {todo}
+            &#x3C;button 
+              onClick={() => dispatch({ type: 'HAPUS_TODO', payload: index })}
+            >
+              Hapus
+            &#x3C;/button>
+          &#x3C;/li>
+        ))}
+      &#x3C;/ul>
+    &#x3C;/div>
+  );
+}
+</code></pre>
+<hr>
+<h3><strong>4. Inisialisasi Lazy State</strong></h3>
+<p>Jika inisialisasi state memerlukan komputasi berat, gunakan fungsi sebagai argumen ketiga:</p>
+<pre><code class="language-javascript">function init(initialCount) {
+  return { count: initialCount };
+}
+
+function Counter({ initialCount }) {
+  const [state, dispatch] = useReducer(reducer, initialCount, init);
+  // ...
+}
+</code></pre>
+<hr>
+<h3><strong>5. Perbandingan useReducer vs useState</strong></h3>
+<div class="overflow-x-auto bg-lime-100"><table>
+<thead>
+<tr>
+<th><strong>Kriteria</strong></th>
+<th>useReducer</th>
+<th>useState</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Kompleksitas</strong></td>
+<td>Cocok untuk state kompleks</td>
+<td>Cocok untuk state sederhana</td>
+</tr>
+<tr>
+<td><strong>Logika Update</strong></td>
+<td>Terpusat di reducer</td>
+<td>Tersebar di handler</td>
+</tr>
+<tr>
+<td><strong>Testing</strong></td>
+<td>Mudah (reducer pure function)</td>
+<td>Lebih sulit</td>
+</tr>
+<tr>
+<td><strong>Boilerplate</strong></td>
+<td>Lebih banyak</td>
+<td>Minimal</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h3><strong>6. Kapan Menggunakan useReducer?</strong></h3>
+<ul>
+<li>State memiliki <strong>banyak sub-nilai</strong> (contoh: form dengan banyak field).</li>
+<li><strong>Transisi state kompleks</strong> (contoh: drag-and-drop, state machine).</li>
+<li>Logika state perlu <strong>digunakan di banyak komponen</strong> (kombinasikan dengan useContext).</li>
+<li>Untuk <strong>optimisasi performa</strong> (dispatch tidak berubah, cocok untuk optimisasi memoization).</li>
+</ul>
+<hr>
+<h3><strong>7. Best Practices</strong></h3>
+<ol>
+<li>
+<p><strong>Gunakan Aksi Terstandarisasi</strong><br>
+Definisikan tipe aksi sebagai konstanta untuk menghindari typo:</p>
+<pre><code class="language-javascript">const ACTIONS = {
+  TAMBAH_TODO: 'TAMBAH_TODO',
+  HAPUS_TODO: 'HAPUS_TODO'
+};
+</code></pre>
+</li>
+<li>
+<p><strong>Pisahkan Reducer dari Komponen</strong><br>
+Simpan reducer di file terpisah agar mudah di-test dan di-reuse.</p>
+</li>
+<li>
+<p><strong>Hindari Mutasi Langsung State</strong><br>
+Selalu kembalikan state baru (gunakan spread operator atau Immer untuk objek/array):</p>
+<pre><code class="language-javascript">// ❌ Salah
+state.todos.push(action.payload);
+return state;
+
+// ✅ Benar
+return { ...state, todos: [...state.todos, action.payload] };
+</code></pre>
+</li>
+</ol>
+<hr>
+<h3><strong>Contoh Lain: Form Kompleks</strong></h3>
+<pre><code class="language-jsx">const formReducer = (state, action) => {
+  switch (action.type) {
+    case 'UPDATE_FIELD':
+      return {
+        ...state,
+        [action.field]: action.value
+      };
+    case 'RESET':
+      return initialState;
+    default:
+      return state;
+  }
+};
+
+function UserForm() {
+  const [state, dispatch] = useReducer(formReducer, {
+    name: '',
+    email: '',
+    password: ''
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(state);
+    dispatch({ type: 'RESET' });
+  };
+
+  return (
+    &#x3C;form onSubmit={handleSubmit}>
+      &#x3C;input
+        type="text"
+        value={state.name}
+        onChange={(e) => 
+          dispatch({ type: 'UPDATE_FIELD', field: 'name', value: e.target.value })
+        }
+      />
+      &#x3C;input
+        type="email"
+        value={state.email}
+        onChange={(e) => 
+          dispatch({ type: 'UPDATE_FIELD', field: 'email', value: e.target.value })
+        }
+      />
+      &#x3C;button type="submit">Submit&#x3C;/button>
+    &#x3C;/form>
+  );
+}
+</code></pre>
+<hr>
+<h3><strong>Kesimpulan</strong></h3>
+<p>useReducer adalah solusi ideal untuk mengelola state yang kompleks dan terstruktur, sementara useState lebih cocok untuk state sederhana. Pilih sesuai kebutuhan aplikasi!</p>
+</div></div></article></div></main></section></div></div><script src="/_next/static/chunks/webpack-d1f044851490e377.js" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"1:\"$Sreact.fragment\"\n2:I[7397,[],\"\"]\n3:I[8513,[],\"\"]\n5:I[3514,[],\"OutletBoundary\"]\n8:I[3514,[],\"ViewportBoundary\"]\na:I[3514,[],\"MetadataBoundary\"]\nc:I[1612,[],\"\"]\n:HL[\"/_next/static/media/569ce4b8f30dc480-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/_next/static/media/93f479601ee12b01-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/_next/static/css/cc1b38a888361ae0.css\",\"style\"]\n:HL[\"/_next/static/css/a218dfb468eefcdf.css\",\"style\"]\n"])</script><script>self.__next_f.push([1,"0:{\"P\":null,\"b\":\"zB4SN0XwAB_SWMRVvwFhG\",\"p\":\"\",\"c\":[\"\",\"blog\",\"react-usereducer\"],\"i\":false,\"f\":[[[\"\",{\"children\":[\"blog\",{\"children\":[[\"slug\",\"react-usereducer\",\"d\"],{\"children\":[\"__PAGE__\",{}]}]}]},\"$undefined\",\"$undefined\",true],[\"\",[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/cc1b38a888361ae0.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"en\",\"children\":[\"$\",\"body\",null,{\"className\":\"__variable_4d318d __variable_ea5f4b antialiased \",\"children\":[\"$\",\"div\",null,{\"className\":\"min-h-screen flex items-center justify-center bg-gray-100\",\"children\":[\"$\",\"div\",null,{\"className\":\"container mx-auto p-4 bg-white rounded-lg shadow-lg\",\"children\":[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L3\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":404}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],\"$undefined\",[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}]}]}]}]]}],{\"children\":[\"blog\",[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"section\",null,{\"className\":\" prose lg:prose-3xl prose-img:rounded-xl prose-headings:underline prose-a:text-lime-600 prose-code:text-lime-500 mx-auto  \",\"children\":[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L3\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}]]}],{\"children\":[[\"slug\",\"react-usereducer\",\"d\"],[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L3\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[\"__PAGE__\",[\"$\",\"$1\",\"c\",{\"children\":[\"$L4\",\"$undefined\",[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/a218dfb468eefcdf.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]],[\"$\",\"$L5\",null,{\"children\":[\"$L6\",\"$L7\",null]}]]}],{},null,false]},null,false]},null,false]},null,false],[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$1\",\"3sTgFhT5ZR1_zLyzyykko\",{\"children\":[[\"$\",\"$L8\",null,{\"children\":\"$L9\"}],[\"$\",\"meta\",null,{\"name\":\"next-size-adjust\",\"content\":\"\"}]]}],[\"$\",\"$La\",null,{\"children\":\"$Lb\"}]]}],false]],\"m\":\"$undefined\",\"G\":[\"$c\",\"$undefined\"],\"s\":false,\"S\":true}\n"])</script><script>self.__next_f.push([1,"d:I[4184,[\"161\",\"static/chunks/161-e1f62ef38275032d.js\",\"953\",\"static/chunks/app/blog/%5Bslug%5D/page-df444d222e09a7de.js\"],\"\"]\ne:I[8161,[\"161\",\"static/chunks/161-e1f62ef38275032d.js\",\"953\",\"static/chunks/app/blog/%5Bslug%5D/page-df444d222e09a7de.js\"],\"Image\"]\nf:T1c3c,"])</script><script>self.__next_f.push([1,"\u003cp\u003euseReducer adalah hook di React untuk mengelola state yang kompleks dengan pola \u003cstrong\u003ereducer\u003c/strong\u003e (seperti Redux). Hook ini cocok digunakan ketika:\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e\u003cstrong\u003eState memiliki logika yang rumit\u003c/strong\u003e dengan banyak sub-nilai.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eState berikutnya bergantung pada state sebelumnya\u003c/strong\u003e.\u003c/li\u003e\n\u003cli\u003eAnda ingin memisahkan logika state dari komponen untuk meningkatkan keterbacaan.\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003eBerikut penjelasan lengkap dan contoh penggunaannya:\u003c/p\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e1. Sintaks Dasar\u003c/strong\u003e\u003c/h3\u003e\n\u003cpre\u003e\u003ccode class=\"language-javascript\"\u003econst [state, dispatch] = useReducer(reducer, initialArg, init?);\n\u003c/code\u003e\u003c/pre\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003ereducer\u003c/strong\u003e: Fungsi yang menentukan bagaimana state diperbarui.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003einitialArg\u003c/strong\u003e: Nilai awal state atau argumen untuk fungsi inisialisasi (init).\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003einit\u003c/strong\u003e (opsional): Fungsi untuk inisialisasi state secara lazy.\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e2. Cara Kerja useReducer\u003c/strong\u003e\u003c/h3\u003e\n\u003ch4\u003ea. \u003cstrong\u003eBuat Reducer Function\u003c/strong\u003e\u003c/h4\u003e\n\u003cp\u003eReducer menerima state saat ini dan action, lalu mengembalikan state baru.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-javascript\"\u003efunction reducer(state, action) {\n  switch (action.type) {\n    case 'TAMBAH':\n      return { count: state.count + 1 };\n    case 'KURANGI':\n      return { count: state.count - 1 };\n    default:\n      return state;\n  }\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003eb. \u003cstrong\u003eInisialisasi useReducer di Komponen\u003c/strong\u003e\u003c/h4\u003e\n\u003cpre\u003e\u003ccode class=\"language-jsx\"\u003eimport { useReducer } from 'react';\n\nfunction Counter() {\n  const [state, dispatch] = useReducer(reducer, { count: 0 });\n\n  return (\n    \u0026#x3C;div\u003e\n      \u0026#x3C;p\u003eHitungan: {state.count}\u0026#x3C;/p\u003e\n      \u0026#x3C;button onClick={() =\u003e dispatch({ type: 'TAMBAH' })}\u003e+\u0026#x3C;/button\u003e\n      \u0026#x3C;button onClick={() =\u003e dispatch({ type: 'KURANGI' })}\u003e-\u0026#x3C;/button\u003e\n    \u0026#x3C;/div\u003e\n  );\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e3. Contoh Lengkap: Todo List\u003c/strong\u003e\u003c/h3\u003e\n\u003ch4\u003ea. Definisi Reducer dan State Awal\u003c/h4\u003e\n\u003cpre\u003e\u003ccode class=\"language-javascript\"\u003econst initialState = {\n  todos: [],\n  input: ''\n};\n\nfunction todoReducer(state, action) {\n  switch (action.type) {\n    case 'SET_INPUT':\n      return { ...state, input: action.payload };\n    case 'TAMBAH_TODO':\n      return {\n        ...state,\n        todos: [...state.todos, action.payload],\n        input: ''\n      };\n    case 'HAPUS_TODO':\n      return {\n        ...state,\n        todos: state.todos.filter((_, index) =\u003e index !== action.payload)\n      };\n    default:\n      return state;\n  }\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4\u003eb. Komponen Todo\u003c/h4\u003e\n\u003cpre\u003e\u003ccode class=\"language-jsx\"\u003efunction TodoApp() {\n  const [state, dispatch] = useReducer(todoReducer, initialState);\n\n  const handleSubmit = (e) =\u003e {\n    e.preventDefault();\n    if (state.input.trim()) {\n      dispatch({ type: 'TAMBAH_TODO', payload: state.input });\n    }\n  };\n\n  return (\n    \u0026#x3C;div\u003e\n      \u0026#x3C;form onSubmit={handleSubmit}\u003e\n        \u0026#x3C;input\n          value={state.input}\n          onChange={(e) =\u003e \n            dispatch({ type: 'SET_INPUT', payload: e.target.value })\n          }\n        /\u003e\n        \u0026#x3C;button type=\"submit\"\u003eTambah\u0026#x3C;/button\u003e\n      \u0026#x3C;/form\u003e\n      \u0026#x3C;ul\u003e\n        {state.todos.map((todo, index) =\u003e (\n          \u0026#x3C;li key={index}\u003e\n            {todo}\n            \u0026#x3C;button \n              onClick={() =\u003e dispatch({ type: 'HAPUS_TODO', payload: index })}\n            \u003e\n              Hapus\n            \u0026#x3C;/button\u003e\n          \u0026#x3C;/li\u003e\n        ))}\n      \u0026#x3C;/ul\u003e\n    \u0026#x3C;/div\u003e\n  );\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e4. Inisialisasi Lazy State\u003c/strong\u003e\u003c/h3\u003e\n\u003cp\u003eJika inisialisasi state memerlukan komputasi berat, gunakan fungsi sebagai argumen ketiga:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-javascript\"\u003efunction init(initialCount) {\n  return { count: initialCount };\n}\n\nfunction Counter({ initialCount }) {\n  const [state, dispatch] = useReducer(reducer, initialCount, init);\n  // ...\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e5. Perbandingan useReducer vs useState\u003c/strong\u003e\u003c/h3\u003e\n\u003cdiv class=\"overflow-x-auto bg-lime-100\"\u003e\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003e\u003cstrong\u003eKriteria\u003c/strong\u003e\u003c/th\u003e\n\u003cth\u003euseReducer\u003c/th\u003e\n\u003cth\u003euseState\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003cstrong\u003eKompleksitas\u003c/strong\u003e\u003c/td\u003e\n\u003ctd\u003eCocok untuk state kompleks\u003c/td\u003e\n\u003ctd\u003eCocok untuk state sederhana\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003cstrong\u003eLogika Update\u003c/strong\u003e\u003c/td\u003e\n\u003ctd\u003eTerpusat di reducer\u003c/td\u003e\n\u003ctd\u003eTersebar di handler\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003cstrong\u003eTesting\u003c/strong\u003e\u003c/td\u003e\n\u003ctd\u003eMudah (reducer pure function)\u003c/td\u003e\n\u003ctd\u003eLebih sulit\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003cstrong\u003eBoilerplate\u003c/strong\u003e\u003c/td\u003e\n\u003ctd\u003eLebih banyak\u003c/td\u003e\n\u003ctd\u003eMinimal\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\u003c/div\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e6. Kapan Menggunakan useReducer?\u003c/strong\u003e\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003eState memiliki \u003cstrong\u003ebanyak sub-nilai\u003c/strong\u003e (contoh: form dengan banyak field).\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eTransisi state kompleks\u003c/strong\u003e (contoh: drag-and-drop, state machine).\u003c/li\u003e\n\u003cli\u003eLogika state perlu \u003cstrong\u003edigunakan di banyak komponen\u003c/strong\u003e (kombinasikan dengan useContext).\u003c/li\u003e\n\u003cli\u003eUntuk \u003cstrong\u003eoptimisasi performa\u003c/strong\u003e (dispatch tidak berubah, cocok untuk optimisasi memoization).\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003e7. Best Practices\u003c/strong\u003e\u003c/h3\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eGunakan Aksi Terstandarisasi\u003c/strong\u003e\u003cbr\u003e\nDefinisikan tipe aksi sebagai konstanta untuk menghindari typo:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-javascript\"\u003econst ACTIONS = {\n  TAMBAH_TODO: 'TAMBAH_TODO',\n  HAPUS_TODO: 'HAPUS_TODO'\n};\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003ePisahkan Reducer dari Komponen\u003c/strong\u003e\u003cbr\u003e\nSimpan reducer di file terpisah agar mudah di-test dan di-reuse.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eHindari Mutasi Langsung State\u003c/strong\u003e\u003cbr\u003e\nSelalu kembalikan state baru (gunakan spread operator atau Immer untuk objek/array):\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-javascript\"\u003e// ❌ Salah\nstate.todos.push(action.payload);\nreturn state;\n\n// ✅ Benar\nreturn { ...state, todos: [...state.todos, action.payload] };\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003eContoh Lain: Form Kompleks\u003c/strong\u003e\u003c/h3\u003e\n\u003cpre\u003e\u003ccode class=\"language-jsx\"\u003econst formReducer = (state, action) =\u003e {\n  switch (action.type) {\n    case 'UPDATE_FIELD':\n      return {\n        ...state,\n        [action.field]: action.value\n      };\n    case 'RESET':\n      return initialState;\n    default:\n      return state;\n  }\n};\n\nfunction UserForm() {\n  const [state, dispatch] = useReducer(formReducer, {\n    name: '',\n    email: '',\n    password: ''\n  });\n\n  const handleSubmit = (e) =\u003e {\n    e.preventDefault();\n    console.log(state);\n    dispatch({ type: 'RESET' });\n  };\n\n  return (\n    \u0026#x3C;form onSubmit={handleSubmit}\u003e\n      \u0026#x3C;input\n        type=\"text\"\n        value={state.name}\n        onChange={(e) =\u003e \n          dispatch({ type: 'UPDATE_FIELD', field: 'name', value: e.target.value })\n        }\n      /\u003e\n      \u0026#x3C;input\n        type=\"email\"\n        value={state.email}\n        onChange={(e) =\u003e \n          dispatch({ type: 'UPDATE_FIELD', field: 'email', value: e.target.value })\n        }\n      /\u003e\n      \u0026#x3C;button type=\"submit\"\u003eSubmit\u0026#x3C;/button\u003e\n    \u0026#x3C;/form\u003e\n  );\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003chr\u003e\n\u003ch3\u003e\u003cstrong\u003eKesimpulan\u003c/strong\u003e\u003c/h3\u003e\n\u003cp\u003euseReducer adalah solusi ideal untuk mengelola state yang kompleks dan terstruktur, sementara useState lebih cocok untuk state sederhana. Pilih sesuai kebutuhan aplikasi!\u003c/p\u003e\n"])</script><script>self.__next_f.push([1,"4:[\"$\",\"main\",null,{\"className\":\"container\",\"children\":[[\"$\",\"div\",null,{\"className\":\"border-b dark:bg-slate-800 bg-neutral-50 border-neutral-200\",\"children\":[\"$\",\"div\",null,{\"className\":\" mx-auto px-5\",\"children\":[\"$\",\"div\",null,{\"className\":\"py-2 text-center text-sm\",\"children\":[\"source code blog ini bisa ditemukan di link ini\",\" \",[\"$\",\"a\",null,{\"href\":\"https://github.com/mukharomdev/mukharomdev.github.io\",\"className\":\"underline hover:text-blue-600 duration-200 transition-colors\",\"children\":\"available on GitHub\"}],\".\"]}]}]}],[\"$\",\"div\",null,{\"className\":\" mx-auto px-5\",\"children\":[[\"$\",\"h2\",null,{\"className\":\"text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight mb-20 mt-8 flex items-center\",\"children\":[[\"$\",\"$Ld\",null,{\"href\":\"/\",\"className\":\"hover:underline\",\"children\":\"Blog\"}],\".\"]}],[\"$\",\"article\",null,{\"className\":\"mb-32\",\"children\":[[[\"$\",\"h1\",null,{\"className\":\"text-3xl text-center md:text-5xl lg:text-6xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left\",\"children\":\" Penggunaan React useReducer\"}],[\"$\",\"div\",null,{\"className\":\"hidden md:block md:mb-12\",\"children\":[\"$\",\"div\",null,{\"className\":\"flex items-center\",\"children\":[[\"$\",\"img\",null,{\"src\":\"/assets/blog/authors/mukharomdev.png\",\"className\":\"w-12 h-12 rounded-full mr-4\",\"alt\":\"mukharomdev\"}],[\"$\",\"div\",null,{\"className\":\"text-xl font-bold\",\"children\":\"mukharomdev\"}]]}]}],[\"$\",\"div\",null,{\"className\":\"mb-8 md:mb-16 sm:mx-0\",\"children\":[\"$\",\"div\",null,{\"className\":\"sm:mx-0\",\"children\":[\"$\",\"$Le\",null,{\"src\":\"/assets/blog/reacts/react1.png\",\"alt\":\"Cover Image for  Penggunaan React useReducer\",\"className\":\"shadow-sm w-full sm:w-[400px] md:w-[600px] lg:w-[800px] max-h-[500px] mx-auto block\",\"width\":120,\"height\":80}]}]}],[\"$\",\"div\",null,{\"className\":\"max-w-2xl mx-auto\",\"children\":[[\"$\",\"div\",null,{\"className\":\"block md:hidden mb-6\",\"children\":[\"$\",\"div\",null,{\"className\":\"flex items-center\",\"children\":[[\"$\",\"img\",null,{\"src\":\"/assets/blog/authors/mukharomdev.png\",\"className\":\"w-12 h-12 rounded-full mr-4\",\"alt\":\"mukharomdev\"}],[\"$\",\"div\",null,{\"className\":\"text-xl font-bold\",\"children\":\"mukharomdev\"}]]}]}],[\"$\",\"div\",null,{\"className\":\"mb-6 text-lg\",\"children\":[\"$\",\"time\",null,{\"dateTime\":\"2025-02-28T11:17:44.507Z\",\"children\":\"February\\t28, 2025\"}]}]]}]],[\"$\",\"div\",null,{\"className\":\"max-w-2xl mx-auto\",\"children\":[\"$\",\"div\",null,{\"className\":\"markdown-styles_markdown__ORfR8 prose prose-code \",\"dangerouslySetInnerHTML\":{\"__html\":\"$f\"}}]}]]}]]}]]}]\n"])</script><script>self.__next_f.push([1,"9:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]\n6:null\n"])</script><script>self.__next_f.push([1,"7:null\nb:[[\"$\",\"title\",\"0\",{\"children\":\" Penggunaan React useReducer | mukharomdev blog build with Markdown\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"Mini blog seputar pengalaman pribadi dunia pemrograman komputer\"}],[\"$\",\"meta\",\"2\",{\"property\":\"og:title\",\"content\":\" Penggunaan React useReducer | mukharomdev blog build with Markdown\"}],[\"$\",\"meta\",\"3\",{\"property\":\"og:description\",\"content\":\"Mini blog seputar pengalaman pribadi dunia pemrograman komputer\"}],[\"$\",\"meta\",\"4\",{\"property\":\"og:image\",\"content\":\"http://localhost:3000/assets/blog/reacts/react1.png\"}],[\"$\",\"meta\",\"5\",{\"name\":\"twitter:card\",\"content\":\"summary_large_image\"}],[\"$\",\"meta\",\"6\",{\"name\":\"twitter:title\",\"content\":\" Penggunaan React useReducer | mukharomdev blog build with Markdown\"}],[\"$\",\"meta\",\"7\",{\"name\":\"twitter:description\",\"content\":\"Mini blog seputar pengalaman pribadi dunia pemrograman komputer\"}],[\"$\",\"meta\",\"8\",{\"name\":\"twitter:image\",\"content\":\"http://localhost:3000/assets/blog/reacts/react1.png\"}],[\"$\",\"link\",\"9\",{\"rel\":\"icon\",\"href\":\"/favicon.ico\",\"type\":\"image/x-icon\",\"sizes\":\"16x16\"}]]\n"])</script></body></html>

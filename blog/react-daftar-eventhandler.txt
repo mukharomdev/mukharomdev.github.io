@@ -1,0 +1,393 @@
+1:"$Sreact.fragment"
+2:I[7397,[],""]
+3:I[8513,[],""]
+5:I[3514,[],"OutletBoundary"]
+8:I[3514,[],"ViewportBoundary"]
+a:I[3514,[],"MetadataBoundary"]
+c:I[1612,[],""]
+:HL["/_next/static/media/569ce4b8f30dc480-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/93f479601ee12b01-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/cc1b38a888361ae0.css","style"]
+:HL["/_next/static/css/a218dfb468eefcdf.css","style"]
+0:{"P":null,"b":"zB4SN0XwAB_SWMRVvwFhG","p":"","c":["","blog","react-daftar-eventhandler"],"i":false,"f":[[["",{"children":["blog",{"children":[["slug","react-daftar-eventhandler","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/cc1b38a888361ae0.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":["$","body",null,{"className":"__variable_4d318d __variable_ea5f4b antialiased ","children":["$","div",null,{"className":"min-h-screen flex items-center justify-center bg-gray-100","children":["$","div",null,{"className":"container mx-auto p-4 bg-white rounded-lg shadow-lg","children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],"$undefined",[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]}]]}],{"children":["blog",["$","$1","c",{"children":[null,["$","section",null,{"className":" prose lg:prose-3xl prose-img:rounded-xl prose-headings:underline prose-a:text-lime-600 prose-code:text-lime-500 mx-auto  ","children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]}]]}],{"children":[["slug","react-daftar-eventhandler","d"],["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L4","$undefined",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/a218dfb468eefcdf.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","$L5",null,{"children":["$L6","$L7",null]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","D_2A-5N8FaZ7DspJlJ5u0",{"children":[["$","$L8",null,{"children":"$L9"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],["$","$La",null,{"children":"$Lb"}]]}],false]],"m":"$undefined","G":["$c","$undefined"],"s":false,"S":true}
+d:I[4184,["161","static/chunks/161-e1f62ef38275032d.js","953","static/chunks/app/blog/%5Bslug%5D/page-df444d222e09a7de.js"],""]
+e:I[8161,["161","static/chunks/161-e1f62ef38275032d.js","953","static/chunks/app/blog/%5Bslug%5D/page-df444d222e09a7de.js"],"Image"]
+f:T1f4f,<p>Berikut adalah daftar <strong>event handler</strong> umum yang digunakan di React, dikelompokkan berdasarkan kategori:</p>
+<hr>
+<h3><strong>1. Mouse Events</strong></h3>
+<div class="overflow-x-auto bg-lime-100"><table>
+<thead>
+<tr>
+<th><strong>Event Handler</strong></th>
+<th><strong>Keterangan</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>onClick</td>
+<td>Klik kiri mouse</td>
+</tr>
+<tr>
+<td>onDoubleClick</td>
+<td>Klik ganda</td>
+</tr>
+<tr>
+<td>onMouseDown</td>
+<td>Saat tombol mouse ditekan</td>
+</tr>
+<tr>
+<td>onMouseUp</td>
+<td>Saat tombol mouse dilepas</td>
+</tr>
+<tr>
+<td>onMouseEnter</td>
+<td>Saat kursor masuk ke area elemen</td>
+</tr>
+<tr>
+<td>onMouseLeave</td>
+<td>Saat kursor keluar dari area elemen</td>
+</tr>
+<tr>
+<td>onMouseOver</td>
+<td>Saat kursor berada di atas elemen</td>
+</tr>
+<tr>
+<td>onMouseOut</td>
+<td>Saat kursor keluar dari elemen atau anaknya</td>
+</tr>
+<tr>
+<td>onContextMenu</td>
+<td>Klik kanan mouse</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Contoh:</strong></p>
+<pre><code class="language-jsx">&#x3C;button onClick={() => console.log("Diklik!")}>Klik Saya&#x3C;/button>
+</code></pre>
+<hr>
+<h3><strong>2. Keyboard Events</strong></h3>
+<div class="overflow-x-auto bg-lime-100"><table>
+<thead>
+<tr>
+<th><strong>Event Handler</strong></th>
+<th><strong>Keterangan</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>onKeyDown</td>
+<td>Saat tombol keyboard ditekan</td>
+</tr>
+<tr>
+<td>onKeyUp</td>
+<td>Saat tombol keyboard dilepas</td>
+</tr>
+<tr>
+<td>onKeyPress</td>
+<td>Saat tombol ditekan (tidak termasuk modifier keys seperti Shift)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Contoh:</strong></p>
+<pre><code class="language-jsx">&#x3C;input 
+  onKeyDown={(e) => {
+    if (e.key === 'Enter') console.log("Enter ditekan!");
+  }}
+/>
+</code></pre>
+<hr>
+<h3><strong>3. Form Events</strong></h3>
+<div class="overflow-x-auto bg-lime-100"><table>
+<thead>
+<tr>
+<th><strong>Event Handler</strong></th>
+<th><strong>Keterangan</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>onChange</td>
+<td>Saat nilai input/select/textarea berubah</td>
+</tr>
+<tr>
+<td>onSubmit</td>
+<td>Saat form di-submit</td>
+</tr>
+<tr>
+<td>onInput</td>
+<td>Saat nilai input berubah (lebih cepat dari onChange)</td>
+</tr>
+<tr>
+<td>onInvalid</td>
+<td>Saat form input tidak valid</td>
+</tr>
+<tr>
+<td>onReset</td>
+<td>Saat form di-reset</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Contoh:</strong></p>
+<pre><code class="language-jsx">&#x3C;form onSubmit={(e) => {
+  e.preventDefault();
+  console.log("Form di-submit!");
+}}>
+  &#x3C;input type="text" onChange={(e) => console.log(e.target.value)} />
+&#x3C;/form>
+</code></pre>
+<hr>
+<h3><strong>4. Focus &#x26; Blur Events</strong></h3>
+<div class="overflow-x-auto bg-lime-100"><table>
+<thead>
+<tr>
+<th><strong>Event Handler</strong></th>
+<th><strong>Keterangan</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>onFocus</td>
+<td>Saat elemen mendapat fokus</td>
+</tr>
+<tr>
+<td>onBlur</td>
+<td>Saat elemen kehilangan fokus</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Contoh:</strong></p>
+<pre><code class="language-jsx">&#x3C;input 
+  onFocus={() => console.log("Input fokus!")}
+  onBlur={() => console.log("Input kehilangan fokus!")}
+/>
+</code></pre>
+<hr>
+<h3><strong>5. Touch Events</strong></h3>
+<div class="overflow-x-auto bg-lime-100"><table>
+<thead>
+<tr>
+<th><strong>Event Handler</strong></th>
+<th><strong>Keterangan</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>onTouchStart</td>
+<td>Saat jari menyentuh layar</td>
+</tr>
+<tr>
+<td>onTouchEnd</td>
+<td>Saat jari diangkat dari layar</td>
+</tr>
+<tr>
+<td>onTouchMove</td>
+<td>Saat jari bergerak di layar</td>
+</tr>
+<tr>
+<td>onTouchCancel</td>
+<td>Saat sentuhan dibatalkan</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h3><strong>6. Drag &#x26; Drop Events</strong></h3>
+<div class="overflow-x-auto bg-lime-100"><table>
+<thead>
+<tr>
+<th><strong>Event Handler</strong></th>
+<th><strong>Keterangan</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>onDrag</td>
+<td>Saat elemen di-drag</td>
+</tr>
+<tr>
+<td>onDragStart</td>
+<td>Saat drag dimulai</td>
+</tr>
+<tr>
+<td>onDragEnd</td>
+<td>Saat drag selesai</td>
+</tr>
+<tr>
+<td>onDragOver</td>
+<td>Saat elemen di-drag di atas target</td>
+</tr>
+<tr>
+<td>onDrop</td>
+<td>Saat elemen di-drop ke target</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h3><strong>7. Clipboard Events</strong></h3>
+<div class="overflow-x-auto bg-lime-100"><table>
+<thead>
+<tr>
+<th><strong>Event Handler</strong></th>
+<th><strong>Keterangan</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>onCopy</td>
+<td>Saat konten di-copy</td>
+</tr>
+<tr>
+<td>onCut</td>
+<td>Saat konten di-cut</td>
+</tr>
+<tr>
+<td>onPaste</td>
+<td>Saat konten di-paste</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Contoh:</strong></p>
+<pre><code class="language-jsx">&#x3C;div 
+  onCopy={() => console.log("Teks di-copy!")}
+  onPaste={() => console.log("Teks di-paste!")}
+>
+  Salin teks ini.
+&#x3C;/div>
+</code></pre>
+<hr>
+<h3><strong>8. Media Events</strong></h3>
+<div class="overflow-x-auto bg-lime-100"><table>
+<thead>
+<tr>
+<th><strong>Event Handler</strong></th>
+<th><strong>Keterangan</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>onPlay</td>
+<td>Saat media mulai diputar</td>
+</tr>
+<tr>
+<td>onPause</td>
+<td>Saat media dijeda</td>
+</tr>
+<tr>
+<td>onEnded</td>
+<td>Saat media selesai diputar</td>
+</tr>
+<tr>
+<td>onVolumeChange</td>
+<td>Saat volume diubah</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h3><strong>9. Scroll Events</strong></h3>
+<div class="overflow-x-auto bg-lime-100"><table>
+<thead>
+<tr>
+<th><strong>Event Handler</strong></th>
+<th><strong>Keterangan</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>onScroll</td>
+<td>Saat elemen di-scroll</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h3><strong>10. Image Events</strong></h3>
+<div class="overflow-x-auto bg-lime-100"><table>
+<thead>
+<tr>
+<th><strong>Event Handler</strong></th>
+<th><strong>Keterangan</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>onLoad</td>
+<td>Saat gambar selesai dimuat</td>
+</tr>
+<tr>
+<td>onError</td>
+<td>Saat gambar gagal dimuat</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Contoh:</strong></p>
+<pre><code class="language-jsx">&#x3C;img 
+  src="image.jpg" 
+  onLoad={() => console.log("Gambar dimuat!")}
+  onError={() => console.log("Gagal memuat gambar!")}
+/>
+</code></pre>
+<hr>
+<h3><strong>11. Animation/Transition Events</strong></h3>
+<div class="overflow-x-auto bg-lime-100"><table>
+<thead>
+<tr>
+<th><strong>Event Handler</strong></th>
+<th><strong>Keterangan</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>onAnimationStart</td>
+<td>Saat animasi CSS dimulai</td>
+</tr>
+<tr>
+<td>onAnimationEnd</td>
+<td>Saat animasi CSS selesai</td>
+</tr>
+<tr>
+<td>onTransitionEnd</td>
+<td>Saat transisi CSS selesai</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h3><strong>12. Window/Global Events</strong></h3>
+<p>Untuk event global seperti resize atau scroll, gunakan useEffect:</p>
+<pre><code class="language-jsx">useEffect(() => {
+  const handleResize = () => console.log("Ukuran window berubah!");
+  window.addEventListener('resize', handleResize);
+  return () => window.removeEventListener('resize', handleResize);
+}, []);
+</code></pre>
+<hr>
+<h3><strong>Catatan Penting:</strong></h3>
+<ol>
+<li>
+<p><strong>Synthetic Events</strong>:<br>
+React menggunakan <em>synthetic events</em> (event wrapper) untuk konsistensi di semua browser.<br>
+Contoh: e.preventDefault() untuk mencegah perilaku default.</p>
+</li>
+<li>
+<p><strong>Event Pooling</strong>:<br>
+Objek event di React di-reuse untuk optimasi. Jika perlu akses event secara asinkron, gunakan e.persist().</p>
+</li>
+<li>
+<p><strong>Parameter Event</strong>:<br>
+Event handler menerima objek event sebagai argumen pertama:</p>
+<pre><code class="language-jsx">&#x3C;button onClick={(e) => console.log(e.target)}>Klik&#x3C;/button>
+</code></pre>
+</li>
+<li>
+<p><strong>Perbedaan dengan DOM Native Events</strong>:</p>
+<ul>
+<li>Nama event camelCase (bukan lowercase).</li>
+<li>Handler di-pass sebagai prop (bukan string).<br>
+Contoh: onclick → onClick, onsubmit → onSubmit.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<p>Semoga daftar ini membantu! 🚀</p>
+4:["$","main",null,{"className":"container","children":[["$","div",null,{"className":"border-b dark:bg-slate-800 bg-neutral-50 border-neutral-200","children":["$","div",null,{"className":" mx-auto px-5","children":["$","div",null,{"className":"py-2 text-center text-sm","children":["source code blog ini bisa ditemukan di link ini"," ",["$","a",null,{"href":"https://github.com/mukharomdev/mukharomdev.github.io","className":"underline hover:text-blue-600 duration-200 transition-colors","children":"available on GitHub"}],"."]}]}]}],["$","div",null,{"className":" mx-auto px-5","children":[["$","h2",null,{"className":"text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight mb-20 mt-8 flex items-center","children":[["$","$Ld",null,{"href":"/","className":"hover:underline","children":"Blog"}],"."]}],["$","article",null,{"className":"mb-32","children":[[["$","h1",null,{"className":"text-3xl text-center md:text-5xl lg:text-6xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left","children":" Daftar eventHandler di React"}],["$","div",null,{"className":"hidden md:block md:mb-12","children":["$","div",null,{"className":"flex items-center","children":[["$","img",null,{"src":"/assets/blog/authors/mukharomdev.png","className":"w-12 h-12 rounded-full mr-4","alt":"mukharomdev"}],["$","div",null,{"className":"text-xl font-bold","children":"mukharomdev"}]]}]}],["$","div",null,{"className":"mb-8 md:mb-16 sm:mx-0","children":["$","div",null,{"className":"sm:mx-0","children":["$","$Le",null,{"src":"/assets/blog/reacts/react.jpg","alt":"Cover Image for  Daftar eventHandler di React","className":"shadow-sm w-full sm:w-[400px] md:w-[600px] lg:w-[800px] max-h-[500px] mx-auto block","width":120,"height":80}]}]}],["$","div",null,{"className":"max-w-2xl mx-auto","children":[["$","div",null,{"className":"block md:hidden mb-6","children":["$","div",null,{"className":"flex items-center","children":[["$","img",null,{"src":"/assets/blog/authors/mukharomdev.png","className":"w-12 h-12 rounded-full mr-4","alt":"mukharomdev"}],["$","div",null,{"className":"text-xl font-bold","children":"mukharomdev"}]]}]}],["$","div",null,{"className":"mb-6 text-lg","children":["$","time",null,{"dateTime":"2025-02-28T05:35:07.322Z","children":"February\t28, 2025"}]}]]}]],["$","div",null,{"className":"max-w-2xl mx-auto","children":["$","div",null,{"className":"markdown-styles_markdown__ORfR8 prose prose-code ","dangerouslySetInnerHTML":{"__html":"$f"}}]}]]}]]}]]}]
+9:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+6:null
+7:null
+b:[["$","title","0",{"children":" Daftar eventHandler di React | mukharomdev blog build with Markdown"}],["$","meta","1",{"name":"description","content":"Mini blog seputar pengalaman pribadi dunia pemrograman komputer"}],["$","meta","2",{"property":"og:title","content":" Daftar eventHandler di React | mukharomdev blog build with Markdown"}],["$","meta","3",{"property":"og:description","content":"Mini blog seputar pengalaman pribadi dunia pemrograman komputer"}],["$","meta","4",{"property":"og:image","content":"http://localhost:3000/assets/blog/reacts/react.jpg"}],["$","meta","5",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","6",{"name":"twitter:title","content":" Daftar eventHandler di React | mukharomdev blog build with Markdown"}],["$","meta","7",{"name":"twitter:description","content":"Mini blog seputar pengalaman pribadi dunia pemrograman komputer"}],["$","meta","8",{"name":"twitter:image","content":"http://localhost:3000/assets/blog/reacts/react.jpg"}],["$","link","9",{"rel":"icon","href":"/favicon.ico","type":"image/x-icon","sizes":"16x16"}]]

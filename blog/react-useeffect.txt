@@ -1,0 +1,209 @@
+1:"$Sreact.fragment"
+2:I[7397,[],""]
+3:I[8513,[],""]
+5:I[3514,[],"OutletBoundary"]
+8:I[3514,[],"ViewportBoundary"]
+a:I[3514,[],"MetadataBoundary"]
+c:I[1612,[],""]
+:HL["/_next/static/media/569ce4b8f30dc480-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/93f479601ee12b01-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/cc1b38a888361ae0.css","style"]
+:HL["/_next/static/css/a218dfb468eefcdf.css","style"]
+0:{"P":null,"b":"zB4SN0XwAB_SWMRVvwFhG","p":"","c":["","blog","react-useeffect"],"i":false,"f":[[["",{"children":["blog",{"children":[["slug","react-useeffect","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/cc1b38a888361ae0.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":["$","body",null,{"className":"__variable_4d318d __variable_ea5f4b antialiased ","children":["$","div",null,{"className":"min-h-screen flex items-center justify-center bg-gray-100","children":["$","div",null,{"className":"container mx-auto p-4 bg-white rounded-lg shadow-lg","children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],"$undefined",[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]}]]}],{"children":["blog",["$","$1","c",{"children":[null,["$","section",null,{"className":" prose lg:prose-3xl prose-img:rounded-xl prose-headings:underline prose-a:text-lime-600 prose-code:text-lime-500 mx-auto  ","children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]}]]}],{"children":[["slug","react-useeffect","d"],["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L4","$undefined",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/a218dfb468eefcdf.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","$L5",null,{"children":["$L6","$L7",null]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","DCd31fXaTIBkY4Tlz1s2W",{"children":[["$","$L8",null,{"children":"$L9"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],["$","$La",null,{"children":"$Lb"}]]}],false]],"m":"$undefined","G":["$c","$undefined"],"s":false,"S":true}
+d:I[4184,["161","static/chunks/161-e1f62ef38275032d.js","953","static/chunks/app/blog/%5Bslug%5D/page-df444d222e09a7de.js"],""]
+e:I[8161,["161","static/chunks/161-e1f62ef38275032d.js","953","static/chunks/app/blog/%5Bslug%5D/page-df444d222e09a7de.js"],"Image"]
+f:T18a1,<p>useEffect adalah hook di React yang digunakan untuk menangani <strong>efek samping (side effects)</strong> dalam komponen fungsi, seperti fetching data, manipulasi DOM, atau berlangganan event. Berikut penjelasan lengkap dan contoh penggunaannya:</p>
+<hr>
+<h3><strong>1. Dasar Penggunaan useEffect</strong></h3>
+<h4>Sintaks:</h4>
+<pre><code class="language-javascript">useEffect(() => {
+  // Kode efek samping di sini
+  return () => {
+    // Cleanup (opsional)
+  };
+}, [dependencies]); // Daftar dependensi (opsional)
+</code></pre>
+<h4>Contoh Sederhana (Update judul halaman):</h4>
+<pre><code class="language-jsx">import { useEffect, useState } from 'react';
+
+function PageTitle() {
+  const [count, setCount] = useState(0);
+
+  // Update judul halaman setiap kali &#x3C;code>count&#x3C;/code> berubah
+  useEffect(() => {
+    document.title = &#x3C;code>Hitungan: ${count}&#x3C;/code>;
+  }, [count]); // Efek dijalankan hanya jika &#x3C;code>count&#x3C;/code> berubah
+
+  return (
+    &#x3C;button onClick={() => setCount(count + 1)}>
+      Klik ({count})
+    &#x3C;/button>
+  );
+}
+</code></pre>
+<hr>
+<h3><strong>2. Jenis Penggunaan useEffect</strong></h3>
+<h4>a. <strong>Jalankan Sekali Saat Komponen Mount (Komponen Pertama Kali Render)</strong></h4>
+<p>Gunakan <strong>array dependensi kosong</strong> []:</p>
+<pre><code class="language-jsx">useEffect(() => {
+  // Fetch data dari API saat komponen mount
+  fetch('https://api.example.com/data')
+    .then(response => response.json())
+    .then(data => console.log(data));
+}, []); // Tidak ada dependensi → jalankan sekali
+</code></pre>
+<h4>b. <strong>Jalankan Saat State/Props Tertentu Berubah</strong></h4>
+<p>Tambahkan variabel ke <strong>array dependensi</strong>:</p>
+<pre><code class="language-jsx">const [user, setUser] = useState('');
+
+useEffect(() => {
+  // Jalankan setiap kali &#x3C;code>user&#x3C;/code> berubah
+  console.log(&#x3C;code>User diperbarui: ${user}&#x3C;/code>);
+}, [user]); 
+</code></pre>
+<h4>c. <strong>Cleanup (Pembersihan)</strong></h4>
+<p>Gunakan <strong>return function</strong> untuk membersihkan efek (seperti unsubscribe atau clear timer):</p>
+<pre><code class="language-jsx">useEffect(() => {
+  const timer = setInterval(() => {
+    console.log('Timer aktif!');
+  }, 1000);
+
+  // Cleanup: Hentikan timer saat komponen di-unmount
+  return () => clearInterval(timer);
+}, []);
+</code></pre>
+<hr>
+<h3><strong>3. Contoh Kasus Umum</strong></h3>
+<h4>a. Fetch Data dari API:</h4>
+<pre><code class="language-jsx">function DataFetcher() {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    fetch('https://api.example.com/data')
+      .then((res) => res.json())
+      .then((data) => setData(data))
+      .catch((error) => console.error('Error:', error));
+  }, []);
+
+  return &#x3C;div>{data ? data.name : 'Loading...'}&#x3C;/div>;
+}
+</code></pre>
+<h4>b. Event Listener (Dengan Cleanup):</h4>
+<pre><code class="language-jsx">function WindowResizeLogger() {
+  useEffect(() => {
+    const handleResize = () => {
+      console.log('Ukuran window:', window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    // Hapus event listener saat komponen di-unmount
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return &#x3C;p>Lihat console saat resize window!&#x3C;/p>;
+}
+</code></pre>
+<h4>c. Gabungkan dengan State dan Dependency:</h4>
+<pre><code class="language-jsx">function UserTracker({ userId }) {
+  const [userData, setUserData] = useState({});
+
+  // Fetch ulang data saat &#x3C;code>userId&#x3C;/code> berubah
+  useEffect(() => {
+    fetch(&#x3C;code>https://api.example.com/users/${userId}&#x3C;/code>)
+      .then((res) => res.json())
+      .then((data) => setUserData(data));
+  }, [userId]); // Dependency: userId
+
+  return &#x3C;div>{userData.name || 'User tidak ditemukan'}&#x3C;/div>;
+}
+</code></pre>
+<hr>
+<h3><strong>4. Aturan Penting</strong></h3>
+<ol>
+<li>
+<p><strong>Hindari Infinite Loop</strong><br>
+Pastikan dependensi diatur dengan benar. Contoh kesalahan:</p>
+<pre><code class="language-jsx">useEffect(() => {
+  setCount(count + 1); // ❌ Memicu re-render tanpa henti jika dependensi [count] tidak ada
+}); // Tidak ada array dependensi → dijalankan setiap render
+</code></pre>
+</li>
+<li>
+<p><strong>Gunakan Dependency Array dengan Tepat</strong><br>
+Jika efek menggunakan nilai dari luar (state/props), tambahkan ke dependency array:</p>
+<pre><code class="language-jsx">useEffect(() => {
+  console.log(user); 
+}, [user]); // ✅ Jalankan hanya jika &#x3C;code>user&#x3C;/code> berubah
+</code></pre>
+</li>
+<li>
+<p><strong>Hindari Mutasi Langsung State di useEffect</strong><br>
+Gunakan fungsi setState untuk update state:</p>
+<pre><code class="language-jsx">useEffect(() => {
+  // ❌ Salah
+  // data.push(newItem);
+
+  // ✅ Benar
+  setData(prevData => [...prevData, newItem]);
+}, []);
+</code></pre>
+</li>
+</ol>
+<hr>
+<h3><strong>5. Perbandingan dengan Lifecycle Class Component</strong></h3>
+<div class="overflow-x-auto bg-lime-100"><table>
+<thead>
+<tr>
+<th><strong>Lifecycle Class</strong></th>
+<th><strong>useEffect Equivalent</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>componentDidMount</td>
+<td>useEffect(() => {}, [])</td>
+</tr>
+<tr>
+<td>componentDidUpdate</td>
+<td>useEffect(() => {}, [deps])</td>
+</tr>
+<tr>
+<td>componentWillUnmount</td>
+<td>return () => {} di dalam useEffect</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h3><strong>6. Best Practices</strong></h3>
+<ul>
+<li>
+<p><strong>Pisahkan Efek Berdasarkan Tujuan</strong>:</p>
+<pre><code class="language-jsx">// Pisahkan logika fetch data dan event listener
+useEffect(() => { /* fetch data */ }, []);
+useEffect(() => { /* event listener */ }, []);
+</code></pre>
+</li>
+<li>
+<p><strong>Hindari Efek untuk Logika yang Bisa Ditangani di Render</strong>:<br>
+Contoh: Formatting data atau filter array bisa dilakukan langsung di render.</p>
+</li>
+<li>
+<p><strong>Gunakan Custom Hooks untuk Efek Kompleks</strong>:<br>
+Contoh: useFetch, useEventListener.</p>
+</li>
+</ul>
+<hr>
+<h3><strong>Kapan Menggunakan useEffect?</strong></h3>
+<ul>
+<li>Fetch data dari API.</li>
+<li>Berlangganan event (scroll, resize, keyboard).</li>
+<li>Manipulasi DOM langsung.</li>
+<li>Integrasi dengan library eksternal (Chart.js, D3.js).</li>
+<li>Cleanup resource saat komponen di-unmount.</li>
+</ul>
+4:["$","main",null,{"className":"container","children":[["$","div",null,{"className":"border-b dark:bg-slate-800 bg-neutral-50 border-neutral-200","children":["$","div",null,{"className":" mx-auto px-5","children":["$","div",null,{"className":"py-2 text-center text-sm","children":["source code blog ini bisa ditemukan di link ini"," ",["$","a",null,{"href":"https://github.com/mukharomdev/mukharomdev.github.io","className":"underline hover:text-blue-600 duration-200 transition-colors","children":"available on GitHub"}],"."]}]}]}],["$","div",null,{"className":" mx-auto px-5","children":[["$","h2",null,{"className":"text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight mb-20 mt-8 flex items-center","children":[["$","$Ld",null,{"href":"/","className":"hover:underline","children":"Blog"}],"."]}],["$","article",null,{"className":"mb-32","children":[[["$","h1",null,{"className":"text-3xl text-center md:text-5xl lg:text-6xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left","children":" Penggunaan React useEffect"}],["$","div",null,{"className":"hidden md:block md:mb-12","children":["$","div",null,{"className":"flex items-center","children":[["$","img",null,{"src":"/assets/blog/authors/mukharomdev.png","className":"w-12 h-12 rounded-full mr-4","alt":"mukharomdev"}],["$","div",null,{"className":"text-xl font-bold","children":"mukharomdev"}]]}]}],["$","div",null,{"className":"mb-8 md:mb-16 sm:mx-0","children":["$","div",null,{"className":"sm:mx-0","children":["$","$Le",null,{"src":"/assets/blog/reacts/react1.png","alt":"Cover Image for  Penggunaan React useEffect","className":"shadow-sm w-full sm:w-[400px] md:w-[600px] lg:w-[800px] max-h-[500px] mx-auto block","width":120,"height":80}]}]}],["$","div",null,{"className":"max-w-2xl mx-auto","children":[["$","div",null,{"className":"block md:hidden mb-6","children":["$","div",null,{"className":"flex items-center","children":[["$","img",null,{"src":"/assets/blog/authors/mukharomdev.png","className":"w-12 h-12 rounded-full mr-4","alt":"mukharomdev"}],["$","div",null,{"className":"text-xl font-bold","children":"mukharomdev"}]]}]}],["$","div",null,{"className":"mb-6 text-lg","children":["$","time",null,{"dateTime":"2025-02-27T05:35:07.322Z","children":"February\t27, 2025"}]}]]}]],["$","div",null,{"className":"max-w-2xl mx-auto","children":["$","div",null,{"className":"markdown-styles_markdown__ORfR8 prose prose-code ","dangerouslySetInnerHTML":{"__html":"$f"}}]}]]}]]}]]}]
+9:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+6:null
+7:null
+b:[["$","title","0",{"children":" Penggunaan React useEffect | mukharomdev blog build with Markdown"}],["$","meta","1",{"name":"description","content":"Mini blog seputar pengalaman pribadi dunia pemrograman komputer"}],["$","meta","2",{"property":"og:title","content":" Penggunaan React useEffect | mukharomdev blog build with Markdown"}],["$","meta","3",{"property":"og:description","content":"Mini blog seputar pengalaman pribadi dunia pemrograman komputer"}],["$","meta","4",{"property":"og:image","content":"http://localhost:3000/assets/blog/reacts/react1.png"}],["$","meta","5",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","6",{"name":"twitter:title","content":" Penggunaan React useEffect | mukharomdev blog build with Markdown"}],["$","meta","7",{"name":"twitter:description","content":"Mini blog seputar pengalaman pribadi dunia pemrograman komputer"}],["$","meta","8",{"name":"twitter:image","content":"http://localhost:3000/assets/blog/reacts/react1.png"}],["$","link","9",{"rel":"icon","href":"/favicon.ico","type":"image/x-icon","sizes":"16x16"}]]

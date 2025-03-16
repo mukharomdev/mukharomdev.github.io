@@ -1,0 +1,182 @@
+1:"$Sreact.fragment"
+2:I[7397,[],""]
+3:I[8513,[],""]
+5:I[3514,[],"OutletBoundary"]
+8:I[3514,[],"ViewportBoundary"]
+a:I[3514,[],"MetadataBoundary"]
+c:I[1612,[],""]
+:HL["/_next/static/media/569ce4b8f30dc480-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/93f479601ee12b01-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/cc1b38a888361ae0.css","style"]
+:HL["/_next/static/css/a218dfb468eefcdf.css","style"]
+0:{"P":null,"b":"zB4SN0XwAB_SWMRVvwFhG","p":"","c":["","blog","react-useImperativeHandle"],"i":false,"f":[[["",{"children":["blog",{"children":[["slug","react-useImperativeHandle","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/cc1b38a888361ae0.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":["$","body",null,{"className":"__variable_4d318d __variable_ea5f4b antialiased ","children":["$","div",null,{"className":"min-h-screen flex items-center justify-center bg-gray-100","children":["$","div",null,{"className":"container mx-auto p-4 bg-white rounded-lg shadow-lg","children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],"$undefined",[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]}]]}],{"children":["blog",["$","$1","c",{"children":[null,["$","section",null,{"className":" prose lg:prose-3xl prose-img:rounded-xl prose-headings:underline prose-a:text-lime-600 prose-code:text-lime-500 mx-auto  ","children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]}]]}],{"children":[["slug","react-useImperativeHandle","d"],["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L4","$undefined",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/a218dfb468eefcdf.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","$L5",null,{"children":["$L6","$L7",null]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","WDEhiAteDRKuPF84rs_Q0",{"children":[["$","$L8",null,{"children":"$L9"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],["$","$La",null,{"children":"$Lb"}]]}],false]],"m":"$undefined","G":["$c","$undefined"],"s":false,"S":true}
+d:I[4184,["161","static/chunks/161-e1f62ef38275032d.js","953","static/chunks/app/blog/%5Bslug%5D/page-df444d222e09a7de.js"],""]
+e:I[8161,["161","static/chunks/161-e1f62ef38275032d.js","953","static/chunks/app/blog/%5Bslug%5D/page-df444d222e09a7de.js"],"Image"]
+f:T162b,<p>useImperativeHandle adalah hook di React yang digunakan untuk <strong>menyesuaikan nilai instance (metode atau properti) yang diekspos ke komponen parent</strong> ketika menggunakan ref pada komponen anak. Hook ini umumnya dipakai bersama forwardRef untuk mengontrol perilaku komponen anak secara imperatif (seperti memanggil fungsi atau mengakses nilai langsung).</p>
+<hr>
+<h3><strong>Kapan Menggunakan useImperativeHandle?</strong></h3>
+<ol>
+<li>Saat ingin <strong>membatasi akses parent</strong> ke metode/properti tertentu dari komponen anak.</li>
+<li>Untuk <strong>integrasi dengan library eksternal</strong> (misalnya, mengontrol DOM element secara imperatif).</li>
+<li>Ketika perlu <strong>mengakses fungsi komponen anak secara langsung</strong> (contoh: fokus input, play/pause video).</li>
+</ol>
+<hr>
+<h3><strong>Sintaks Dasar</strong></h3>
+<pre><code class="language-javascript">useImperativeHandle(ref, () => ({
+  // Metode/properti yang ingin diekspos ke parent
+}), [dependencies]);
+</code></pre>
+<hr>
+<h3><strong>Contoh Penggunaan</strong></h3>
+<h4>1. <strong>Komponen Anak dengan Metode Imperatif</strong></h4>
+<pre><code class="language-jsx">import { forwardRef, useImperativeHandle, useRef } from 'react';
+
+// Komponen anak menggunakan forwardRef
+const CustomInput = forwardRef((props, ref) => {
+  const inputRef = useRef();
+
+  // Ekspos metode focus dan getValue ke parent
+  useImperativeHandle(ref, () => ({
+    focus: () => inputRef.current.focus(),
+    getValue: () => inputRef.current.value,
+  }), []); // Dependency array kosong → hanya dijalankan sekali
+
+  return &#x3C;input ref={inputRef} {...props} />;
+});
+
+// Komponen Parent
+function Parent() {
+  const inputRef = useRef();
+
+  const handleClick = () => {
+    inputRef.current.focus(); // Panggil metode focus dari parent
+    console.log('Nilai input:', inputRef.current.getValue());
+  };
+
+  return (
+    &#x3C;div>
+      &#x3C;CustomInput ref={inputRef} />
+      &#x3C;button onClick={handleClick}>Fokus Input&#x3C;/button>
+    &#x3C;/div>
+  );
+}
+</code></pre>
+<h4>2. <strong>Integrasi dengan Video Player</strong></h4>
+<pre><code class="language-jsx">const VideoPlayer = forwardRef((props, ref) => {
+  const videoRef = useRef();
+
+  useImperativeHandle(ref, () => ({
+    play: () => videoRef.current.play(),
+    pause: () => videoRef.current.pause(),
+    isPlaying: () => !videoRef.current.paused,
+  }), []);
+
+  return &#x3C;video ref={videoRef} src="video.mp4" />;
+});
+
+function App() {
+  const playerRef = useRef();
+
+  return (
+    &#x3C;div>
+      &#x3C;VideoPlayer ref={playerRef} />
+      &#x3C;button onClick={() => playerRef.current.play()}>Play&#x3C;/button>
+      &#x3C;button onClick={() => playerRef.current.pause()}>Pause&#x3C;/button>
+    &#x3C;/div>
+  );
+}
+</code></pre>
+<hr>
+<h3><strong>Aturan Penting</strong></h3>
+<ol>
+<li>
+<p><strong>Wajib Digunakan dengan forwardRef</strong><br>
+Komponen anak harus dibungkus dengan forwardRef untuk menerima ref dari parent.</p>
+</li>
+<li>
+<p><strong>Hanya Ekspos yang Diperlukan</strong><br>
+Batasi metode/properti yang diekspos untuk mengurangi kompleksitas.</p>
+</li>
+<li>
+<p><strong>Perhatikan Dependency Array</strong><br>
+Jika metode bergantung pada nilai state/props, tambahkan ke dependency array:</p>
+<pre><code class="language-javascript">const [count, setCount] = useState(0);
+
+useImperativeHandle(ref, () => ({
+  getCount: () => count, // Perbarui saat &#x3C;code>count&#x3C;/code> berubah
+}), [count]);
+</code></pre>
+</li>
+</ol>
+<hr>
+<h3><strong>Perbandingan useImperativeHandle vs. ref Biasa</strong></h3>
+<div class="overflow-x-auto bg-lime-100"><table>
+<thead>
+<tr>
+<th><strong>Kriteria</strong></th>
+<th>useImperativeHandle</th>
+<th>ref Biasa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Akses ke Instance</strong></td>
+<td>Terbatas (hanya yang diekspos)</td>
+<td>Full akses ke DOM/node</td>
+</tr>
+<tr>
+<td><strong>Kontrol</strong></td>
+<td>Parent mengontrol secara terbatas</td>
+<td>Parent bisa manipulasi langsung</td>
+</tr>
+<tr>
+<td><strong>Kasus Penggunaan</strong></td>
+<td>Komponen dengan API spesifik</td>
+<td>Integrasi DOM/library eksternal</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h3><strong>Best Practices</strong></h3>
+<ul>
+<li><strong>Gunakan untuk Kasus Spesifik</strong>: Hindari penggunaan berlebihan. Sebisa mungkin, gunakan komunikasi data via props/state.</li>
+<li><strong>Encapsulation</strong>: Sembunyikan detail internal komponen anak.</li>
+<li><strong>Type Safety (TypeScript)</strong>: Jika menggunakan TypeScript, definisikan tipe untuk ref:
+<pre><code class="language-typescript">type VideoPlayerHandle = {
+  play: () => void;
+  pause: () => void;
+  isPlaying: () => boolean;
+};
+
+const VideoPlayer = forwardRef&#x3C;VideoPlayerHandle>((props, ref) => {
+  // ...
+});
+</code></pre>
+</li>
+</ul>
+<hr>
+<h3><strong>Kesalahan Umum</strong></h3>
+<ol>
+<li>
+<p><strong>Lupa Dependency Array</strong><br>
+Jika metode bergantung pada nilai yang berubah, pastikan untuk menambahkannya ke dependency array untuk menghindari <em>stale closure</em>.</p>
+</li>
+<li>
+<p><strong>Ekspos Seluruh Instance</strong><br>
+Jangan mengekspos semua metode DOM (misal: ref.current langsung), karena bisa menyebabkan ketidakkonsistenan.</p>
+</li>
+</ol>
+<hr>
+<h3><strong>Kesimpulan</strong></h3>
+<p>useImperativeHandle berguna ketika:</p>
+<ul>
+<li>Parent perlu <strong>mengontrol komponen anak secara imperatif</strong>.</li>
+<li>Anda ingin <strong>membatasi akses parent</strong> ke fungsi tertentu.</li>
+<li>Berintegrasi dengan <strong>library pihak ketiga yang memerlukan ref</strong>.</li>
+</ul>
+<p>Gunakan dengan bijak untuk menjaga prinsip <strong>enkapsulasi</strong> dan <strong>keterbacaan kode</strong>! 🛠️</p>
+4:["$","main",null,{"className":"container","children":[["$","div",null,{"className":"border-b dark:bg-slate-800 bg-neutral-50 border-neutral-200","children":["$","div",null,{"className":" mx-auto px-5","children":["$","div",null,{"className":"py-2 text-center text-sm","children":["source code blog ini bisa ditemukan di link ini"," ",["$","a",null,{"href":"https://github.com/mukharomdev/mukharomdev.github.io","className":"underline hover:text-blue-600 duration-200 transition-colors","children":"available on GitHub"}],"."]}]}]}],["$","div",null,{"className":" mx-auto px-5","children":[["$","h2",null,{"className":"text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight mb-20 mt-8 flex items-center","children":[["$","$Ld",null,{"href":"/","className":"hover:underline","children":"Blog"}],"."]}],["$","article",null,{"className":"mb-32","children":[[["$","h1",null,{"className":"text-3xl text-center md:text-5xl lg:text-6xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left","children":" Penggunaan React useImperativeHandle"}],["$","div",null,{"className":"hidden md:block md:mb-12","children":["$","div",null,{"className":"flex items-center","children":[["$","img",null,{"src":"/assets/blog/authors/mukharomdev.png","className":"w-12 h-12 rounded-full mr-4","alt":"mukharomdev"}],["$","div",null,{"className":"text-xl font-bold","children":"mukharomdev"}]]}]}],["$","div",null,{"className":"mb-8 md:mb-16 sm:mx-0","children":["$","div",null,{"className":"sm:mx-0","children":["$","$Le",null,{"src":"/assets/blog/reacts/react1.png","alt":"Cover Image for  Penggunaan React useImperativeHandle","className":"shadow-sm w-full sm:w-[400px] md:w-[600px] lg:w-[800px] max-h-[500px] mx-auto block","width":120,"height":80}]}]}],["$","div",null,{"className":"max-w-2xl mx-auto","children":[["$","div",null,{"className":"block md:hidden mb-6","children":["$","div",null,{"className":"flex items-center","children":[["$","img",null,{"src":"/assets/blog/authors/mukharomdev.png","className":"w-12 h-12 rounded-full mr-4","alt":"mukharomdev"}],["$","div",null,{"className":"text-xl font-bold","children":"mukharomdev"}]]}]}],["$","div",null,{"className":"mb-6 text-lg","children":["$","time",null,{"dateTime":"2025-02-28T15:49:51.037Z","children":"February\t28, 2025"}]}]]}]],["$","div",null,{"className":"max-w-2xl mx-auto","children":["$","div",null,{"className":"markdown-styles_markdown__ORfR8 prose prose-code ","dangerouslySetInnerHTML":{"__html":"$f"}}]}]]}]]}]]}]
+9:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+6:null
+7:null
+b:[["$","title","0",{"children":" Penggunaan React useImperativeHandle | mukharomdev blog build with Markdown"}],["$","meta","1",{"name":"description","content":"Mini blog seputar pengalaman pribadi dunia pemrograman komputer"}],["$","meta","2",{"property":"og:title","content":" Penggunaan React useImperativeHandle | mukharomdev blog build with Markdown"}],["$","meta","3",{"property":"og:description","content":"Mini blog seputar pengalaman pribadi dunia pemrograman komputer"}],["$","meta","4",{"property":"og:image","content":"http://localhost:3000/assets/blog/reacts/react1.png"}],["$","meta","5",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","6",{"name":"twitter:title","content":" Penggunaan React useImperativeHandle | mukharomdev blog build with Markdown"}],["$","meta","7",{"name":"twitter:description","content":"Mini blog seputar pengalaman pribadi dunia pemrograman komputer"}],["$","meta","8",{"name":"twitter:image","content":"http://localhost:3000/assets/blog/reacts/react1.png"}],["$","link","9",{"rel":"icon","href":"/favicon.ico","type":"image/x-icon","sizes":"16x16"}]]
